@@ -1,0 +1,63 @@
+{
+    "editor.fontSize": 18,
+    // "editor.fontFamily": "Hack, 'Fira Code', Consolas, 'Courier New', monospace",
+    // "editor.fontLigatures": true,
+    "editor.lineHeight": 0,
+    "editor.rulers": [
+        80
+    ],
+    "editor.insertSpaces": false,
+    "editor.mouseWheelZoom": true,
+    "editor.minimap.enabled": true,
+    "editor.dragAndDrop": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.renderWhitespace": "all",
+    "editor.renderIndentGuides": true,
+    "editor.snippetSuggestions": "top",
+    // "window.openFilesInNewWindow": true,
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
+    // "terminal.integrated.shell.windows": "C:\\WINDOWS\\Sysnative\\bash.exe"
+    // "terminal.integrated.fontFamily": "",
+    // "terminal.integrated.fontSize": 0,
+    "workbench.colorTheme": "Visual Studio Dark",
+    "python.pythonPath": "C:\\Python27\\python.exe",
+    "python.linting.enabled": false,
+    "python.linting.pylintEnabled": false,
+    "files.autoSave": "off",
+    // "sublimeTextKeymap.promptV3Features": true,
+    // "window.openFilesInNewWindow": true,
+    "window.zoomLevel": 0,
+    "git.enableSmartCommit": true,
+    "files.associations": {
+        "*.html": "html"
+    },
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "window.titleBarStyle": "custom",
+    "workbench.startupEditor": "newUntitledFile",
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "texify",
+            "tools": [
+                "texify"
+            ]
+        }
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "texify",
+            "command": "texify",
+            "args": [
+                "--synctex",
+                "--pdf",
+                "--tex-option=\"-interaction=nonstopmode\"",
+                "--tex-option=\"-file-line-error\"",
+                "%DOC%.tex"
+            ]
+        }
+    ],
+    "latex-workshop.view.pdf.viewer": "tab",
+    "vetur.format.defaultFormatter.js": "vscode-typescript",
+    "vetur.format.defaultFormatter.ts": "vscode-typescript",
+    "explorer.openEditors.visible": 0
+}
