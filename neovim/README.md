@@ -1,4 +1,4 @@
-neovim
+# neovim
 
 - create a symlink for the configuration directory
   - on Windows, the configuration directory is `%LOCALAPPDATA%\nvim`

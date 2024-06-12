@@ -1,4 +1,4 @@
-vim
+# vim
 
 - create a symlink for the configuration file
   - on Windows, the configuration file is `%USERPROFILE%\_vimrc`
