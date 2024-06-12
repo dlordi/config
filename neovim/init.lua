@@ -13,7 +13,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 vim.g.maplocalleader = "\\" -- Same for `maplocalleader`
-require("lazy").setup()
+require("lazy").setup({
+  "nvim-lua/plenary.nvim",
+})
 
 vim.opt.clipboard = "unnamedplus" -- use system clipboard for copy ("yank") / paste
 vim.opt.number = true -- show line numbers
