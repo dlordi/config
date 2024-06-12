@@ -1,3 +1,4 @@
+
 vim.opt.clipboard = "unnamedplus" -- use system clipboard for copy ("yank") / paste
 vim.opt.number = true -- show line numbers
 vim.opt.relativenumber = true -- show line number offsets
@@ -41,7 +42,19 @@ vim.api.nvim_set_keymap("n", "<C-s>", "<cmd>:w<cr>", { noremap = true, silent = 
 vim.api.nvim_set_keymap("v", "<C-s>", "<cmd>:w<cr>", { noremap = true, silent = true })
 
 if vim.g.neovide then
-  vim.o.guifont = "JetBrainsMono Nerd Font:h10"
+  -- local font_name = "SauceCodePro Nerd Font" -- tested both on Windows and MacOS
+  local font_name = "JetBrainsMono Nerd Font"
+  local font_size = vim.loop.os_uname().sysname == "Windows_NT" and "10" or "14"
+  vim.o.guifont = font_name .. ":h" .. font_size
+
+  -- enable MacOS "Command" key
+  vim.g.neovide_input_use_logo = 1
+
+  -- enable MacOS system clipboard
+  vim.api.nvim_set_keymap("", "<D-v>", "+p<CR>", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("!", "<D-v>", "<C-R>+", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("t", "<D-v>", "<C-R>+", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("v", "<D-v>", "<C-R>+", { noremap = true, silent = true })
 
   -- enable Windows system clipboard
   vim.api.nvim_set_keymap("i", "<C-v>", "<C-R>+", { noremap = true, silent = true })
