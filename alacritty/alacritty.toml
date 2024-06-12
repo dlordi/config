@@ -1,0 +1,13 @@
+# BEGIN Windows-specific settings
+shell = { program = "cmd", args = ["/k", "%CMDER_ROOT%\\vendor\\init.bat"] }
+working_directory = "%USERPROFILE%\\Desktop" # replace "%USERPROFILE%" with its actual value
+# END Windows-specific settings
+
+[window]
+startup_mode = "Maximized"
+
+[selection]
+save_to_clipboard = true
+
+[colors.primary]
+background = "#000000"
