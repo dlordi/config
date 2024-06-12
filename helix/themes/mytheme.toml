@@ -1,0 +1,6 @@
+inherits = "onedarker"
+
+# "keyword" = { fg = "gold" }
+
+[palette]
+black = "#000000"

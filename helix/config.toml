@@ -1,0 +1,38 @@
+theme = "vscody"
+
+[editor]
+line-number = "relative"
+cursorline = true
+true-color = true
+rulers = [120]
+
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["file-name"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+
+[editor.cursor-shape]
+insert = "bar"
+select = "underline"
+
+[editor.whitespace.render]
+space = "all"
+nbsp = "all"
+nnbsp = "all"
+tab = "all"
+newline = "none"
+
+[editor.whitespace.characters]
+tab = "―"
+tabpad = "―"
+
+[editor.indent-guides]
+render = false
+skip-levels = 1
+
+[keys.normal]
+C-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
+
+[keys.insert]
+C-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
+j = { k = "normal_mode" } # Maps `jk` to exit insert mode
