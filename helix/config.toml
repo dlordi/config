@@ -23,12 +23,21 @@ tab = "all"
 newline = "none"
 
 [editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+# tab = "→"
+# tabpad = "→"
 tab = "―"
 tabpad = "―"
+newline = "⏎"
 
 [editor.indent-guides]
 render = false
 skip-levels = 1
+# character = "╎"
+# character = "┆"
+character = "┊"
+# character = "⸽"
 
 [keys.normal]
 C-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
