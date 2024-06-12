@@ -20,6 +20,11 @@ require("lazy").setup({
 vim.opt.clipboard = "unnamedplus" -- use system clipboard for copy ("yank") / paste
 vim.opt.number = true -- show line numbers
 vim.opt.relativenumber = true -- show line number offsets
+-- do not show line number offsets in insert mode
+vim.api.nvim_create_autocmd({ "InsertEnter", "InsertLeave" }, {
+  group = vim.api.nvim_create_augroup("togglerelativenumber", { clear = true }),
+  callback = function (ev) vim.opt.relativenumber = ev.event == "InsertLeave" end,
+})
 vim.opt.cursorline = true -- highlight current line
 vim.opt.signcolumn = "yes:2" -- extra columns to show line info
 vim.opt.wrap = false -- wrap off
