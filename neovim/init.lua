@@ -43,12 +43,7 @@ vim.opt.shiftwidth = 2
 
 -- highlight copied ("yank") text
 vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function()
-    vim.highlight.on_yank({
-      higroup = "IncSearch",
-      timeout = 300,
-    })
-  end,
+  callback = function() vim.highlight.on_yank({ higroup = "IncSearch", timeout = 300 }) end,
 })
 
 vim.keymap.set("i", "jk", "<esc>") -- exit insert mode, enter normal mode
