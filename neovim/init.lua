@@ -15,6 +15,18 @@ vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappin
 vim.g.maplocalleader = "\\" -- Same for `maplocalleader`
 require("lazy").setup({
   "nvim-lua/plenary.nvim",
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function ()
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = { "lua", "python", "javascript", "json", "markdown", "markdown_inline" },
+        sync_install = false,
+        highlight = { enable = true },
+        indent = { enable = true },
+      })
+    end,
+  },
 })
 
 vim.opt.clipboard = "unnamedplus" -- use system clipboard for copy ("yank") / paste
