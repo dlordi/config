@@ -1,0 +1,23 @@
+{
+  "telemetry.telemetryLevel": "off",
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "editor.fontFamily": "'SauceCodePro Nerd Font Mono', Hack, 'Fira Code', Consolas, 'Courier New', monospace",
+  "editor.renderWhitespace": "all",
+  "editor.stickyScroll.enabled": true,
+  "workbench.startupEditor": "none",
+  "workbench.settings.useSplitJSON": true,
+  "workbench.settings.editor": "json",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorCustomizations": {
+    "editorStickyScroll.background": "#51515c",
+    "editorStickyScrollHover.background": "#51515c"
+  },
+  "zenMode.hideLineNumbers": false,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.useEditorAsCommitInput": false,
+  "explorer.openEditors.visible": 0,
+  "python.languageServer": "Pylance"
+}
