@@ -2,7 +2,7 @@
   "telemetry.telemetryLevel": "off",
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "editor.fontFamily": "'SauceCodePro Nerd Font Mono', Hack, 'Fira Code', Consolas, 'Courier New', monospace",
+  "editor.fontFamily": "'JetBrainsMono Nerd Font', Hack, 'Fira Code', Consolas, 'Courier New', monospace",
   "editor.renderWhitespace": "all",
   "editor.stickyScroll.enabled": true,
   "workbench.startupEditor": "none",
