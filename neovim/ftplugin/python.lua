@@ -8,12 +8,17 @@ local string_starts_with = function(string, start)
 end
 
 -- if python 2 is the default runtime uses different indentation options...
+local use_tab_indent = false
 for _, line in ipairs(read_lines_from_file([[C:\Windows\py.ini]])) do
   if string_starts_with(line, "python=2") then
-    vim.opt.expandtab = false
-    vim.opt.tabstop = 4
-    vim.opt.softtabstop = 4
-    vim.opt.shiftwidth = 4
-    vim.g.python_recommended_style = 0 -- ensures previous settings would NOT be overwritten
+    use_tab_indent = true
+    break
   end
+end
+if use_tab_indent then
+  vim.opt.expandtab = false
+  vim.opt.tabstop = 4
+  vim.opt.softtabstop = 4
+  vim.opt.shiftwidth = 4
+  vim.g.python_recommended_style = 0 -- ensures previous settings would NOT be overwritten
 end
