@@ -1,4 +1,4 @@
-# vim
+# ruff
 
 - create a symlink for the configuration file
   - on Windows, the configuration file is `%USERPROFILE%\.config\ruff.toml`
