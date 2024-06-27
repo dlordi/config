@@ -54,7 +54,7 @@ require("lazy").setup({
       require("conform").setup({
         formatters_by_ft = {
           lua = { "stylua" },
-          -- python = { "ruff_format", "ruff_fix" },
+          -- python = { "ruff_fix", "ruff_format" },
           -- javascript = { "prettier" },
           -- typescript = { "prettier" },
           -- javascriptreact = { "prettier" },
