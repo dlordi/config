@@ -18,7 +18,7 @@ require("lazy").setup({
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    config = function ()
+    config = function()
       require("nvim-treesitter.configs").setup({
         ensure_installed = { "lua", "python", "javascript", "json", "markdown", "markdown_inline" },
         sync_install = false,
@@ -47,6 +47,33 @@ require("lazy").setup({
       })
     end,
   },
+  {
+    "stevearc/conform.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require("conform").setup({
+        formatters_by_ft = {
+          lua = { "stylua" },
+          -- python = { "ruff_format", "ruff_fix" },
+          -- javascript = { "prettier" },
+          -- typescript = { "prettier" },
+          -- javascriptreact = { "prettier" },
+          -- typescriptreact = { "prettier" },
+          -- json = { "prettier" },
+          -- markdown = { "prettier" },
+          -- svelte = { "prettier" },
+          -- css = { "prettier" },
+          -- html = { "prettier" },
+          -- yaml = { "prettier" },
+        },
+        format_on_save = {
+          lsp_fallback = true,
+          async = false,
+          timeout_ms = 500,
+        },
+      })
+    end,
+  },
 })
 
 vim.opt.clipboard = "unnamedplus" -- use system clipboard for copy ("yank") / paste
@@ -55,7 +82,9 @@ vim.opt.relativenumber = true -- show line number offsets
 -- do not show line number offsets in insert mode
 vim.api.nvim_create_autocmd({ "InsertEnter", "InsertLeave" }, {
   group = vim.api.nvim_create_augroup("togglerelativenumber", { clear = true }),
-  callback = function (ev) vim.opt.relativenumber = ev.event == "InsertLeave" end,
+  callback = function(ev)
+    vim.opt.relativenumber = ev.event == "InsertLeave"
+  end,
 })
 vim.opt.cursorline = true -- highlight current line
 vim.opt.signcolumn = "yes:2" -- extra columns to show line info
@@ -75,7 +104,9 @@ vim.opt.shiftwidth = 2
 
 -- highlight copied ("yank") text
 vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function() vim.highlight.on_yank({ higroup = "IncSearch", timeout = 300 }) end,
+  callback = function()
+    vim.highlight.on_yank({ higroup = "IncSearch", timeout = 300 })
+  end,
 })
 
 vim.keymap.set("i", "jk", "<esc>") -- exit insert mode, enter normal mode
