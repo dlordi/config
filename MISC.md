@@ -13,7 +13,13 @@
     "trimPaste": false,
     "profiles": {
       "defaults": {
-        "closeOnExit": "always"
+        "closeOnExit": "always",
+        "padding": "0",
+        "font": {
+          "face": "JetBrainsMono Nerd Font",
+          "size": 10.0,
+          "weight": "medium"
+        }
       }
     }
   }
