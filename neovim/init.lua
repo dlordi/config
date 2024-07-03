@@ -43,7 +43,7 @@ require("lazy").setup({
         },
       })
       require("mason-tool-installer").setup({
-        ensure_installed = { "stylua" },
+        ensure_installed = { "stylua", "prettier" },
       })
     end,
   },
@@ -55,16 +55,16 @@ require("lazy").setup({
         formatters_by_ft = {
           lua = { "stylua" },
           -- python = { "ruff_fix", "ruff_format" },
-          -- javascript = { "prettier" },
-          -- typescript = { "prettier" },
-          -- javascriptreact = { "prettier" },
-          -- typescriptreact = { "prettier" },
-          -- json = { "prettier" },
-          -- markdown = { "prettier" },
-          -- svelte = { "prettier" },
-          -- css = { "prettier" },
-          -- html = { "prettier" },
-          -- yaml = { "prettier" },
+          javascript = { "prettier" },
+          typescript = { "prettier" },
+          javascriptreact = { "prettier" },
+          typescriptreact = { "prettier" },
+          json = { "prettier" },
+          markdown = { "prettier" },
+          svelte = { "prettier" },
+          css = { "prettier" },
+          html = { "prettier" },
+          yaml = { "prettier" },
         },
         format_on_save = {
           lsp_fallback = true,
