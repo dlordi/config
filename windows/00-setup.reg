@@ -5,7 +5,7 @@ Windows Registry Editor Version 5.00
 "AllowTelemetry"=dword:00000000
 
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize]
-; use dartk theme
+; use dark theme
 "SystemUsesLightTheme"=dword:00000000
 "AppsUseLightTheme"=dword:00000000
 
@@ -18,7 +18,7 @@ Windows Registry Editor Version 5.00
 "Hidden"=dword:00000001
 ; explorer: show system files
 "ShowSuperHidden"=dword:00000001
-; task bar: use small icons (Windows 11: use "TaskbarSi" in place of "TaskbarSmallIcons")
+; task bar: use small icons (Windows 11: use "TaskbarSi" instead of "TaskbarSmallIcons")
 "TaskbarSmallIcons"=dword:00000001
 ; task bar: hide task view button
 "ShowTaskViewButton"=dword:00000000
