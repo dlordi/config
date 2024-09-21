@@ -7,5 +7,5 @@
     ```
   - on Linux/MacOS, the configuration file is `$HOME/.vimrc`
     ```bat
-    ln -s "$HOME/.vimrc" "$HOME/Desktop/config/vim/.vimrc"
+    ln -s "$HOME/Desktop/config/vim/.vimrc" "$HOME/.vimrc"
     ```

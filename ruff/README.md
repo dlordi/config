@@ -6,6 +6,6 @@
     mklink "%USERPROFILE%\.config\ruff.toml" "%USERPROFILE%\Desktop\config\ruff\ruff.toml"
     ```
   - on Linux/MacOS, the configuration file is `$HOME/.config/ruff.toml`
-    ```bat
-    ln -s "$HOME/config/ruff.toml" "$HOME/Desktop/config/ruff/ruff.toml"
+    ```sh
+    ln -s "$HOME/Desktop/config/ruff/ruff.toml" "$HOME/config/ruff.toml"
     ```
