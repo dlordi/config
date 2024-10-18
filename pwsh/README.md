@@ -6,6 +6,7 @@
   - it should be `%USERPROFILE%\Documents\PowerShell\Microsoft.PowerShell_profile.ps1`
 
 - create a symlink for the configuration file
+
   ```bat
   mklink "%USERPROFILE%\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" "%USERPROFILE%\Desktop\config\pwsh\Microsoft.PowerShell_profile.ps1"
   ```
