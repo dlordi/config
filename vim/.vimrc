@@ -25,3 +25,7 @@ set encoding=utf-8 " open files using utf-8 encoding
 set fileencoding=utf-8 " handle new charaters using utf-8 encoding
 
 imap jk <esc> " exit insert mode, enter normal mode
+
+" ctrl-s save current file
+:nmap <c-s> :w<CR> 
+:imap <c-s> <Esc>:w<CR>a
