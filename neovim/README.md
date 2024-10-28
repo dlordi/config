@@ -15,3 +15,8 @@
     winget install --source winget --interactive --exact --id BurntSushi.ripgrep.MSVC
     winget install --source winget --interactive --exact --id sharkdp.fd
     ```
+  - on Alpine Linux, use following commands to install
+    ```bat
+    doas apk add ripgrep
+    doas apk add fd
+    ```
