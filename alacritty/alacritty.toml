@@ -11,3 +11,8 @@ save_to_clipboard = true
 
 [colors.primary]
 background = "#000000"
+
+[mouse]
+bindings = {
+  { mouse = "Right", action = "Paste" },
+}
