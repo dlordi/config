@@ -20,7 +20,7 @@ require("lazy").setup({
     build = ":TSUpdate",
     config = function()
       require("nvim-treesitter.configs").setup({
-        ensure_installed = { "lua", "python", "javascript", "json", "markdown", "markdown_inline" },
+        ensure_installed = { "lua", "python", "javascript", "json", "markdown", "markdown_inline", "go" },
         sync_install = false,
         highlight = { enable = true },
         indent = { enable = true },
@@ -43,7 +43,7 @@ require("lazy").setup({
         },
       })
       require("mason-tool-installer").setup({
-        ensure_installed = { "stylua", "prettier" },
+        ensure_installed = { "stylua", "prettier", "gopls", "goimports" },
       })
     end,
   },
@@ -65,6 +65,7 @@ require("lazy").setup({
           css = { "prettier" },
           html = { "prettier" },
           yaml = { "prettier" },
+          go = { "goimports" },
         },
         format_on_save = {
           lsp_fallback = true,
