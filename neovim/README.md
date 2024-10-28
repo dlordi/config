@@ -8,3 +8,10 @@
     ```
 
 - on Windows, the easiest way to use `treesitter` plugin is to install the zig compiler
+
+- `telescope` plugin works betters when `ripgrep` and `fd` utilities are installed!
+  - on Windows, use following commands to install
+    ```bat
+    winget install --source winget --interactive --exact --id BurntSushi.ripgrep.MSVC
+    winget install --source winget --interactive --exact --id sharkdp.fd
+    ```
