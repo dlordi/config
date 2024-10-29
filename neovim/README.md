@@ -7,7 +7,12 @@
     mklink /D "%LOCALAPPDATA%\nvim" "%USERPROFILE%\Desktop\config\neovim"
     ```
 
-- on Windows, the easiest way to use `treesitter` plugin is to install the zig compiler
+  - on Linux/MacOS, the configuration directory is `$HOME/.config/nvim`
+    ```sh
+    ls -s $HOME/config/neovim $HOME/.config/nvim
+    ```
+
+- on Windows and on Alpine Linux, the easiest way to use `treesitter` plugin is to install the zig compiler
 
 - `telescope` plugin works betters when `ripgrep` and `fd` utilities are installed!
   - on Windows, use following commands to install
