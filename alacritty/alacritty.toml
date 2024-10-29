@@ -1,7 +1,8 @@
-# BEGIN Windows-specific settings
-shell = { program = "cmd", args = ["/k", "%CMDER_ROOT%\\vendor\\init.bat"] }
-working_directory = "%USERPROFILE%\\Desktop" # replace "%USERPROFILE%" with its actual value
-# END Windows-specific settings
+[general]
+import = [
+  # Windows-specific settings
+  "~\\AppData\\Roaming\\alacritty\\windows.toml",
+]
 
 [window]
 startup_mode = "Maximized"
@@ -13,6 +14,6 @@ save_to_clipboard = true
 background = "#000000"
 
 [mouse]
-bindings = {
+bindings = [
   { mouse = "Right", action = "Paste" },
-}
+]
