@@ -9,6 +9,11 @@
     mklink /D "%APPDATA%\helix" "%USERPROFILE%\Desktop\config\helix"
     ```
 
+  - on Linux/MacOS, the configuration directory is `$HOME/.config/helix`
+    ```sh
+    ln -s $HOME/config/helix $HOME/.config/helix
+    ```
+
 ### add python support
 
 - requirements

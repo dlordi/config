@@ -9,7 +9,7 @@
 
   - on Linux/MacOS, the configuration directory is `$HOME/.config/nvim`
     ```sh
-    ls -s $HOME/config/neovim $HOME/.config/nvim
+    ln -s $HOME/config/neovim $HOME/.config/nvim
     ```
 
 - on Windows and on Alpine Linux, the easiest way to use `treesitter` plugin is to install the zig compiler
