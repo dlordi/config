@@ -11,5 +11,5 @@
   - on Linux/MacOS, the configuration file is `$HOME/.config/ruff.toml`
 
     ```sh
-    ln -s "$HOME/Desktop/config/ruff/ruff.toml" "$HOME/config/ruff.toml"
+    ln -s "$HOME/config/ruff/ruff.toml" "$HOME/config/ruff.toml"
     ```
