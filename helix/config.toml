@@ -41,7 +41,9 @@ character = "┊"
 
 [keys.normal]
 C-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
+C-q = ":qa!"
 
 [keys.insert]
 C-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
+C-q = ":qa!"
 j = { k = "normal_mode" } # Maps `jk` to exit insert mode
