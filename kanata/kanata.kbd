@@ -11,21 +11,32 @@
 )
 
 (defsrc
-  caps lalt        i
-              j    k    l
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
 )
 
 (deflayer default
-  @cap @lalt       _
-              _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  @cap _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    @alt           _              _    _    _
 )
 
 (deflayer arrows
-  _    _           up
-              left down rght
+  @btk _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    up   pgup _    _    _    _
+  _    _    _    _    _    _    home left down rght end  _    _
+  _    _    _    _    _    _    _    _    _    pgdn _    _
+  _    _    _              _              _    _    _
 )
 
 (defalias
-  cap (tap-hold-press 200 200 esc (layer-toggle arrows))
-  lalt (tap-hold-press 200 200 lalt (layer-toggle arrows))
+  alt (tap-hold-press 200 200 lalt (layer-toggle arrows))
+  cap (tap-hold-press 200 200 esc  (layer-toggle arrows))
+  btk (unicode "`")
+  tld (unicode "~")
 )
