@@ -9,3 +9,9 @@
     ```bat
     mklink /D "%APPDATA%\alacritty" "%USERPROFILE%\Desktop\config\alacritty"
     ```
+
+  - on Linux/MacOS, the configuration directory is `$HOME/.config/alacritty`
+
+    ```sh
+    ln -s $HOME/config/alacritty $HOME/.config/alacritty
+    ```
