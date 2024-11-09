@@ -17,3 +17,7 @@ background = "#000000"
 bindings = [
   { mouse = "Right", action = "Paste" },
 ]
+
+[font]
+normal = { family = "JetBrainsMonoNL Nerd Font", style = "Regular" }
+size = 10

@@ -3,7 +3,3 @@
 
 [terminal]
 shell = { program = "cmd", args = ["/k", "%CMDER_ROOT%\\vendor\\init.bat"] }
-
-[font]
-normal = { family = "JetBrainsMonoNL Nerd Font", style = "Regular" }
-size = 10
