@@ -11,7 +11,7 @@
 
   - on Linux/MacOS, the configuration directory is `$HOME/.config/helix`
     ```sh
-    ln -s $HOME/config/helix $HOME/.config/helix
+    ln -s $HOME/config/helix $HOME/.config
     ```
 
 ### add python support
