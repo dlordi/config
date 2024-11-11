@@ -45,3 +45,17 @@
     }
   }
   ```
+
+## Linux/MacOS shell
+
+- partial search in command history
+
+  - add following lines to `$HOME/.inputrc`
+
+    ```sh
+    # apply default shortcuts
+    $include /etc/inputrc
+
+    "\e[A":history-search-backward
+    "\e[B":history-search-forward
+    ```
