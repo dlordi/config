@@ -59,3 +59,11 @@
     "\e[A":history-search-backward
     "\e[B":history-search-forward
     ```
+
+- disable terminal bell
+
+  - add following lines to `$HOME/.inputrc`
+
+    ```sh
+    set bell-style none
+    ```
