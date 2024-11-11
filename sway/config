@@ -18,6 +18,8 @@ set $term alacritty
 # Your preferred application launcher
 set $menu wmenu-run
 
+set $browser firefox
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -67,6 +69,9 @@ input * {
 #
     # Start a terminal
     bindsym $mod+Return exec $term
+
+    # Start the browser
+    bindsym $mod+b exec $browser
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -143,7 +148,7 @@ input * {
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
+    bindsym $mod+o splith
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
