@@ -7,5 +7,12 @@
   - on Windows, the configuration directory is `%APPDATA%\yazi`
 
     ```bat
-    mklink "%APPDATA%\yazi\config\yazi.toml" "%USERPROFILE%\Desktop\config\yazi\yazi.toml"
+    mkdir "%APPDATA%\yazi"
+    mklink /D "%APPDATA%\yazi\config" "%USERPROFILE%\Desktop\config\yazi"
     ```
+
+  - on Linux/MacOS, the configuration directory is `$HOME/.config/yazi`
+    ```sh
+    ln -s $HOME/config/yazi $HOME/.config/yazi
+    ```
+
