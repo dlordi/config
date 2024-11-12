@@ -67,3 +67,7 @@
     ```sh
     set bell-style none
     ```
+
+- shell aliases
+
+  - `bash`: add aliases to `$HOME/.bashrc`
