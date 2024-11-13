@@ -76,4 +76,4 @@
 
 - misc bash options to add to `$HOME/.bashrc`
 
-   - `shopt -s histappend`: append commands to history immediately
+   - `shopt -s histappend`: append commands to history

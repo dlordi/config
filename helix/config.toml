@@ -42,6 +42,8 @@ character = "┊"
 [keys.normal]
 C-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
 C-q = ":qa!"
+D = ["ensure_selections_forward", "extend_to_line_end", "delete_selection"]
+G = ["goto_last_line"]
 
 [keys.insert]
 C-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
