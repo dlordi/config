@@ -23,19 +23,18 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   @cap _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    @alt           _              _    _    _
+  _    _    _              _              _    _    _
 )
 
-(deflayer arrows
+(deflayer hands-on-the-home-row
   @btk _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    up   pgup _    _    _    _
-  _    _    _    _    _    _    home left down rght end  _    _
-  _    _    _    _    _    _    _    _    _    pgdn _    _
+  _    _    _    _    _    _    C-y  del  up   pgup bspc _    _    _
+  _    _    C-s  _    C-f  _    home left down rght end  _    _
+  _    C-z  C-x  C-c  C-v  _    _    _    _    pgdn _    _
   _    _    _              _              _    _    _
 )
 
 (defalias
-  alt (tap-hold-press 200 200 lalt (layer-toggle arrows))
-  cap (tap-hold-press 200 200 esc  (layer-toggle arrows))
+  cap (tap-hold-press 200 200 esc  (layer-toggle hands-on-the-home-row))
   btk (fork (unicode "`") (unicode "~") (lsft rsft))
 )
