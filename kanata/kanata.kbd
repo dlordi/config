@@ -37,6 +37,5 @@
 (defalias
   alt (tap-hold-press 200 200 lalt (layer-toggle arrows))
   cap (tap-hold-press 200 200 esc  (layer-toggle arrows))
-  btk (unicode "`")
-  tld (unicode "~")
+  btk (fork (unicode "`") (unicode "~") (lsft rsft))
 )
