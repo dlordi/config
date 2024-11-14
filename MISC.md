@@ -14,7 +14,8 @@
     ydl=yt-dlp.exe -f - --config-locations "%MY_CONFIG_REPO%\yt-dlp\yt-dlp.conf" $*
     ymp3=yt-dlp.exe --config-locations "%MY_CONFIG_REPO%\yt-dlp\yt-dlp.conf" --extract-audio --audio-format mp3 $*
     dt=cd /D "%USERPROFILE%\Desktop"
-    cdd=cd /D "%USERPROFILE%"
+    cdd=cd /D $*
+    cdh=cd /D "%USERPROFILE%"
     ```
 
 ## Executor
