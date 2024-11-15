@@ -6,4 +6,3 @@
     ```sh
     ln -s $HOME/config/sway/config $HOME/.config/sway/config
     ```
-
