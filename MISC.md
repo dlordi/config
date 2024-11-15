@@ -64,7 +64,7 @@
 
 - disable terminal bell
 
-  - add following lines to `$HOME/.inputrc`
+  - add/uncomment the following line in `/etc/inputrc`
 
     ```sh
     set bell-style none
