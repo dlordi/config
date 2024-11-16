@@ -81,14 +81,19 @@ require("lazy").setup({
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       local builtin = require("telescope.builtin")
-      vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
-      vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
-      vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Telescope keymaps" })
+      vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope [F]ind in [F]iles" })
+      vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope [F]ind in [B]uffers" })
+      vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Telescope find in buffers" })
+      vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Telescope [F]ind [K]eymaps" })
+      -- vim.keymap.set("n", "<leader>fr", builtin.lsp_references, { desc = "Telescope [F]ind [R]eferences" })
+      vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "Telescope [S]earch by [G]rep" })
     end,
   },
 })
 
-vim.opt.clipboard = "unnamedplus" -- use system clipboard for copy ("yank") / paste
+vim.schedule(function() -- this setting is applied after `UiEnter` event because it can increase startup-time
+  vim.opt.clipboard = "unnamedplus" -- use system clipboard for copy ("yank") / paste
+end)
 vim.opt.number = true -- show line numbers
 vim.opt.relativenumber = true -- show line number offsets
 -- do not show line number offsets in insert mode
@@ -104,6 +109,8 @@ vim.opt.wrap = false -- wrap off
 vim.opt.colorcolumn = "120" -- show columns margins
 vim.cmd("lan en_US.UTF-8") -- no translation, always use english
 vim.opt.whichwrap = "b,s,<,>,[,]" -- wraps left/right moves to previous/next row
+vim.opt.mouse = "a" -- enable mouse mode (useful for resizing splits, select tabs, etc...)
+vim.opt.inccommand = "split" -- preview substitutions live, as you type
 
 vim.opt.listchars = { space = "·", tab = "⎯⎯" } -- set symbols for blanks
 vim.opt.list = true -- show blanks
@@ -121,9 +128,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-vim.keymap.set("i", "jk", "<esc>") -- exit insert mode, enter normal mode
-vim.keymap.set("v", "K", ":m '>+1<cr>gv=gv") -- move selection one row up in visual mode
-vim.keymap.set("v", "J", ":m '<-2<cr>gv=gv") -- move selection one row down in visual mode
+vim.keymap.set("i", "jk", "<esc>", { desc = "exit insert mode, enter normal mode" })
+vim.keymap.set("v", "K", ":m '>+1<cr>gv=gv", { desc = "move selection one row up in visual mode" })
+vim.keymap.set("v", "J", ":m '<-2<cr>gv=gv", { desc = "move selection one row down in visual mode" })
+vim.keymap.set("n", "<esc>", "<cmd>nohlsearch<cr>", { desc = "clear search highlights" })
 
 -- "Shift-Tab": unindent
 vim.api.nvim_set_keymap("i", "<S-Tab>", "<esc><<i", { noremap = true, silent = true })
