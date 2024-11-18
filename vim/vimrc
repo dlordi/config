@@ -29,3 +29,7 @@ imap jk <esc> " exit insert mode, enter normal mode
 " ctrl-s save current file
 :nmap <c-s> :w<CR> 
 :imap <c-s> <Esc>:w<CR>a
+
+" ':Q' as ':q'
+command! Qa :qa
+command! Q :q

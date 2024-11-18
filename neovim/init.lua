@@ -142,6 +142,10 @@ vim.api.nvim_set_keymap("i", "<C-s>", "<cmd>:w<cr>", { noremap = true, silent = 
 vim.api.nvim_set_keymap("n", "<C-s>", "<cmd>:w<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<C-s>", "<cmd>:w<cr>", { noremap = true, silent = true })
 
+-- ':Q' as ':q'
+vim.cmd("command! Qa :qa")
+vim.cmd("command! Q :q")
+
 if vim.g.neovide then
   -- local font_name = "SauceCodePro Nerd Font" -- tested both on Windows and MacOS
   local font_name = "JetBrainsMonoNL Nerd Font"
