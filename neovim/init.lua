@@ -89,8 +89,15 @@ require("lazy").setup({
       vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "Telescope [S]earch by [G]rep" })
     end,
   },
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup()
+    end,
+  },
 })
 
+vim.cmd.colorscheme("wildcharm")
 vim.schedule(function() -- this setting is applied after `UiEnter` event because it can increase startup-time
   vim.opt.clipboard = "unnamedplus" -- use system clipboard for copy ("yank") / paste
 end)
