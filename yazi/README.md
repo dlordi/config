@@ -1,6 +1,9 @@
 # yazi
 
 - https://yazi-rs.github.io/docs/configuration/overview
+  - https://github.com/sxyazi/yazi/blob/shipped/yazi-config/preset/yazi.toml
+  - https://github.com/sxyazi/yazi/blob/shipped/yazi-config/preset/keymap.toml
+  - https://github.com/sxyazi/yazi/blob/shipped/yazi-config/preset/theme.toml
 
 - create a symlink for the configuration file
 

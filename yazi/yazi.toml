@@ -1,16 +1,9 @@
 [manager]
+sort_by = "natural"
 show_hidden = true
 
 [opener]
-play = [
-  { run = 'nvim "$@"', block = true, for = "unix" },
-  { run = "nvim %*", block = true, for = "windows" },
-]
 edit = [
-  { run = 'nvim "$@"', block = true, for = "unix" },
-  { run = "nvim %*", block = true, for = "windows" },
-]
-open = [
-  { run = 'nvim "$@"', block = true, for = "unix" },
+  { run = '${EDITOR:-nvim} "$@"', block = true, for = "unix" },
   { run = "nvim %*", block = true, for = "windows" },
 ]
