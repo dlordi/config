@@ -79,3 +79,7 @@
 - misc bash options to add to `$HOME/.bashrc`
 
   - `shopt -s histappend`: append commands to history
+
+- start `tmux` automatically (line to add to `$HOME/.bashrc`)
+
+  - `if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then exec tmux fi`
