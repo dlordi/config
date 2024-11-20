@@ -14,6 +14,13 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 vim.g.maplocalleader = "\\" -- Same for `maplocalleader`
 require("lazy").setup({
+  {
+    "Mofiqul/vscode.nvim",
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme("vscode")
+    end,
+  },
   "nvim-lua/plenary.nvim",
   {
     "nvim-treesitter/nvim-treesitter",
@@ -95,9 +102,47 @@ require("lazy").setup({
       require("gitsigns").setup()
     end,
   },
+  {
+    "folke/which-key.nvim",
+    event = "VimEnter",
+    opts = {
+      icons = {
+        mappings = vim.g.have_nerd_font, -- uses icon if nerd font is available
+        keys = vim.g.have_nerd_font and {} or { -- if nerd font is not available, list special keys string representation
+          Up = "<Up> ",
+          Down = "<Down> ",
+          Left = "<Left> ",
+          Right = "<Right> ",
+          C = "<C-…> ",
+          M = "<M-…> ",
+          D = "<D-…> ",
+          S = "<S-…> ",
+          CR = "<CR> ",
+          Esc = "<Esc> ",
+          ScrollWheelDown = "<ScrollWheelDown> ",
+          ScrollWheelUp = "<ScrollWheelUp> ",
+          NL = "<NL> ",
+          BS = "<BS> ",
+          Space = "<Space> ",
+          Tab = "<Tab> ",
+          F1 = "<F1>",
+          F2 = "<F2>",
+          F3 = "<F3>",
+          F4 = "<F4>",
+          F5 = "<F5>",
+          F6 = "<F6>",
+          F7 = "<F7>",
+          F8 = "<F8>",
+          F9 = "<F9>",
+          F10 = "<F10>",
+          F11 = "<F11>",
+          F12 = "<F12>",
+        },
+      },
+    },
+  },
 })
 
-vim.cmd.colorscheme("wildcharm")
 vim.schedule(function() -- this setting is applied after `UiEnter` event because it can increase startup-time
   vim.opt.clipboard = "unnamedplus" -- use system clipboard for copy ("yank") / paste
 end)
@@ -118,6 +163,7 @@ vim.cmd("lan en_US.UTF-8") -- no translation, always use english
 vim.opt.whichwrap = "b,s,<,>,[,]" -- wraps left/right moves to previous/next row
 vim.opt.mouse = "a" -- enable mouse mode (useful for resizing splits, select tabs, etc...)
 vim.opt.inccommand = "split" -- preview substitutions live, as you type
+vim.opt.timeoutlen = 300 -- displays which-key popup sooner
 
 vim.opt.listchars = { space = "·", tab = "⎯⎯" } -- set symbols for blanks
 vim.opt.list = true -- show blanks
