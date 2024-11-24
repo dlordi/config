@@ -33,3 +33,5 @@ imap jk <esc> " exit insert mode, enter normal mode
 " ':Q' as ':q'
 command! Qa :qa
 command! Q :q
+
+syntax on " enable syntax highlight
