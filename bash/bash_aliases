@@ -1,0 +1,15 @@
+alias ydl='yt-dlp -f - --config-locations "$HOME/config/yt-dlp/yt-dlp.conf"'
+alias ll='ls -las'
+alias dt='cd ~/Desktop'
+alias cd..='cd ..'
+
+#
+alias lzg=lazygit
+alias hx=helix
+
+# git
+alias gss='git status'
+alias gaa='git add -A .'
+alias gcm='git commit -am'
+alias gv='git pull'
+alias g^='git push'

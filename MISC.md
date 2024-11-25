@@ -70,12 +70,6 @@
     set bell-style none
     ```
 
-- shell aliases
-
-  - bash: add aliases to `$HOME/.bashrc`
-
-    - `alias dt='cd ~/Desktop'`
-
 - misc bash options to add to `$HOME/.bashrc`
 
   - `shopt -s histappend`: append commands to history
