@@ -11,5 +11,5 @@ alias hx=helix
 alias gss='git status'
 alias gaa='git add -A .'
 alias gcm='git commit -am'
-alias gv='git pull'
-alias g^='git push'
+alias gp='git pull'
+alias gP='git push'
