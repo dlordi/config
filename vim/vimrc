@@ -24,7 +24,7 @@ let &t_EI = "\e[2 q"
 set encoding=utf-8 " open files using utf-8 encoding
 set fileencoding=utf-8 " handle new charaters using utf-8 encoding
 
-" nmap a i
+" nnoremap a i
 " nmap i <up>
 " nmap j <left>
 " nmap k <down>
