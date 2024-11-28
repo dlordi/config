@@ -64,7 +64,7 @@ require("lazy").setup({
         },
       })
       require("mason-tool-installer").setup({
-        ensure_installed = { "stylua", "prettier", "gopls", "goimports" },
+        ensure_installed = { "stylua", "prettier", "gopls", "goimports", "clangd" },
       })
     end,
   },
@@ -196,10 +196,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- vim.keymap.set("n", "a", "i")
--- vim.keymap.set("n", "i", "<up>")
--- vim.keymap.set("n", "j", "<left>")
--- vim.keymap.set("n", "k", "<down>")
--- vim.keymap.set("n", "h", "<home>")
+-- vim.keymap.set({ "n", "v" }, "i", "<Up>")
+-- vim.keymap.set({ "n", "v" }, "j", "<Left>")
+-- vim.keymap.set({ "n", "v" }, "k", "<Down>")
+-- vim.keymap.set({ "n", "v" }, "h", "<Home>")
 
 vim.keymap.set("i", "jk", "<esc>", { desc = "exit insert mode, enter normal mode" })
 vim.keymap.set("v", "K", ":m '>+1<cr>gv=gv", { desc = "move selection one row up in visual mode" })
