@@ -195,6 +195,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+-- vim.keymap.set("n", "a", "i")
+-- vim.keymap.set("n", "i", "<up>")
+-- vim.keymap.set("n", "j", "<left>")
+-- vim.keymap.set("n", "k", "<down>")
+-- vim.keymap.set("n", "h", "<home>")
+
 vim.keymap.set("i", "jk", "<esc>", { desc = "exit insert mode, enter normal mode" })
 vim.keymap.set("v", "K", ":m '>+1<cr>gv=gv", { desc = "move selection one row up in visual mode" })
 vim.keymap.set("v", "J", ":m '<-2<cr>gv=gv", { desc = "move selection one row down in visual mode" })
