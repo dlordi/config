@@ -87,6 +87,7 @@ require("lazy").setup({
           html = { "prettier" },
           yaml = { "prettier" },
           go = { "goimports" },
+          c = { "clang-format" },
         },
         format_on_save = {
           lsp_fallback = true,
