@@ -195,7 +195,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
--- vim.keymap.set("n", "a", "i")
+-- vim.keymap.set("n", "a", "i", { desc = "enter insert mode with 'a' since 'i' is mapped to <Up>" })
 -- vim.keymap.set({ "n", "v" }, "i", "<Up>")
 -- vim.keymap.set({ "n", "v" }, "j", "<Left>")
 -- vim.keymap.set({ "n", "v" }, "k", "<Down>")
