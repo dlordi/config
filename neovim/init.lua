@@ -64,7 +64,7 @@ require("lazy").setup({
         },
       })
       require("mason-tool-installer").setup({
-        ensure_installed = { "stylua", "prettier", "gopls", "goimports", "clangd" },
+        ensure_installed = { "stylua", "prettier", "gopls", "goimports", "clangd", "clang-format" },
       })
     end,
   },
