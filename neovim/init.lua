@@ -196,7 +196,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
--- vim.keymap.set("n", "a", "i", { desc = "enter insert mode with 'a' since 'i' is mapped to <Up>" })
+-- vim.keymap.set("n", "a", "i", { desc = [[enter insert mode with "a" since "i" is mapped to "<Up>"]] })
 -- vim.keymap.set({ "n", "v" }, "i", "<Up>")
 -- vim.keymap.set({ "n", "v" }, "j", "<Left>")
 -- vim.keymap.set({ "n", "v" }, "k", "<Down>")
@@ -216,7 +216,7 @@ vim.api.nvim_set_keymap("i", "<C-s>", "<cmd>:w<cr>", { noremap = true, silent = 
 vim.api.nvim_set_keymap("n", "<C-s>", "<cmd>:w<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<C-s>", "<cmd>:w<cr>", { noremap = true, silent = true })
 
--- ':Q' as ':q'
+-- ":Q" as ":q"
 vim.cmd("command! Qa :qa")
 vim.cmd("command! Q :q")
 
