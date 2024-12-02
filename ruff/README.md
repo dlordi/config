@@ -5,11 +5,11 @@
   - on Windows, the configuration file is `%USERPROFILE%\.config\ruff.toml`
 
     ```bat
-    mklink "%USERPROFILE%\.config\ruff.toml" "%USERPROFILE%\Desktop\config\ruff\ruff.toml"
+    mklink "%USERPROFILE%\.config\ruff.toml" "%PATH_TO_THIS_REPO%\config\ruff\ruff.toml"
     ```
 
   - on Linux/MacOS, the configuration file is `$HOME/.config/ruff.toml`
 
     ```sh
-    ln -s "$HOME/config/ruff/ruff.toml" "$HOME/config/ruff.toml"
+    ln -s "$PATH_TO_THIS_REPO/config/ruff/ruff.toml" "$HOME/config/ruff.toml"
     ```

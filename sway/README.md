@@ -5,5 +5,5 @@
   - on Linux, the configuration directory is `$HOME/.config/sway`
     ```sh
     mkdir -p $HOME/.config/sway
-    ln -s $HOME/config/sway/config $HOME/.config/sway/config
+    ln -s $PATH_TO_THIS_REPO/config/sway/config $HOME/.config/sway/config
     ```

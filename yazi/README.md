@@ -11,11 +11,11 @@
 
     ```bat
     mkdir "%APPDATA%\yazi"
-    mklink /D "%APPDATA%\yazi\config" "%USERPROFILE%\Desktop\config\yazi"
+    mklink /D "%APPDATA%\yazi\config" "%PATH_TO_THIS_REPO%\config\yazi"
     ```
 
   - on Linux/MacOS, the configuration directory is `$HOME/.config/yazi`
     ```sh
-    ln -s $HOME/config/yazi $HOME/.config/yazi
+    ln -s $PATH_TO_THIS_REPO/config/yazi $HOME/.config/yazi
     ```
 

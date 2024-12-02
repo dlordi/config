@@ -5,15 +5,20 @@
   - on Windows, the configuration directory is `%LOCALAPPDATA%\nvim`
 
     ```bat
-    mklink /D "%LOCALAPPDATA%\nvim" "%USERPROFILE%\Desktop\config\neovim"
+    mklink /D "%LOCALAPPDATA%\nvim" "%PATH_TO_THIS_REPO%\config\neovim"
     ```
 
   - on Linux/MacOS, the configuration directory is `$HOME/.config/nvim`
     ```sh
-    ln -s $HOME/config/neovim $HOME/.config/nvim
+    ln -s $PATH_TO_THIS_REPO/config/neovim $HOME/.config/nvim
     ```
 
-- on Windows and on Alpine Linux, the easiest way to use `treesitter` plugin is to install the zig compiler
+- the easiest way to use `treesitter` plugin is to install the zig compiler
+  - on Windows, use following commands to install
+    ```bat
+    winget install --source winget --interactive --exact --id zig.zig
+    winget install --source winget --interactive --exact --id zigtools.zls
+    ```
 
 - `telescope` plugin works betters when `ripgrep` and `fd` utilities are installed!
   - on Windows, use following commands to install

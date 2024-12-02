@@ -8,5 +8,5 @@
 - create a symlink for the configuration file
 
   ```bat
-  mklink "%USERPROFILE%\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" "%USERPROFILE%\Desktop\config\pwsh\Microsoft.PowerShell_profile.ps1"
+  mklink "%USERPROFILE%\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" "%PATH_TO_THIS_REPO%\config\pwsh\Microsoft.PowerShell_profile.ps1"
   ```
