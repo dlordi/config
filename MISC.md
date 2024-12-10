@@ -4,13 +4,13 @@
 
 - main config file: `%CMDER_ROOT%\config\user_aliases.cmd`
 
-  - aliases (**manually replace %MY_CONFIG_REPO% with actual directory path**):
+  - aliases to add (**manually replace %MY_CONFIG_REPO% with actual directory path**):
     ```cmd
     ll=ls -last $*
-    gync=git commit -am "mod" && git pull && git push
+    gaa=git add -A .
+    gcm=git commit -m $*
     gss=git status
-    gaa= git add -A .
-    gcm=git commit -am $*
+    gync=git add -A . && git commit -m "mod" && git pull && git push
     ydl=yt-dlp.exe -f - --config-locations "%MY_CONFIG_REPO%\yt-dlp\yt-dlp.conf" $*
     ymp3=yt-dlp.exe --config-locations "%MY_CONFIG_REPO%\yt-dlp\yt-dlp.conf" --extract-audio --audio-format mp3 $*
     dt=cd /D "%USERPROFILE%\Desktop"
