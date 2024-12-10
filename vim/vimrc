@@ -2,10 +2,12 @@ set clipboard=unnamedplus " use system clipboard
 set number " show line numbers
 set relativenumber " show line number offsets
 
-" highlight current line
+" highlight current line and max column
 set cursorline
 hi CursorLine cterm=NONE ctermbg=8 ctermfg=NONE
 hi CursorLineNr cterm=NONE ctermbg=8 ctermfg=NONE
+set colorcolumn=120
+hi ColorColumn cterm=NONE ctermbg=8 ctermfg=NONE
 
 lan en_US.UTF-8 " no translation, always use english
 
