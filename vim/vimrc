@@ -30,7 +30,7 @@ set fileencoding=utf-8 " handle new charaters using utf-8 encoding
 " nmap k <Down>
 " nmap h <Home>
 
-imap jk <esc> " exit insert mode, enter normal mode
+imap jk <Esc> " exit insert mode, enter normal mode
 
 " ctrl-s save current file
 :nmap <c-s> :w<CR>
