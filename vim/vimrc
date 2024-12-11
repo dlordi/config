@@ -55,3 +55,5 @@ syntax on " enable syntax highlight
 
 set hlsearch " highlight search
 nnoremap <esc> :noh<CR><Left><Esc> " no highlight search on escape
+
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%' " shortcut for current file directory
