@@ -21,12 +21,11 @@ hi ColorColumn cterm=NONE ctermbg=8 ctermfg=NONE
 
 lan en_US.UTF-8 " no translation, always use english
 
-" show white spaces (WARNING: mouse selection will COPY those characters instead of white spaces!)
-" set listchars=tab:⎯⎯
-" set listchars+=space:␣
-" set listchars+=space:·
+" show white spaces (WARNING: mouse selection will COPY these characters instead of white spaces!)
+set listchars=tab:⎯⎯
+set listchars+=space:·
 " set listchars+=eol:¬
-" set list
+set list
 
 " use different cursor shape for insert and normal mode
 let &t_SI = "\e[6 q"
