@@ -3,8 +3,14 @@ syntax enable
 colorscheme monokai
 
 set clipboard=unnamedplus " use system clipboard
-set number " show line numbers
-set relativenumber " show line number offsets
+
+set number relativenumber " show current line number and line number offsets
+" only show absolute line number in insert mode
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
 
 " highlight current line and max column
 set cursorline
@@ -16,8 +22,8 @@ hi ColorColumn cterm=NONE ctermbg=8 ctermfg=NONE
 lan en_US.UTF-8 " no translation, always use english
 
 " show white spaces (WARNING: mouse selection will COPY those characters instead of white spaces!)
-" set listchars=tab:>-
-" set listchars+=space:␣ " da usare in alternativa al comando seguente
+" set listchars=tab:⎯⎯
+" set listchars+=space:␣
 " set listchars+=space:·
 " set listchars+=eol:¬
 " set list
