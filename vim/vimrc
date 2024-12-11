@@ -47,3 +47,6 @@ command! Qa :qa
 command! Q :q
 
 syntax on " enable syntax highlight
+
+set hlsearch " highlight search
+nnoremap <esc> :noh<CR><Left><Esc> " no highlight search on escape
