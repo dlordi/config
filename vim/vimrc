@@ -1,3 +1,7 @@
+" use nicer colorscheme
+syntax enable
+colorscheme monokai
+
 set clipboard=unnamedplus " use system clipboard
 set number " show line numbers
 set relativenumber " show line number offsets
