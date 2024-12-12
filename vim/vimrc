@@ -2,24 +2,26 @@
 " behavior                                                                                                             "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" use utf-8 encoding (examples: à ζ 漢 🎉)
+" use utf-8 encoding (test examples: à ζ 漢 🎉)
 set encoding=utf-8 " open files using utf-8 encoding
 set fileencoding=utf-8 " handle new charaters using utf-8 encoding
 
-set clipboard=unnamedplus " use system clipboard
+set clipboard=unnamedplus " bind to system clipboard
 set mouse=a " enable mouse in all modes
 
-imap jk <Esc> " exit insert mode, enter normal mode
+" 'jk' leave INSERT mode, enter NORMAL mode
+imap jk <Esc>
 
-" ctrl-s save current file
-:nmap <c-s> :w<CR>
-:imap <c-s> <Esc>:w<CR>a
+" 'Ctrl-s' save current file
+:nmap <C-s> :w<CR>
+:imap <C-s> <Esc>:w<CR>a
 
-" ':Q' as ':q'
+" ':Q' aliases ':q' to fix typos...
 command! Qa :qa
 command! Q :q
 
-cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%' " shortcut for current file directory
+" '%%' is shortcut for current file directory in COMMAND mode
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " appearance                                                                                                           "
@@ -30,7 +32,7 @@ syntax enable
 colorscheme monokai
 
 set number relativenumber " show current line number and line number offsets
-" only show absolute line number in insert mode
+" show absolute line number in INSERT mode
 augroup numbertoggle
 	autocmd!
 	autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
@@ -52,12 +54,12 @@ set listchars+=space:·
 " set listchars+=eol:¬
 set list
 
-" use different cursor shape for insert and normal mode
+" use different cursor shape for INSERT and NORMAL mode
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
 syntax on " enable syntax highlight
 
 set hlsearch " highlight search
-" following option has been disabled to fix weird behaviours on Windows Terminal+WSL
-" nnoremap <esc> :noh<CR><Left><Esc> " no highlight search on escape
+" following option has been disabled to avoid weird behaviour (vim starting in REPLACE mode) on Windows Terminal+WSL
+" nnoremap <esc> :noh<CR><Left><Esc> " escape key turns off search highlight
