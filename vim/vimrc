@@ -1,15 +1,17 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" appearance                                                                                                           "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " use nicer colorscheme
 syntax enable
 colorscheme monokai
 
-set clipboard=unnamedplus " use system clipboard
-
 set number relativenumber " show current line number and line number offsets
 " only show absolute line number in insert mode
 augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
-  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+	autocmd!
+	autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+	autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END
 
 " highlight current line and max column
@@ -31,15 +33,21 @@ set list
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
+syntax on " enable syntax highlight
+
+set hlsearch " highlight search
+nnoremap <esc> :noh<CR><Left><Esc> " no highlight search on escape
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" behavior                                                                                                             "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set clipboard=unnamedplus " use system clipboard
+set mouse=a " enable mouse in all modes
+
 " use utf-8 encoding (examples: à ζ 漢 🎉)
 set encoding=utf-8 " open files using utf-8 encoding
 set fileencoding=utf-8 " handle new charaters using utf-8 encoding
-
-" nnoremap a i
-" nmap i <Up>
-" nmap j <Left>
-" nmap k <Down>
-" nmap h <Home>
 
 imap jk <Esc> " exit insert mode, enter normal mode
 
@@ -51,10 +59,4 @@ imap jk <Esc> " exit insert mode, enter normal mode
 command! Qa :qa
 command! Q :q
 
-syntax on " enable syntax highlight
-
-set hlsearch " highlight search
-nnoremap <esc> :noh<CR><Left><Esc> " no highlight search on escape
-
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%' " shortcut for current file directory
-set mouse=a " enable mouse in all modes
