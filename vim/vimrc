@@ -63,3 +63,4 @@ syntax on " enable syntax highlight
 set hlsearch " highlight search
 " following option has been disabled to avoid weird behaviour (vim starting in REPLACE mode) on Windows Terminal+WSL
 " nnoremap <esc> :noh<CR><Left><Esc> " escape key turns off search highlight
+nnoremap <C-l> :<C-u>nohlsearch<CR><C-l> " clear search highlight on screen redraw
