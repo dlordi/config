@@ -1,4 +1,27 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" behavior                                                                                                             "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" use utf-8 encoding (examples: à ζ 漢 🎉)
+set encoding=utf-8 " open files using utf-8 encoding
+set fileencoding=utf-8 " handle new charaters using utf-8 encoding
+
+set clipboard=unnamedplus " use system clipboard
+set mouse=a " enable mouse in all modes
+
+imap jk <Esc> " exit insert mode, enter normal mode
+
+" ctrl-s save current file
+:nmap <c-s> :w<CR>
+:imap <c-s> <Esc>:w<CR>a
+
+" ':Q' as ':q'
+command! Qa :qa
+command! Q :q
+
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%' " shortcut for current file directory
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " appearance                                                                                                           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -38,25 +61,3 @@ syntax on " enable syntax highlight
 set hlsearch " highlight search
 nnoremap <esc> :noh<CR><Left><Esc> " no highlight search on escape
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" behavior                                                                                                             "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set clipboard=unnamedplus " use system clipboard
-set mouse=a " enable mouse in all modes
-
-" use utf-8 encoding (examples: à ζ 漢 🎉)
-set encoding=utf-8 " open files using utf-8 encoding
-set fileencoding=utf-8 " handle new charaters using utf-8 encoding
-
-imap jk <Esc> " exit insert mode, enter normal mode
-
-" ctrl-s save current file
-:nmap <c-s> :w<CR>
-:imap <c-s> <Esc>:w<CR>a
-
-" ':Q' as ':q'
-command! Qa :qa
-command! Q :q
-
-cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%' " shortcut for current file directory
