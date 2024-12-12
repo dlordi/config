@@ -57,3 +57,4 @@ set hlsearch " highlight search
 nnoremap <esc> :noh<CR><Left><Esc> " no highlight search on escape
 
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%' " shortcut for current file directory
+set mouse=a " enable mouse in all modes
