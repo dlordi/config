@@ -75,5 +75,6 @@
   - `shopt -s histappend`: append commands to history
 
 - start `tmux` automatically (line to add to `$HOME/.bashrc`)
+  - also add ` && [ -z "$SSH_CONNECTION" ]` to prevent tmux from starting upon ssh
 
   - `if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then exec tmux; fi`
