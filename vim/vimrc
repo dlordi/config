@@ -23,6 +23,9 @@ command! Q :q
 " '%%' is shortcut for current file directory in COMMAND mode
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
+" WIP: leave INSERT mode when idle (also check updatetime option)
+" autocmd CursorHoldI * stopinsert
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " appearance                                                                                                           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
