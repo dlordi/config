@@ -36,7 +36,7 @@ nnoremap gb :ls<CR>:b<Space>
 " appearance                                                                                                           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set bg=dark
+set bg=dark " improve color contrast
 set incsearch " show matches as regex is being typed
 set showmatch " show matching parenthesis, bracket, quote, etc...
 
@@ -45,6 +45,9 @@ set sc " show partial commands in NORMAL mode
 " use nicer colorscheme
 syntax enable
 colorscheme monokai
+" VSCode dark
+" let g:codedark_modern=1
+" colorscheme codedark
 
 set number relativenumber " show current line number and line number offsets
 " show absolute line number in INSERT mode
