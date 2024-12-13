@@ -41,7 +41,16 @@ require("lazy").setup({
     build = ":TSUpdate",
     config = function()
       require("nvim-treesitter.configs").setup({
-        ensure_installed = { "lua", "python", "javascript", "json", "markdown", "markdown_inline", "go", "c" },
+        ensure_installed = {
+          "lua",
+          "python",
+          "javascript",
+          "json",
+          "markdown",
+          "markdown_inline",
+          -- "go",
+          -- "c",
+        },
         sync_install = false,
         highlight = { enable = true },
         indent = { enable = true },
@@ -64,7 +73,14 @@ require("lazy").setup({
         },
       })
       require("mason-tool-installer").setup({
-        ensure_installed = { "stylua", "prettier", "gopls", "goimports", "clangd", "clang-format" },
+        ensure_installed = {
+          "stylua",
+          "prettier",
+          -- "gopls",
+          -- "goimports",
+          -- "clangd",
+          -- "clang-format",
+        },
       })
     end,
   },
@@ -86,8 +102,8 @@ require("lazy").setup({
           css = { "prettier" },
           html = { "prettier" },
           yaml = { "prettier" },
-          go = { "goimports" },
-          c = { "clang-format" },
+          -- go = { "goimports" },
+          -- c = { "clang-format" },
         },
         format_on_save = {
           lsp_fallback = true,
@@ -103,12 +119,13 @@ require("lazy").setup({
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       local builtin = require("telescope.builtin")
-      vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope [F]ind in [F]iles" })
-      vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope [F]ind in [B]uffers" })
-      vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Telescope find in buffers" })
+      -- vim.keymap.set("n", "<leader>ff", function()
+      --   builtin.find_files({ cwd = require("telescope.utils").buffer_dir() })
+      -- end, { desc = "Telescope [F]ind [F]iles in current buffer directory" })
+      vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope [F]ind [B]uffers" })
       vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Telescope [F]ind [K]eymaps" })
       -- vim.keymap.set("n", "<leader>fr", builtin.lsp_references, { desc = "Telescope [F]ind [R]eferences" })
-      vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "Telescope [S]earch by [G]rep" })
+      -- vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "Telescope [S]earch by [G]rep" })
     end,
   },
   {
@@ -195,12 +212,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank({ higroup = "IncSearch", timeout = 300 })
   end,
 })
-
--- vim.keymap.set("n", "a", "i", { desc = [[enter insert mode with "a" since "i" is mapped to "<Up>"]] })
--- vim.keymap.set({ "n", "v" }, "i", "<Up>")
--- vim.keymap.set({ "n", "v" }, "j", "<Left>")
--- vim.keymap.set({ "n", "v" }, "k", "<Down>")
--- vim.keymap.set({ "n", "v" }, "h", "<Home>")
 
 vim.keymap.set("i", "jk", "<esc>", { desc = "exit insert mode, enter normal mode" })
 vim.keymap.set("v", "K", ":m '>+1<cr>gv=gv", { desc = "move selection one row up in visual mode" })
