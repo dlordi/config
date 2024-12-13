@@ -2,6 +2,9 @@
 " behavior                                                                                                             "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+set nocompatible
+set hidden " switch buffer without saving current one
+
 " use utf-8 encoding (test chars: à - ζ - 漢 - 🎉)
 set encoding=utf-8 " open files using utf-8 encoding
 set fileencoding=utf-8 " handle new charaters using utf-8 encoding
@@ -14,7 +17,7 @@ imap jk <Esc>
 
 " 'Ctrl-s' save current file
 :nmap <C-s> :w<CR>
-:imap <C-s> <Esc>:w<CR>a
+:imap <C-s> <C-o>:w<CR>
 
 " ':Q' aliases ':q' to fix typos...
 command! Qa :qa
@@ -26,9 +29,18 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " WIP: leave INSERT mode when idle (also check updatetime option)
 " autocmd CursorHoldI * stopinsert
 
+" show buffers, prompt for next one to move into
+nnoremap gb :ls<CR>:b<Space>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " appearance                                                                                                           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set bg=dark
+set incsearch " show matches as regex is being typed
+set showmatch " show matching parenthesis, bracket, quote, etc...
+
+set sc " show partial commands in NORMAL mode
 
 " use nicer colorscheme
 syntax enable
