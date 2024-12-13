@@ -5,5 +5,5 @@
   - on Linux/MacOS, the configuration file is `$HOME/.tmux.conf`
 
     ```sh
-    ln -s $PATH_TO_THIS_REPO/config/tmux/tmux.conf $HOME/.tmux.conf
+    ln -s $PATH_TO_THIS_REPO/tmux/tmux.conf $HOME/.tmux.conf
     ```

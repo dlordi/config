@@ -5,12 +5,12 @@
   - on Windows, the configuration directory is `%LOCALAPPDATA%\nvim`
 
     ```bat
-    mklink /D "%LOCALAPPDATA%\nvim" "%PATH_TO_THIS_REPO%\config\neovim"
+    mklink /D "%LOCALAPPDATA%\nvim" "%PATH_TO_THIS_REPO%\neovim"
     ```
 
   - on Linux/MacOS, the configuration directory is `$HOME/.config/nvim`
     ```sh
-    ln -s $PATH_TO_THIS_REPO/config/neovim $HOME/.config/nvim
+    ln -s $PATH_TO_THIS_REPO/neovim $HOME/.config/nvim
     ```
 
 - the easiest way to use `treesitter` plugin is to install the zig compiler

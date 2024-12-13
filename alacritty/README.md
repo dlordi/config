@@ -7,7 +7,7 @@
   - on Windows, the configuration directory is `%APPDATA%\alacritty`
 
     ```bat
-    mklink /D "%APPDATA%\alacritty" "%PATH_TO_THIS_REPO%\config\alacritty"
+    mklink /D "%APPDATA%\alacritty" "%PATH_TO_THIS_REPO%\alacritty"
     ```
 
   - on Linux/MacOS, the configuration directory is `$HOME/.config/alacritty`

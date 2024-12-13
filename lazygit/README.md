@@ -8,5 +8,5 @@
 
     ```bat
     if not exist "%APPDATA%\lazygit" md "%APPDATA%\lazygit"
-    mklink "%APPDATA%\lazygit\config.yml" "%PATH_TO_THIS_REPO%\config\lazygit\config.yml"
+    mklink "%APPDATA%\lazygit\config.yml" "%PATH_TO_THIS_REPO%\lazygit\config.yml"
     ```
