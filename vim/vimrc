@@ -2,7 +2,7 @@
 " behavior                                                                                                             "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" use utf-8 encoding (test examples: à ζ 漢 🎉)
+" use utf-8 encoding (test chars: à - ζ - 漢 - 🎉)
 set encoding=utf-8 " open files using utf-8 encoding
 set fileencoding=utf-8 " handle new charaters using utf-8 encoding
 
