@@ -119,13 +119,13 @@ require("lazy").setup({
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       local builtin = require("telescope.builtin")
-      -- vim.keymap.set("n", "<leader>ff", function()
+      -- vim.keymap.set("n", "<Leader>ff", function()
       --   builtin.find_files({ cwd = require("telescope.utils").buffer_dir() })
       -- end, { desc = "Telescope [F]ind [F]iles in current buffer directory" })
-      vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope [F]ind [B]uffers" })
-      vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Telescope [F]ind [K]eymaps" })
-      -- vim.keymap.set("n", "<leader>fr", builtin.lsp_references, { desc = "Telescope [F]ind [R]eferences" })
-      -- vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "Telescope [S]earch by [G]rep" })
+      vim.keymap.set("n", "<Leader>fb", builtin.buffers, { desc = "Telescope [F]ind [B]uffers" })
+      vim.keymap.set("n", "<Leader>fk", builtin.keymaps, { desc = "Telescope [F]ind [K]eymaps" })
+      -- vim.keymap.set("n", "<Leader>fr", builtin.lsp_references, { desc = "Telescope [F]ind [R]eferences" })
+      -- vim.keymap.set("n", "<Leader>sg", builtin.live_grep, { desc = "Telescope [S]earch by [G]rep" })
     end,
   },
   {
@@ -213,19 +213,19 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-vim.keymap.set("i", "jk", "<esc>", { desc = "exit insert mode, enter normal mode" })
-vim.keymap.set("v", "K", ":m '>+1<cr>gv=gv", { desc = "move selection one row up in visual mode" })
-vim.keymap.set("v", "J", ":m '<-2<cr>gv=gv", { desc = "move selection one row down in visual mode" })
-vim.keymap.set("n", "<esc>", "<cmd>nohlsearch<cr>", { desc = "clear search highlights" })
+vim.keymap.set("i", "jk", "<Esc>", { desc = "exit insert mode, enter normal mode" })
+vim.keymap.set("v", "K", ":m '>+1<CR>gv=gv", { desc = "move selection one row up in visual mode" })
+vim.keymap.set("v", "J", ":m '<-2<CR>gv=gv", { desc = "move selection one row down in visual mode" })
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "clear search highlights" })
 
 -- "Shift-Tab": unindent
-vim.api.nvim_set_keymap("i", "<S-Tab>", "<esc><<i", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<S-Tab>", "<Esc><<i", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<S-Tab>", "<<", { noremap = true, silent = true })
 
 -- "Ctrl-S": save file
-vim.api.nvim_set_keymap("i", "<C-s>", "<cmd>:w<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-s>", "<cmd>:w<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<C-s>", "<cmd>:w<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<C-s>", "<cmd>:w<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-s>", "<cmd>:w<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<C-s>", "<cmd>:w<CR>", { noremap = true, silent = true })
 
 -- ":Q" as ":q"
 vim.cmd("command! Qa :qa")
