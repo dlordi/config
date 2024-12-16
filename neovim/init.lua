@@ -218,6 +218,9 @@ vim.keymap.set("v", "K", ":m '>+1<CR>gv=gv", { desc = "move selection one row up
 vim.keymap.set("v", "J", ":m '<-2<CR>gv=gv", { desc = "move selection one row down in visual mode" })
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "clear search highlights" })
 
+-- use Shift+cursor to select
+-- vim.opt.keymodel = "startsel,stopsel"
+
 -- 'Shift-Tab': unindent
 vim.api.nvim_set_keymap("i", "<S-Tab>", "<Esc><<i", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<S-Tab>", "<<", { noremap = true, silent = true })
