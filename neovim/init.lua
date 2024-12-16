@@ -218,8 +218,16 @@ vim.keymap.set("v", "K", ":m '>+1<CR>gv=gv", { desc = "move selection one row up
 vim.keymap.set("v", "J", ":m '<-2<CR>gv=gv", { desc = "move selection one row down in visual mode" })
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "clear search highlights" })
 
+-- command aliases to fix typos...
+vim.cmd("command! Qa :qa")
+vim.cmd("command! Q :q")
+vim.cmd("command! Wqa :wqa")
+vim.cmd("command! Wq :wq")
+vim.cmd("command! W :w")
+
 -- use Shift+cursor to select
 -- vim.opt.keymodel = "startsel,stopsel"
+-- vim.opt.selectmode = "key"
 
 -- 'Shift-Tab': unindent
 vim.api.nvim_set_keymap("i", "<S-Tab>", "<Esc><<i", { noremap = true, silent = true })
@@ -229,10 +237,6 @@ vim.api.nvim_set_keymap("n", "<S-Tab>", "<<", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<C-s>", "<cmd>:w<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-s>", "<cmd>:w<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<C-s>", "<cmd>:w<CR>", { noremap = true, silent = true })
-
--- ':Q' aliases ':q' to fix typos...
-vim.cmd("command! Qa :qa")
-vim.cmd("command! Q :q")
 
 if vim.g.neovide then
   -- local font_name = "SauceCodePro Nerd Font" -- tested both on Windows and MacOS
