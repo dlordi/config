@@ -213,21 +213,21 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-vim.keymap.set("i", "jk", "<Esc>", { desc = "exit insert mode, enter normal mode" })
+vim.keymap.set("i", "jk", "<Esc>", { desc = "'jk' leave INSERT mode, enter NORMAL mode" })
 vim.keymap.set("v", "K", ":m '>+1<CR>gv=gv", { desc = "move selection one row up in visual mode" })
 vim.keymap.set("v", "J", ":m '<-2<CR>gv=gv", { desc = "move selection one row down in visual mode" })
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "clear search highlights" })
 
--- "Shift-Tab": unindent
+-- 'Shift-Tab': unindent
 vim.api.nvim_set_keymap("i", "<S-Tab>", "<Esc><<i", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<S-Tab>", "<<", { noremap = true, silent = true })
 
--- "Ctrl-S": save file
+-- 'Ctrl-S': save file (WARNING: this might conflict with terminal Ctrl-S)
 vim.api.nvim_set_keymap("i", "<C-s>", "<cmd>:w<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-s>", "<cmd>:w<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<C-s>", "<cmd>:w<CR>", { noremap = true, silent = true })
 
--- ":Q" as ":q"
+-- ':Q' aliases ':q' to fix typos...
 vim.cmd("command! Qa :qa")
 vim.cmd("command! Q :q")
 
