@@ -229,10 +229,6 @@ vim.cmd("command! W :w")
 -- vim.opt.keymodel = "startsel,stopsel"
 -- vim.opt.selectmode = "key"
 
--- 'Shift-Tab': unindent
-vim.api.nvim_set_keymap("i", "<S-Tab>", "<Esc><<i", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<S-Tab>", "<<", { noremap = true, silent = true })
-
 -- 'Ctrl-S': save file (WARNING: this might conflict with terminal Ctrl-S)
 vim.api.nvim_set_keymap("i", "<C-s>", "<cmd>:w<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-s>", "<cmd>:w<CR>", { noremap = true, silent = true })
