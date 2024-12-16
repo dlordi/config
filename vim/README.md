@@ -2,18 +2,18 @@
 
 - create a symlink for the configuration file and subdirectories
 
-  - on Windows, the configuration file is `%USERPROFILE%\_vimrc` and the main directory is `%USERPROFILE%\.vim`
+  - on Windows, the configuration directory is `%USERPROFILE%\.vim` and the main configuration file is `%USERPROFILE%\.vim\vimrc`
 
     ```bat
-    mklink "%USERPROFILE%\_vimrc" "%PATH_TO_THIS_REPO%\vim\vimrc"
     if not exist "%USERPROFILE%\.vim" mkdir "%USERPROFILE%\.vim"
+    mklink "%USERPROFILE%\.vim\vimrc" "%PATH_TO_THIS_REPO%\vim\vimrc"
     mklink /D "%USERPROFILE%\.vim\colors" "%PATH_TO_THIS_REPO%\vim\colors"
     ```
 
-  - on Linux/MacOS, the configuration file is `$HOME/.vimrc` and the main directory is `$HOME/.vim`
-    ```bat
-    ln -s "$PATH_TO_THIS_REPO/vim/vimrc" "$HOME/.vimrc"
+  - on Linux/MacOS, the configuration directory is `$HOME/.vim` and the main configuration file is `$HOME/.vim/vimrc`
+    ```sh
     mkdir -p "$HOME/.vim"
+    ln -s "$PATH_TO_THIS_REPO/vim/vimrc" "$HOME/.vim/vimrc"
     ln -s "$PATH_TO_THIS_REPO/vim/colors" "$HOME/.vim/colors"
     ```
 
