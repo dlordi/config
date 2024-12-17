@@ -123,7 +123,7 @@ require("lazy").setup({
       --   builtin.find_files({ cwd = require("telescope.utils").buffer_dir() })
       -- end, { desc = "Telescope [F]ind [F]iles in current buffer directory" })
       vim.keymap.set("n", "<Leader>fd", builtin.buffers, { desc = "Telescope Find Buffers" })
-      vim.keymap.set("n", "<Leader>fk", builtin.keymaps, { desc = "Telescope [F]ind [K]eymaps" })
+      vim.keymap.set("n", "<Leader>km", builtin.keymaps, { desc = "Telescope Find Keymaps" })
       -- vim.keymap.set("n", "<Leader>fr", builtin.lsp_references, { desc = "Telescope [F]ind [R]eferences" })
       -- vim.keymap.set("n", "<Leader>sg", builtin.live_grep, { desc = "Telescope [S]earch by [G]rep" })
     end,
@@ -134,45 +134,45 @@ require("lazy").setup({
       require("gitsigns").setup()
     end,
   },
-  {
-    "folke/which-key.nvim",
-    event = "VimEnter",
-    opts = {
-      icons = {
-        mappings = vim.g.have_nerd_font, -- uses icon if nerd font is available
-        keys = vim.g.have_nerd_font and {} or { -- if nerd font is not available, list special keys string representation
-          Up = "<Up> ",
-          Down = "<Down> ",
-          Left = "<Left> ",
-          Right = "<Right> ",
-          C = "<C-…> ",
-          M = "<M-…> ",
-          D = "<D-…> ",
-          S = "<S-…> ",
-          CR = "<CR> ",
-          Esc = "<Esc> ",
-          ScrollWheelDown = "<ScrollWheelDown> ",
-          ScrollWheelUp = "<ScrollWheelUp> ",
-          NL = "<NL> ",
-          BS = "<BS> ",
-          Space = "<Space> ",
-          Tab = "<Tab> ",
-          F1 = "<F1>",
-          F2 = "<F2>",
-          F3 = "<F3>",
-          F4 = "<F4>",
-          F5 = "<F5>",
-          F6 = "<F6>",
-          F7 = "<F7>",
-          F8 = "<F8>",
-          F9 = "<F9>",
-          F10 = "<F10>",
-          F11 = "<F11>",
-          F12 = "<F12>",
-        },
-      },
-    },
-  },
+  -- {
+  --   "folke/which-key.nvim",
+  --   event = "VimEnter",
+  --   opts = {
+  --     icons = {
+  --       mappings = vim.g.have_nerd_font, -- uses icon if nerd font is available
+  --       keys = vim.g.have_nerd_font and {} or { -- if nerd font is not available, list special keys string representation
+  --         Up = "<Up> ",
+  --         Down = "<Down> ",
+  --         Left = "<Left> ",
+  --         Right = "<Right> ",
+  --         C = "<C-…> ",
+  --         M = "<M-…> ",
+  --         D = "<D-…> ",
+  --         S = "<S-…> ",
+  --         CR = "<CR> ",
+  --         Esc = "<Esc> ",
+  --         ScrollWheelDown = "<ScrollWheelDown> ",
+  --         ScrollWheelUp = "<ScrollWheelUp> ",
+  --         NL = "<NL> ",
+  --         BS = "<BS> ",
+  --         Space = "<Space> ",
+  --         Tab = "<Tab> ",
+  --         F1 = "<F1>",
+  --         F2 = "<F2>",
+  --         F3 = "<F3>",
+  --         F4 = "<F4>",
+  --         F5 = "<F5>",
+  --         F6 = "<F6>",
+  --         F7 = "<F7>",
+  --         F8 = "<F8>",
+  --         F9 = "<F9>",
+  --         F10 = "<F10>",
+  --         F11 = "<F11>",
+  --         F12 = "<F12>",
+  --       },
+  --     },
+  --   },
+  -- },
 })
 
 vim.schedule(function() -- this setting is applied after `UiEnter` event because it can increase startup-time
@@ -195,7 +195,7 @@ vim.cmd("lan en_US.UTF-8") -- no translation, always use english
 vim.opt.whichwrap = "b,s,<,>,[,]" -- wraps left/right moves to previous/next row
 vim.opt.mouse = "a" -- enable mouse mode (useful for resizing splits, select tabs, etc...)
 vim.opt.inccommand = "split" -- preview substitutions live, as you type
-vim.opt.timeoutlen = 300 -- displays which-key popup sooner
+-- vim.opt.timeoutlen = 300 -- displays which-key popup sooner
 
 vim.opt.listchars = { space = "·", tab = "⎯⎯" } -- set symbols for blanks
 vim.opt.list = true -- show blanks
