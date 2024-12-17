@@ -214,9 +214,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.keymap.set("i", "jk", "<Esc>", { desc = "leave INSERT mode, enter NORMAL mode" })
-vim.keymap.set("v", "K", ":m '>+1<CR>gv=gv", { desc = "move selection one row up in visual mode" })
-vim.keymap.set("v", "J", ":m '<-2<CR>gv=gv", { desc = "move selection one row down in visual mode" })
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "clear search highlights" })
+vim.keymap.set("v", "K", ":m '>+1<CR>gv=gv", { desc = "move selection one row up" })
+vim.keymap.set("v", "J", ":m '<-2<CR>gv=gv", { desc = "move selection one row down" })
+vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "clear search highlights" })
+
+-- navigation
+vim.keymap.set("n", "<Tab>", ":bnext<CR>", { desc = "move to next buffer" })
+vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", { desc = "move to previous buffer" })
+vim.keymap.set("n", "<Leader><S-q>", ":bd<CR>", { desc = "close current buffer" })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true })
 
 -- command aliases to fix typos...
 vim.cmd("command! Qa :qa")
@@ -230,9 +237,7 @@ vim.cmd("command! W :w")
 -- vim.opt.selectmode = "key"
 
 -- 'Ctrl-S': save file (WARNING: this might conflict with terminal Ctrl-S)
-vim.keymap.set("i", "<C-s>", "<Cmd>:w<CR>", { desc = "save current buffer", noremap = true, silent = true })
-vim.keymap.set("n", "<C-s>", "<Cmd>:w<CR>", { desc = "save current buffer", noremap = true, silent = true })
-vim.keymap.set("v", "<C-s>", "<Cmd>:w<CR>", { desc = "save current buffer", noremap = true, silent = true })
+vim.keymap.set({ "i", "n", "v" }, "<C-s>", "<Cmd>:w<CR>", { desc = "save current buffer", noremap = true })
 
 if vim.g.neovide then
   -- local font_name = "SauceCodePro Nerd Font" -- tested both on Windows and MacOS
