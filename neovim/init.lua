@@ -122,7 +122,7 @@ require("lazy").setup({
       -- vim.keymap.set("n", "<Leader>ff", function()
       --   builtin.find_files({ cwd = require("telescope.utils").buffer_dir() })
       -- end, { desc = "Telescope [F]ind [F]iles in current buffer directory" })
-      vim.keymap.set("n", "<Leader>fb", builtin.buffers, { desc = "Telescope [F]ind [B]uffers" })
+      vim.keymap.set("n", "<Leader>fd", builtin.buffers, { desc = "Telescope Find Buffers" })
       vim.keymap.set("n", "<Leader>fk", builtin.keymaps, { desc = "Telescope [F]ind [K]eymaps" })
       -- vim.keymap.set("n", "<Leader>fr", builtin.lsp_references, { desc = "Telescope [F]ind [R]eferences" })
       -- vim.keymap.set("n", "<Leader>sg", builtin.live_grep, { desc = "Telescope [S]earch by [G]rep" })
@@ -213,7 +213,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-vim.keymap.set("i", "jk", "<Esc>", { desc = "'jk' leave INSERT mode, enter NORMAL mode" })
+vim.keymap.set("i", "jk", "<Esc>", { desc = "leave INSERT mode, enter NORMAL mode" })
 vim.keymap.set("v", "K", ":m '>+1<CR>gv=gv", { desc = "move selection one row up in visual mode" })
 vim.keymap.set("v", "J", ":m '<-2<CR>gv=gv", { desc = "move selection one row down in visual mode" })
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "clear search highlights" })
@@ -230,9 +230,9 @@ vim.cmd("command! W :w")
 -- vim.opt.selectmode = "key"
 
 -- 'Ctrl-S': save file (WARNING: this might conflict with terminal Ctrl-S)
-vim.api.nvim_set_keymap("i", "<C-s>", "<cmd>:w<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-s>", "<cmd>:w<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<C-s>", "<cmd>:w<CR>", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-s>", "<Cmd>:w<CR>", { desc = "save current buffer", noremap = true, silent = true })
+vim.keymap.set("n", "<C-s>", "<Cmd>:w<CR>", { desc = "save current buffer", noremap = true, silent = true })
+vim.keymap.set("v", "<C-s>", "<Cmd>:w<CR>", { desc = "save current buffer", noremap = true, silent = true })
 
 if vim.g.neovide then
   -- local font_name = "SauceCodePro Nerd Font" -- tested both on Windows and MacOS
@@ -244,12 +244,12 @@ if vim.g.neovide then
   vim.g.neovide_input_use_logo = 1
 
   -- enable MacOS system clipboard
-  vim.api.nvim_set_keymap("", "<D-v>", "+p<CR>", { noremap = true, silent = true })
-  vim.api.nvim_set_keymap("!", "<D-v>", "<C-R>+", { noremap = true, silent = true })
-  vim.api.nvim_set_keymap("t", "<D-v>", "<C-R>+", { noremap = true, silent = true })
-  vim.api.nvim_set_keymap("v", "<D-v>", "<C-R>+", { noremap = true, silent = true })
+  vim.keymap.set("", "<D-v>", "+p<CR>", { noremap = true, silent = true })
+  vim.keymap.set("!", "<D-v>", "<C-R>+", { noremap = true, silent = true })
+  vim.keymap.set("t", "<D-v>", "<C-R>+", { noremap = true, silent = true })
+  vim.keymap.set("v", "<D-v>", "<C-R>+", { noremap = true, silent = true })
 
   -- enable Windows system clipboard
-  vim.api.nvim_set_keymap("i", "<C-v>", "<C-R>+", { noremap = true, silent = true })
-  vim.api.nvim_set_keymap("!", "<S-Insert>", "<C-R>+", { noremap = true, silent = true })
+  vim.keymap.set("i", "<C-v>", "<C-R>+", { noremap = true, silent = true })
+  vim.keymap.set("!", "<S-Insert>", "<C-R>+", { noremap = true, silent = true })
 end
