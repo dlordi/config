@@ -238,6 +238,7 @@ vim.cmd("command! W :w")
 
 -- 'Ctrl-S': save file (WARNING: this might conflict with terminal Ctrl-S)
 vim.keymap.set({ "i", "n", "v" }, "<C-s>", "<Cmd>:w<CR>", { desc = "save current buffer", noremap = true })
+vim.keymap.set("n", "ZA", "<Cmd>:w<CR>", { desc = "save current buffer", noremap = true })
 
 if vim.g.neovide then
   -- local font_name = "SauceCodePro Nerd Font" -- tested both on Windows and MacOS
