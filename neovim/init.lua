@@ -20,7 +20,7 @@ vim.opt.rtp:prepend(lazypath)
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+vim.g.maplocalleader = " "
 
 require("lazy").setup({
   {
@@ -197,10 +197,10 @@ vim.opt.mouse = "a" -- enable mouse mode (useful for resizing splits, select tab
 vim.opt.inccommand = "split" -- preview substitutions live, as you type
 -- vim.opt.timeoutlen = 300 -- displays which-key popup sooner
 
-vim.opt.listchars = { space = "·", tab = "⎯⎯" } -- set symbols for blanks
 vim.opt.list = true -- show blanks
+vim.opt.listchars = { space = "·", tab = "⎯⎯" } -- set symbols for blanks
 
--- turn tabs into 2 spaces
+-- turn tabs into 2 spaces (same as "vim: ts=2 sts=2 sw=2 et" modeline)
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
@@ -214,6 +214,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.keymap.set("i", "jk", "<Esc>", { desc = "leave INSERT mode, enter NORMAL mode" })
+-- vim.keymap.set("i", "kj", "<C-o>", { desc = "leave INSERT mode, enter NORMAL mode" })
 vim.keymap.set("v", "K", ":m '>+1<CR>gv=gv", { desc = "move selection one row up" })
 vim.keymap.set("v", "J", ":m '<-2<CR>gv=gv", { desc = "move selection one row down" })
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "clear search highlights" })
