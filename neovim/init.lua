@@ -227,8 +227,8 @@ vim.keymap.set('n', '<Tab>', ':bnext<CR>', { desc = 'move to next buffer' })
 vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', { desc = 'move to previous buffer' })
 vim.keymap.set('n', '<Leader><S-q>', ':bd<CR>', { desc = 'close current buffer' })
 vim.keymap.set('n', '<Leader><Leader>', ':ls<CR>:b<Space>', { desc = 'change current buffer' })
-vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, desc = 'scroll page down, center current line on screen' })
-vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, desc = 'scroll page up, center current line on screen' })
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, desc = 'scroll page down and center current line on screen' })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, desc = 'scroll page up and center current line on screen' })
 
 -- command aliases to fix typos...
 vim.cmd('command! Qa :qa')
