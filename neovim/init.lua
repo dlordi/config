@@ -217,8 +217,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 vim.keymap.set('i', 'jk', '<Esc>', { desc = 'leave INSERT mode, enter NORMAL mode' })
 vim.keymap.set('i', 'kj', '<C-o>', { desc = 'leave INSERT mode, enter NORMAL mode for one command only' })
-vim.keymap.set('v', 'K', ":m '>+1<CR>gv=gv", { desc = 'move selection one row up' })
-vim.keymap.set('v', 'J', ":m '<-2<CR>gv=gv", { desc = 'move selection one row down' })
+-- vim.keymap.set('i', '<C-Space>', '<C-n>', { desc = 'suggest completion' })
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'move selection one row up' })
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'move selection one row down' })
 vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>', { desc = 'clear search highlights' })
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'leave TERMINAL mode, enter NORMAL mode' })
 
@@ -226,7 +227,7 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'leave TERMINAL mode, 
 vim.keymap.set('n', '<Tab>', ':bnext<CR>', { desc = 'move to next buffer' })
 vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', { desc = 'move to previous buffer' })
 vim.keymap.set('n', '<Leader><S-q>', ':bd<CR>', { desc = 'close current buffer' })
-vim.keymap.set('n', '<Leader><Leader>', ':ls<CR>:b<Space>', { desc = 'change current buffer' })
+vim.keymap.set('n', '<Leader><Leader>', ':ls<CR>:b<Space>', { desc = 'show buffers, prompt to change current one' })
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, desc = 'scroll page down and center current line on screen' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, desc = 'scroll page up and center current line on screen' })
 
@@ -241,11 +242,12 @@ vim.cmd('command! W :w')
 -- vim.opt.keymodel = 'startsel,stopsel'
 -- vim.opt.selectmode = 'key'
 
--- 'Ctrl-S': save file (WARNING: this might conflict with terminal Ctrl-S)
-vim.keymap.set({ 'i', 'n', 'v' }, '<C-s>', '<Cmd>:w<CR>', { desc = 'save current buffer', noremap = true })
 vim.keymap.set('n', 'ZA', '<Cmd>:w<CR>', { desc = 'save current buffer', noremap = true })
 
 if vim.g.neovide then
+  -- 'Ctrl-S': save file (not defined in standard neovim configuration to avoid conflict with terminal)
+  vim.keymap.set({ 'i', 'n', 'v' }, '<C-s>', '<Cmd>:w<CR>', { desc = 'save current buffer', noremap = true })
+
   -- local font_name = "SauceCodePro Nerd Font" -- tested both on Windows and MacOS
   -- local font_name = 'JetBrainsMonoNL Nerd Font'
   local font_name = 'JetBrainsMonoNL NFM'
