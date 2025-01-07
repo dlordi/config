@@ -247,7 +247,8 @@ vim.keymap.set('n', 'ZA', '<Cmd>:w<CR>', { desc = 'save current buffer', noremap
 
 if vim.g.neovide then
   -- local font_name = "SauceCodePro Nerd Font" -- tested both on Windows and MacOS
-  local font_name = 'JetBrainsMonoNL Nerd Font'
+  -- local font_name = 'JetBrainsMonoNL Nerd Font'
+  local font_name = 'JetBrainsMonoNL NFM'
   local font_size = vim.loop.os_uname().sysname == 'Windows_NT' and '10' or '14'
   vim.o.guifont = font_name .. ':h' .. font_size
 
