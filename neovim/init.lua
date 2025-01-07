@@ -134,6 +134,7 @@ require('lazy').setup({
       require('gitsigns').setup()
     end,
   },
+  'tpope/vim-sleuth',
   -- {
   --   'folke/which-key.nvim',
   --   event = 'VimEnter',
