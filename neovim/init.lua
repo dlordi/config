@@ -217,7 +217,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 vim.keymap.set('i', 'jk', '<Esc>', { desc = 'leave INSERT mode, enter NORMAL mode' })
 vim.keymap.set('i', 'kj', '<C-o>', { desc = 'leave INSERT mode, enter NORMAL mode for one command only' })
--- vim.keymap.set('i', '<C-Space>', '<C-n>', { desc = 'suggest completion' })
+vim.keymap.set('i', '<C-Space>', '<C-n>', { desc = 'suggest completion' })
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'move selection one row up' })
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'move selection one row down' })
 vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>', { desc = 'clear search highlights' })
