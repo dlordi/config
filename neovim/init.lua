@@ -58,8 +58,10 @@ require('lazy').setup({
     end,
   },
   {
-    'williamboman/mason.nvim',
+    'neovim/nvim-lspconfig',
     dependencies = {
+      { 'williamboman/mason.nvim', config = true },
+      'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
     },
     config = function()
@@ -75,11 +77,20 @@ require('lazy').setup({
       require('mason-tool-installer').setup({
         ensure_installed = {
           'stylua',
+          -- 'lua_ls', NOTE: also install "folke/lazydev"
           'prettier',
+          -- 'pyright', NOTE: requires python 3 available as system command or via vim.g.python3_host_prog
           -- 'gopls',
           -- 'goimports',
           -- 'clangd',
           -- 'clang-format',
+        },
+      })
+      require('mason-lspconfig').setup({
+        handlers = {
+          function(server_name)
+            require('lspconfig')[server_name].setup({})
+          end,
         },
       })
     end,
@@ -183,7 +194,7 @@ vim.opt.number = true -- show line numbers
 vim.opt.relativenumber = true -- show line number offsets
 -- do not show line number offsets in insert mode
 vim.api.nvim_create_autocmd({ 'InsertEnter', 'InsertLeave' }, {
-  group = vim.api.nvim_create_augroup('togglerelativenumber', { clear = true }),
+  group = vim.api.nvim_create_augroup('toggle-relativenumber', { clear = true }),
   callback = function(ev)
     vim.opt.relativenumber = ev.event == 'InsertLeave'
   end,
@@ -249,8 +260,6 @@ if vim.g.neovide then
   -- 'Ctrl-S': save file (not defined in standard neovim configuration to avoid conflict with terminal)
   vim.keymap.set({ 'i', 'n', 'v' }, '<C-s>', '<Cmd>:w<CR>', { desc = 'save current buffer', noremap = true })
 
-  -- local font_name = "SauceCodePro Nerd Font" -- tested both on Windows and MacOS
-  -- local font_name = 'JetBrainsMonoNL Nerd Font'
   local font_name = 'JetBrainsMonoNL NFM'
   local font_size = vim.loop.os_uname().sysname == 'Windows_NT' and '10' or '14'
   vim.o.guifont = font_name .. ':h' .. font_size
