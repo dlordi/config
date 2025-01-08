@@ -94,17 +94,30 @@ require('lazy').setup({
       'WhoIsSethDaniel/mason-tool-installer.nvim',
     },
     config = function()
+      vim.api.nvim_create_autocmd('LspAttach', {
+        group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
+        callback = function(event)
+          local client = vim.lsp.get_client_by_id(event.data.client_id)
+          if client == nil then
+            return
+          end
+          vim.keymap.set('n', '<Leader>re', vim.lsp.buf.rename, { buffer = event.buf, desc = 'LSP: Rename' })
+        end,
+      })
       local servers = {
         pyright = {
           settings = {
+            pyright = {
+              disableOrganizeImports = true,
+              -- suppress ALL hints, eg unused variables; see https://github.com/microsoft/pyright/discussions/5852 for
+              -- a different solution
+              disableTaggedHints = true,
+            },
             python = {
               -- see https://microsoft.github.io/pyright/#/settings
               pythonPath = vim.g.python3_host_prog,
               analysis = {
                 typeCheckingMode = 'basic',
-                -- diagnosticSeverityOverrides = {
-                --   reportUnusedVariable = 'false', -- NOTE: this setting does not work... bug?
-                -- },
                 diagnosticMode = 'openFilesOnly',
               },
             },
