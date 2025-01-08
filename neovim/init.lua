@@ -95,7 +95,21 @@ require('lazy').setup({
     },
     config = function()
       local servers = {
-        pyright = {},
+        pyright = {
+          settings = {
+            python = {
+              -- see https://microsoft.github.io/pyright/#/settings
+              pythonPath = vim.g.python3_host_prog,
+              analysis = {
+                typeCheckingMode = 'off',
+                -- diagnosticSeverityOverrides = {
+                --   reportUnusedVariable = 'false', -- NOTE: this setting does not work... bug?
+                -- },
+                diagnosticMode = 'openFilesOnly',
+              },
+            },
+          },
+        },
       }
       require('mason').setup({
         ui = {
