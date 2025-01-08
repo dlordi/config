@@ -19,5 +19,5 @@ bindings = [
 ]
 
 [font]
-normal = { family = "JetBrainsMonoNL Nerd Font", style = "Regular" }
+normal = { family = "JetBrainsMonoNL NFM", style = "Regular" }
 size = 10
