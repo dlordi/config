@@ -101,7 +101,7 @@ require('lazy').setup({
               -- see https://microsoft.github.io/pyright/#/settings
               pythonPath = vim.g.python3_host_prog,
               analysis = {
-                typeCheckingMode = 'off',
+                typeCheckingMode = 'basic',
                 -- diagnosticSeverityOverrides = {
                 --   reportUnusedVariable = 'false', -- NOTE: this setting does not work... bug?
                 -- },
