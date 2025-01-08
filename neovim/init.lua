@@ -94,6 +94,9 @@ require('lazy').setup({
       'WhoIsSethDaniel/mason-tool-installer.nvim',
     },
     config = function()
+      local servers = {
+        pyright = {},
+      }
       require('mason').setup({
         ui = {
           icons = {
@@ -118,7 +121,7 @@ require('lazy').setup({
       require('mason-lspconfig').setup({
         handlers = {
           function(server_name)
-            require('lspconfig')[server_name].setup({})
+            require('lspconfig')[server_name].setup(servers[server_name] or {})
           end,
         },
       })
