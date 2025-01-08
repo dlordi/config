@@ -1,3 +1,32 @@
+-- (function()
+--   if vim.g.python3_host_prog then
+--     return
+--   end
+--
+--   for _, python_cmd in ipairs({ 'python', 'python3' }) do
+--     if vim.fn.executable(python_cmd) == 1 then
+--       local output = vim.fn.system({ python_cmd, '-c', 'import sys; print(sys.version_info.major)' })
+--       if (vim.v.shell_error == 0) and (output:gsub('%s+', '') == '3') then
+--         return
+--       end
+--     end
+--   end
+--
+--   if vim.fn.has('win32') ~= 1 then
+--     return
+--   end
+--
+--   local fs_stat = (vim.uv or vim.loop).fs_stat
+--   local program_files = os.getenv('ProgramFiles')
+--   for _, path in ipairs({ program_files .. [[\Python311\python.exe]] }) do
+--     print(path)
+--     if fs_stat(path) then
+--       vim.g.python3_host_prog = path
+--       break
+--     end
+--   end
+-- end)()
+
 -- lazy.nvim plugin manager (https://lazy.folke.io/installation)
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
