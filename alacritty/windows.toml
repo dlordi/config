@@ -2,4 +2,4 @@
 # working_directory = "%USERPROFILE%\\Desktop" # replace "%USERPROFILE%" with its actual value
 
 [terminal]
-shell = { program = "cmd", args = ["/k", "%CMDER_ROOT%\\vendor\\init.bat"] }
+shell = { program = "cmd", args = ["/k", "%CMDER_ROOT%\\vendor\\init.bat & cd /D %USERPROFILE%\\Desktop"] }
