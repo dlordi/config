@@ -175,6 +175,7 @@ require('lazy').setup({
     end,
   },
   'tpope/vim-sleuth',
+  'tpope/vim-fugitive',
   -- {
   --   'folke/which-key.nvim',
   --   event = 'VimEnter',
