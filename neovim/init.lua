@@ -1,4 +1,4 @@
--- detect python 3 on Windows
+-- detect python 3
 (function()
   if vim.g.python3_host_prog then
     return
@@ -13,16 +13,12 @@
     end
   end
 
-  if vim.fn.has('win32') ~= 1 then
-    return
-  end
-
   local fs_stat = (vim.uv or vim.loop).fs_stat
-  local program_files = os.getenv('ProgramFiles')
-  for _, path in ipairs({ program_files .. [[\Python311\python.exe]] }) do
+  local win32_program_files = os.getenv('ProgramFiles')
+  for _, path in ipairs({ win32_program_files .. [[\Python311\python.exe]] }) do
     if fs_stat(path) then
       vim.g.python3_host_prog = path
-      break
+      return
     end
   end
 end)()
