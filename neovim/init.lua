@@ -206,6 +206,7 @@ require('lazy').setup({
   },
   'tpope/vim-sleuth',
   'tpope/vim-fugitive',
+  'Shatur/neovim-session-manager',
   -- {
   --   'folke/which-key.nvim',
   --   event = 'VimEnter',
