@@ -316,10 +316,17 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'leave TERMINAL mode, 
 -- navigation
 vim.keymap.set('n', '<Tab>', ':bnext<CR>', { desc = 'move to next buffer' })
 vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', { desc = 'move to previous buffer' })
-vim.keymap.set('n', '<Leader><S-q>', ':bd<CR>', { desc = 'close current buffer' })
 vim.keymap.set('n', '<Leader><Leader>', ':ls<CR>:b<Space>', { desc = 'show buffers, prompt to change current one' })
-vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, desc = 'scroll page down and center current line on screen' })
-vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, desc = 'scroll page up and center current line on screen' })
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'scroll page down and center current line on screen', noremap = true })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'scroll page up and center current line on screen', noremap = true })
+
+-- buffers
+vim.keymap.set({ 'i', 'n', 'v' }, 'ZX', '<Cmd>:bd<CR>', { desc = 'close current buffer', noremap = true })
+vim.keymap.set({ 'i', 'n', 'v' }, 'ZA', '<Cmd>:w<CR>', { desc = 'save current buffer', noremap = true })
+if vim.g.neovide then
+  -- 'Ctrl-S': save file (not defined in standard neovim configuration to avoid conflict with terminal)
+  vim.keymap.set({ 'i', 'n', 'v' }, '<C-s>', '<Cmd>:w<CR>', { desc = 'save current buffer', noremap = true })
+end
 
 -- command aliases to fix typos...
 vim.cmd('command! Qa :qa')
@@ -331,9 +338,3 @@ vim.cmd('command! W :w')
 -- use Shift+cursor to select
 -- vim.opt.keymodel = 'startsel,stopsel'
 -- vim.opt.selectmode = 'key'
-
-vim.keymap.set('n', 'ZA', '<Cmd>:w<CR>', { desc = 'save current buffer', noremap = true })
-if vim.g.neovide then
-  -- 'Ctrl-S': save file (not defined in standard neovim configuration to avoid conflict with terminal)
-  vim.keymap.set({ 'i', 'n', 'v' }, '<C-s>', '<Cmd>:w<CR>', { desc = 'save current buffer', noremap = true })
-end
