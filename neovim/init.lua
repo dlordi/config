@@ -206,6 +206,30 @@ require('lazy').setup({
   'tpope/vim-sleuth',
   'tpope/vim-fugitive',
   'Shatur/neovim-session-manager',
+  {
+    'folke/todo-comments.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = {}, -- required to enable the plugin with default settings
+  },
+  -- {
+  --   'Isrothy/neominimap.nvim',
+  --   version = 'v3.*.*',
+  --   enabled = true,
+  --   lazy = false, -- NOTE: NO NEED to Lazy load
+  --   init = function()
+  --     -- The following options are recommended when layout == "float"
+  --     vim.opt.wrap = false
+  --     vim.opt.sidescrolloff = 36 -- Set a large value
+  --
+  --     --- Put your configuration here
+  --     ---@type Neominimap.UserConfig
+  --     vim.g.neominimap = {
+  --       auto_enable = true,
+  --       float = { window_border = 'none' },
+  --       click = { enabled = true },
+  --     }
+  --   end,
+  -- },
 })
 
 vim.schedule(function() -- this setting is applied after `UiEnter` event because it can increase startup-time
