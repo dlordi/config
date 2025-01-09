@@ -115,6 +115,7 @@ require('lazy').setup({
             return
           end
           vim.keymap.set('n', '<Leader>re', vim.lsp.buf.rename, { buffer = event.buf, desc = 'LSP: Rename' })
+          vim.keymap.set('n', '<Leader>df', vim.lsp.buf.definition, { buffer = event.buf, desc = 'LSP: Goto defin.' })
         end,
       })
       local servers = {
@@ -197,21 +198,6 @@ require('lazy').setup({
     end,
   },
   {
-    'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      local builtin = require('telescope.builtin')
-      -- vim.keymap.set('n', '<Leader>ff', function()
-      --   builtin.find_files({ cwd = require('telescope.utils').buffer_dir() })
-      -- end, { desc = 'Telescope [F]ind [F]iles in current buffer directory' })
-      -- vim.keymap.set('n', '<Leader>df', builtin.buffers, { desc = 'Telescope Find Buffers' })
-      vim.keymap.set('n', '<Leader>km', builtin.keymaps, { desc = 'Telescope Find Keymaps' })
-      -- vim.keymap.set('n', '<Leader>fr', builtin.lsp_references, { desc = 'Telescope [F]ind [R]eferences' })
-      -- vim.keymap.set('n', '<Leader>sg', builtin.live_grep, { desc = 'Telescope [S]earch by [G]rep' })
-    end,
-  },
-  {
     'lewis6991/gitsigns.nvim',
     config = function()
       require('gitsigns').setup()
@@ -220,45 +206,6 @@ require('lazy').setup({
   'tpope/vim-sleuth',
   'tpope/vim-fugitive',
   'Shatur/neovim-session-manager',
-  -- {
-  --   'folke/which-key.nvim',
-  --   event = 'VimEnter',
-  --   opts = {
-  --     icons = {
-  --       mappings = vim.g.have_nerd_font, -- uses icon if nerd font is available
-  --       keys = vim.g.have_nerd_font and {} or { -- if nerd font is not available, list special keys string representation
-  --         Up = '<Up> ',
-  --         Down = '<Down> ',
-  --         Left = '<Left> ',
-  --         Right = '<Right> ',
-  --         C = '<C-…> ',
-  --         M = '<M-…> ',
-  --         D = '<D-…> ',
-  --         S = '<S-…> ',
-  --         CR = '<CR> ',
-  --         Esc = '<Esc> ',
-  --         ScrollWheelDown = '<ScrollWheelDown> ',
-  --         ScrollWheelUp = '<ScrollWheelUp> ',
-  --         NL = '<NL> ',
-  --         BS = '<BS> ',
-  --         Space = '<Space> ',
-  --         Tab = '<Tab> ',
-  --         F1 = '<F1>',
-  --         F2 = '<F2>',
-  --         F3 = '<F3>',
-  --         F4 = '<F4>',
-  --         F5 = '<F5>',
-  --         F6 = '<F6>',
-  --         F7 = '<F7>',
-  --         F8 = '<F8>',
-  --         F9 = '<F9>',
-  --         F10 = '<F10>',
-  --         F11 = '<F11>',
-  --         F12 = '<F12>',
-  --       },
-  --     },
-  --   },
-  -- },
 })
 
 vim.schedule(function() -- this setting is applied after `UiEnter` event because it can increase startup-time
@@ -281,7 +228,6 @@ vim.cmd('lan en_US.UTF-8') -- no translation, always use english
 vim.opt.whichwrap = 'b,s,<,>,[,]' -- wraps left/right moves to previous/next row
 vim.opt.mouse = 'a' -- enable mouse mode (useful for resizing splits, select tabs, etc...)
 vim.opt.inccommand = 'split' -- preview substitutions live, as you type
--- vim.opt.timeoutlen = 300 -- displays which-key popup sooner
 
 vim.opt.list = true -- show blanks
 vim.opt.listchars = { space = '·', tab = '⎯⎯' } -- set symbols for blanks
