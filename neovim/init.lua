@@ -28,9 +28,6 @@
 end)()
 
 if vim.g.neovide then
-  -- 'Ctrl-S': save file (not defined in standard neovim configuration to avoid conflict with terminal)
-  vim.keymap.set({ 'i', 'n', 'v' }, '<C-s>', '<Cmd>:w<CR>', { desc = 'save current buffer', noremap = true })
-
   local font_name = 'JetBrainsMonoNL NFM'
   local font_size = vim.loop.os_uname().sysname == 'Windows_NT' and '10' or '14'
   vim.o.guifont = font_name .. ':h' .. font_size
@@ -336,3 +333,7 @@ vim.cmd('command! W :w')
 -- vim.opt.selectmode = 'key'
 
 vim.keymap.set('n', 'ZA', '<Cmd>:w<CR>', { desc = 'save current buffer', noremap = true })
+if vim.g.neovide then
+  -- 'Ctrl-S': save file (not defined in standard neovim configuration to avoid conflict with terminal)
+  vim.keymap.set({ 'i', 'n', 'v' }, '<C-s>', '<Cmd>:w<CR>', { desc = 'save current buffer', noremap = true })
+end
