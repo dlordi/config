@@ -134,7 +134,7 @@ require('lazy').setup({
               -- see https://microsoft.github.io/pyright/#/settings
               pythonPath = vim.g.python3_host_prog,
               analysis = {
-                typeCheckingMode = 'basic',
+                typeCheckingMode = 'off',
                 diagnosticMode = 'openFilesOnly',
               },
             },
