@@ -27,6 +27,26 @@
   end
 end)()
 
+if vim.g.neovide then
+  -- 'Ctrl-S': save file (not defined in standard neovim configuration to avoid conflict with terminal)
+  vim.keymap.set({ 'i', 'n', 'v' }, '<C-s>', '<Cmd>:w<CR>', { desc = 'save current buffer', noremap = true })
+
+  local font_name = 'JetBrainsMonoNL NFM'
+  local font_size = vim.loop.os_uname().sysname == 'Windows_NT' and '10' or '14'
+  vim.o.guifont = font_name .. ':h' .. font_size
+
+  -- enable MacOS "Command" key
+  vim.g.neovide_input_use_logo = 1
+
+  -- enable MacOS system clipboard
+  vim.keymap.set('', '<D-v>', '+p<CR>', { noremap = true, silent = true })
+  vim.keymap.set({ '!', 't', 'v' }, '<D-v>', '<C-R>+', { noremap = true, silent = true })
+
+  -- enable Windows system clipboard
+  vim.keymap.set('i', '<C-v>', '<C-R>+', { noremap = true, silent = true })
+  vim.keymap.set('!', '<S-Insert>', '<C-R>+', { noremap = true, silent = true })
+end
+
 -- lazy.nvim plugin manager (https://lazy.folke.io/installation)
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
@@ -316,23 +336,3 @@ vim.cmd('command! W :w')
 -- vim.opt.selectmode = 'key'
 
 vim.keymap.set('n', 'ZA', '<Cmd>:w<CR>', { desc = 'save current buffer', noremap = true })
-
-if vim.g.neovide then
-  -- 'Ctrl-S': save file (not defined in standard neovim configuration to avoid conflict with terminal)
-  vim.keymap.set({ 'i', 'n', 'v' }, '<C-s>', '<Cmd>:w<CR>', { desc = 'save current buffer', noremap = true })
-
-  local font_name = 'JetBrainsMonoNL NFM'
-  local font_size = vim.loop.os_uname().sysname == 'Windows_NT' and '10' or '14'
-  vim.o.guifont = font_name .. ':h' .. font_size
-
-  -- enable MacOS "Command" key
-  vim.g.neovide_input_use_logo = 1
-
-  -- enable MacOS system clipboard
-  vim.keymap.set('', '<D-v>', '+p<CR>', { noremap = true, silent = true })
-  vim.keymap.set({ '!', 't', 'v' }, '<D-v>', '<C-R>+', { noremap = true, silent = true })
-
-  -- enable Windows system clipboard
-  vim.keymap.set('i', '<C-v>', '<C-R>+', { noremap = true, silent = true })
-  vim.keymap.set('!', '<S-Insert>', '<C-R>+', { noremap = true, silent = true })
-end
