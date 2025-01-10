@@ -8,7 +8,6 @@ if package.config:sub(1, 1) == "\\" then
   config.default_cwd = os.getenv("USERPROFILE") .. "\\Desktop"
 end
 
--- config.font = wezterm.font("JetBrainsMonoNL Nerd Font")
 config.font = wezterm.font("JetBrainsMonoNL NFM")
 config.font_size = 10
 config.enable_tab_bar = false

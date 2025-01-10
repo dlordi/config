@@ -2,7 +2,7 @@
   "telemetry.telemetryLevel": "off",
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "editor.fontFamily": "'JetBrainsMono Nerd Font', Hack, 'Fira Code', Consolas, 'Courier New', monospace",
+  "editor.fontFamily": "'JetBrainsMonoNL NFM', Hack, 'Fira Code', Consolas, 'Courier New', monospace",
   "editor.guides.indentation": true,
   "editor.rulers": [80, 120],
   "editor.renderWhitespace": "all",
