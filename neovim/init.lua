@@ -211,25 +211,39 @@ require('lazy').setup({
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {}, -- required to enable the plugin with default settings
   },
-  -- {
-  --   'Isrothy/neominimap.nvim',
-  --   version = 'v3.*.*',
-  --   enabled = true,
-  --   lazy = false, -- NOTE: NO NEED to Lazy load
-  --   init = function()
-  --     -- The following options are recommended when layout == "float"
-  --     vim.opt.wrap = false
-  --     vim.opt.sidescrolloff = 36 -- Set a large value
-  --
-  --     --- Put your configuration here
-  --     ---@type Neominimap.UserConfig
-  --     vim.g.neominimap = {
-  --       auto_enable = true,
-  --       float = { window_border = 'none' },
-  --       click = { enabled = true },
-  --     }
-  --   end,
-  -- },
+  {
+    'RRethy/vim-illuminate',
+    config = function()
+      local illuminate = require('illuminate')
+      illuminate.configure({
+        providers = {
+          'regex',
+          -- 'lsp',
+          -- 'treesitter',
+        },
+      })
+      -- vim.keymap.set('n', '<A-Right>', illuminate.goto_next_reference)
+      -- vim.keymap.set('n', '<A-Left>', illuminate.goto_prev_reference)
+    end,
+  },
+  {
+    'lewis6991/satellite.nvim',
+    config = function()
+      require('satellite').setup({
+        winblend = 0,
+        handlers = {
+          cursor = { enable = false },
+          search = { enable = false },
+          diagnostic = {
+            signs = { '━', '━', '━' },
+            -- min_severity = vim.diagnostic.severity.HINT,
+          },
+          gitsigns = { signs = { add = '┃', change = '┃', delete = '━' } },
+          marks = { enable = true },
+        },
+      })
+    end,
+  },
 })
 
 vim.schedule(function() -- this setting is applied after `UiEnter` event because it can increase startup-time
