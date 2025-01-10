@@ -119,6 +119,15 @@ require('lazy').setup({
         end,
       })
       local servers = {
+        lua_ls = {
+          settings = {
+            Lua = {
+              diagnostics = { globals = { 'vim' } },
+              -- workspace = { checkThirdParty = false, library = { vim.env.VIMRUNTIME } },
+              telemetry = { enable = false },
+            },
+          },
+        },
         pyright = {
           settings = {
             pyright = {
@@ -150,7 +159,7 @@ require('lazy').setup({
       require('mason-tool-installer').setup({
         ensure_installed = {
           'stylua',
-          -- 'lua_ls', NOTE: also install "folke/lazydev"
+          'lua_ls',
           'prettier',
           'pyright',
           -- 'gopls',
