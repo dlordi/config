@@ -64,6 +64,9 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- configure wellle/context.vim before the plugin is loaded
+vim.g.context_max_height = 5
+
 require('lazy').setup({
   {
     'Mofiqul/vscode.nvim',
@@ -99,7 +102,7 @@ require('lazy').setup({
       })
     end,
   },
-  -- { 'nvim-treesitter/nvim-treesitter-context' },
+  { 'wellle/context.vim' },
   {
     'neovim/nvim-lspconfig',
     dependencies = {
