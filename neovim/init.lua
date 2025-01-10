@@ -309,8 +309,12 @@ vim.keymap.set('n', 'U', '<C-r>', { desc = 'redo', noremap = true })
 vim.keymap.set('n', '<Tab>', ':bnext<CR>', { desc = 'move to next buffer' })
 vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', { desc = 'move to previous buffer' })
 vim.keymap.set('n', '<Leader><Leader>', ':ls<CR>:b<Space>', { desc = 'show buffers and prompt to change current one' })
-vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'scroll page down and center current line on screen', noremap = true })
-vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'scroll page up and center current line on screen', noremap = true })
+for _, lhs in pairs({ '<C-d>', '<PageDown>' }) do
+  vim.keymap.set('n', lhs, '<C-d>zz', { desc = 'scroll page down and center current line on screen', noremap = true })
+end
+for _, lhs in pairs({ '<C-u>', '<PageUp>' }) do
+  vim.keymap.set('n', lhs, '<C-u>zz', { desc = 'scroll page up and center current line on screen', noremap = true })
+end
 vim.keymap.set('n', 'n', 'nzzzv', { desc = 'repeat search forward and center current line on screen', noremap = true })
 vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'repeat search backward and center current line on screen', noremap = true })
 
