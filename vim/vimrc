@@ -15,13 +15,12 @@ set mouse=a " enable mouse in all modes
 " 'jk' leave INSERT mode, enter NORMAL mode
 imap jk <Esc>
 
-" 'Ctrl-s' save current file
-:nmap <C-s> :w<CR>
-:imap <C-s> <C-o>:w<CR>
-
-" ':Q' aliases ':q' to fix typos...
+" command aliases to fix typos...
 command! Qa :qa
 command! Q :q
+command! Wqa :wqa
+command! Wq :wq
+command! W :w
 
 " '%%' is shortcut for current file directory in COMMAND mode
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
