@@ -290,6 +290,10 @@ require('lazy').setup({
       })
     end,
   },
+  -- {
+  --   'stevearc/oil.nvim',
+  --   opts = {},
+  -- },
 })
 
 vim.schedule(function() -- this setting is applied after `UiEnter` event because it can increase startup-time
