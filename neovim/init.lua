@@ -290,6 +290,11 @@ require('lazy').setup({
       })
     end,
   },
+  {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    config = true,
+  },
   -- {
   --   'stevearc/oil.nvim',
   --   opts = {},
