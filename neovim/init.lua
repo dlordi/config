@@ -67,6 +67,88 @@ vim.g.maplocalleader = ' '
 -- configure wellle/context.vim before the plugin is loaded
 vim.g.context_max_height = 5
 
+vim.schedule(function() -- this setting is applied after `UiEnter` event because it can increase startup-time
+  vim.opt.clipboard = 'unnamedplus' -- use system clipboard for copy (aka yank) / paste
+end)
+vim.opt.number = true -- show line numbers
+vim.opt.relativenumber = true -- show line number offsets
+-- do not show line number offsets in insert mode
+vim.api.nvim_create_autocmd({ 'InsertEnter', 'InsertLeave' }, {
+  group = vim.api.nvim_create_augroup('toggle-relativenumber', { clear = true }),
+  callback = function(ev)
+    vim.opt.relativenumber = ev.event == 'InsertLeave'
+  end,
+})
+vim.opt.cursorline = true -- highlight current line
+vim.opt.signcolumn = 'yes:2' -- extra columns to show line info
+vim.opt.wrap = false -- wrap off
+vim.opt.colorcolumn = '120' -- show columns margins
+vim.cmd('lan en_US.UTF-8') -- no translation, always use english
+vim.opt.whichwrap = 'b,s,<,>,[,]' -- wraps left/right moves to previous/next row
+vim.opt.mouse = 'a' -- enable mouse mode (useful for resizing splits, select tabs, etc...)
+vim.opt.inccommand = 'split' -- preview substitutions live, as you type
+
+vim.opt.list = true -- show blanks
+vim.opt.listchars = { space = '·', tab = '⎯⎯' } -- set symbols for blanks
+
+-- turn tabs into 2 spaces (same as "vim: ts=2 sts=2 sw=2 et" modeline)
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+
+-- highlight when copying (aka yanking) text
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'highlight when copying (aka yanking) text',
+  group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 300 })
+  end,
+})
+
+vim.keymap.set('i', 'jk', '<Esc>', { desc = 'leave INSERT mode, enter NORMAL mode' })
+vim.keymap.set('i', 'kj', '<C-o>', { desc = 'leave INSERT mode, enter NORMAL mode for one command only' })
+vim.keymap.set('i', '<C-Space>', '<C-n>', { desc = 'suggest completion' })
+vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>', { desc = 'clear search highlights' })
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'leave TERMINAL mode, enter NORMAL mode' })
+
+-- editing
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'move selection one row up' })
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'move selection one row down' })
+vim.keymap.set('n', 'U', '<C-r>', { desc = 'redo', noremap = true })
+
+-- navigation
+vim.keymap.set('n', '<Tab>', ':bnext<CR>', { desc = 'move to next buffer' })
+vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', { desc = 'move to previous buffer' })
+vim.keymap.set('n', '<Leader><Leader>', ':ls<CR>:b<Space>', { desc = 'show buffers and prompt to change current one' })
+for _, lhs in pairs({ '<C-d>', '<PageDown>' }) do
+  vim.keymap.set('n', lhs, '<C-d>zz', { desc = 'scroll page down and center current line on screen', noremap = true })
+end
+for _, lhs in pairs({ '<C-u>', '<PageUp>' }) do
+  vim.keymap.set('n', lhs, '<C-u>zz', { desc = 'scroll page up and center current line on screen', noremap = true })
+end
+vim.keymap.set('n', 'n', 'nzzzv', { desc = 'repeat search forward and center current line on screen', noremap = true })
+vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'repeat search backward and center current line on screen', noremap = true })
+
+-- buffers management
+vim.keymap.set({ 'i', 'n', 'v' }, 'ZX', '<Cmd>:bd<CR>', { desc = 'close current buffer', noremap = true })
+vim.keymap.set({ 'i', 'n', 'v' }, 'ZA', '<Cmd>:w<CR>', { desc = 'save current buffer', noremap = true })
+if vim.g.neovide then
+  -- 'Ctrl-S': save file (not defined in standard neovim configuration to avoid conflict with terminal)
+  vim.keymap.set({ 'i', 'n', 'v' }, '<C-s>', '<Cmd>:w<CR>', { desc = 'save current buffer', noremap = true })
+end
+
+-- command aliases to fix typos...
+vim.cmd('command! Qa :qa')
+vim.cmd('command! Q :q')
+vim.cmd('command! Wqa :wqa')
+vim.cmd('command! Wq :wq')
+vim.cmd('command! W :w')
+
+-- use Shift+cursor to select
+-- vim.opt.keymodel = 'startsel,stopsel'
+-- vim.opt.selectmode = 'key'
+
 require('lazy').setup({
   {
     'Mofiqul/vscode.nvim',
@@ -300,85 +382,3 @@ require('lazy').setup({
   --   opts = {},
   -- },
 })
-
-vim.schedule(function() -- this setting is applied after `UiEnter` event because it can increase startup-time
-  vim.opt.clipboard = 'unnamedplus' -- use system clipboard for copy (aka yank) / paste
-end)
-vim.opt.number = true -- show line numbers
-vim.opt.relativenumber = true -- show line number offsets
--- do not show line number offsets in insert mode
-vim.api.nvim_create_autocmd({ 'InsertEnter', 'InsertLeave' }, {
-  group = vim.api.nvim_create_augroup('toggle-relativenumber', { clear = true }),
-  callback = function(ev)
-    vim.opt.relativenumber = ev.event == 'InsertLeave'
-  end,
-})
-vim.opt.cursorline = true -- highlight current line
-vim.opt.signcolumn = 'yes:2' -- extra columns to show line info
-vim.opt.wrap = false -- wrap off
-vim.opt.colorcolumn = '120' -- show columns margins
-vim.cmd('lan en_US.UTF-8') -- no translation, always use english
-vim.opt.whichwrap = 'b,s,<,>,[,]' -- wraps left/right moves to previous/next row
-vim.opt.mouse = 'a' -- enable mouse mode (useful for resizing splits, select tabs, etc...)
-vim.opt.inccommand = 'split' -- preview substitutions live, as you type
-
-vim.opt.list = true -- show blanks
-vim.opt.listchars = { space = '·', tab = '⎯⎯' } -- set symbols for blanks
-
--- turn tabs into 2 spaces (same as "vim: ts=2 sts=2 sw=2 et" modeline)
-vim.opt.expandtab = true
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-
--- highlight when copying (aka yanking) text
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'highlight when copying (aka yanking) text',
-  group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 300 })
-  end,
-})
-
-vim.keymap.set('i', 'jk', '<Esc>', { desc = 'leave INSERT mode, enter NORMAL mode' })
-vim.keymap.set('i', 'kj', '<C-o>', { desc = 'leave INSERT mode, enter NORMAL mode for one command only' })
-vim.keymap.set('i', '<C-Space>', '<C-n>', { desc = 'suggest completion' })
-vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>', { desc = 'clear search highlights' })
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'leave TERMINAL mode, enter NORMAL mode' })
-
--- editing
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'move selection one row up' })
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'move selection one row down' })
-vim.keymap.set('n', 'U', '<C-r>', { desc = 'redo', noremap = true })
-
--- navigation
-vim.keymap.set('n', '<Tab>', ':bnext<CR>', { desc = 'move to next buffer' })
-vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', { desc = 'move to previous buffer' })
-vim.keymap.set('n', '<Leader><Leader>', ':ls<CR>:b<Space>', { desc = 'show buffers and prompt to change current one' })
-for _, lhs in pairs({ '<C-d>', '<PageDown>' }) do
-  vim.keymap.set('n', lhs, '<C-d>zz', { desc = 'scroll page down and center current line on screen', noremap = true })
-end
-for _, lhs in pairs({ '<C-u>', '<PageUp>' }) do
-  vim.keymap.set('n', lhs, '<C-u>zz', { desc = 'scroll page up and center current line on screen', noremap = true })
-end
-vim.keymap.set('n', 'n', 'nzzzv', { desc = 'repeat search forward and center current line on screen', noremap = true })
-vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'repeat search backward and center current line on screen', noremap = true })
-
--- buffers management
-vim.keymap.set({ 'i', 'n', 'v' }, 'ZX', '<Cmd>:bd<CR>', { desc = 'close current buffer', noremap = true })
-vim.keymap.set({ 'i', 'n', 'v' }, 'ZA', '<Cmd>:w<CR>', { desc = 'save current buffer', noremap = true })
-if vim.g.neovide then
-  -- 'Ctrl-S': save file (not defined in standard neovim configuration to avoid conflict with terminal)
-  vim.keymap.set({ 'i', 'n', 'v' }, '<C-s>', '<Cmd>:w<CR>', { desc = 'save current buffer', noremap = true })
-end
-
--- command aliases to fix typos...
-vim.cmd('command! Qa :qa')
-vim.cmd('command! Q :q')
-vim.cmd('command! Wqa :wqa')
-vim.cmd('command! Wq :wq')
-vim.cmd('command! W :w')
-
--- use Shift+cursor to select
--- vim.opt.keymodel = 'startsel,stopsel'
--- vim.opt.selectmode = 'key'
