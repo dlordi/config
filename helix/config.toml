@@ -46,10 +46,10 @@ C-c = "normal_mode" # Maps Ctrl-c to force normal mode (kinda like Escape)
 # "C-ù" = "toggle_line_comments"
 D = ["ensure_selections_forward", "extend_to_line_end", "delete_selection"]
 G = ["goto_last_line"]
-# a = "insert_mode"
-# i = "move_line_up"
-# j = "move_char_left"
-# k = "move_line_down"
+n = ["search_next", "align_view_center"]
+N = ["search_prev", "align_view_center"]
+C-u = ["page_cursor_half_up", "align_view_center"]
+C-d = ["page_cursor_half_down", "align_view_center"]
 
 [keys.insert]
 C-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
