@@ -64,8 +64,8 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- configure wellle/context.vim before the plugin is loaded
-vim.g.context_max_height = 5
+-- -- configure wellle/context.vim before the plugin is loaded
+-- vim.g.context_max_height = 5
 
 vim.schedule(function() -- this setting is applied after `UiEnter` event because it can increase startup-time
   vim.opt.clipboard = 'unnamedplus' -- use system clipboard for copy (aka yank) / paste
@@ -105,6 +105,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 300 })
   end,
 })
+
+-- trim trailing whitespaces on save
+-- vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+--   desc = '',
+--   group = vim.api.nvim_create_augroup('trim-trailing-whitespace', { clear = true }),
+--   pattern = '*',
+--   command = [[%s/\s+$//e]],
+-- })
 
 vim.keymap.set('i', 'jk', '<Esc>', { desc = 'leave INSERT mode, enter NORMAL mode' })
 vim.keymap.set('i', 'kj', '<C-o>', { desc = 'leave INSERT mode, enter NORMAL mode for one command only' })
@@ -184,7 +192,7 @@ require('lazy').setup({
       })
     end,
   },
-  { 'wellle/context.vim' },
+  -- { 'wellle/context.vim' },
   {
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -378,7 +386,17 @@ require('lazy').setup({
     config = true,
   },
   -- {
-  --   'stevearc/oil.nvim',
-  --   opts = {},
+  --   'folke/snacks.nvim',
+  --   priority = 1000,
+  --   lazy = false,
+  --   config = function()
+  --     local Snacks = require('snacks')
+  --     Snacks.setup({
+  --       terminal = { enabled = true },
+  --     })
+  --     vim.keymap.set('n', '<Leader>gg', function()
+  --       Snacks.terminal.open('lazygit')
+  --     end)
+  --   end,
   -- },
 })
