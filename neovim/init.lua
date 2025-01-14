@@ -292,11 +292,15 @@ require('lazy').setup({
           -- go = { 'goimports' },
           -- c = { 'clang-format' },
         },
-        format_on_save = {
-          lsp_fallback = true,
-          async = false,
-          timeout_ms = 500,
-        },
+        format_on_save = function(buffer)
+          if vim.bo[buffer].filetype == 'lua' then
+            return {
+              lsp_fallback = true,
+              async = false,
+              timeout_ms = 500,
+            }
+          end
+        end,
       })
     end,
   },
