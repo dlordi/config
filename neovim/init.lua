@@ -304,38 +304,27 @@ require('lazy').setup({
     'lewis6991/gitsigns.nvim',
     config = function()
       require('gitsigns').setup({
-        -- on_attach = function(buffer)
-        --   local map = function (l, r, opts)
-        --     opts = opts or {}
-        --     opts.buffer = buffer
-        --     vim.keymap.set('n', l, r, opts)
-        --   end
-        --
-        --   local gitsigns = require('gitsigns')
-        --
-        --   map(']]', function()
-        --     if vim.wo.diff then
-        --       vim.cmd.normal({ ']]', bang = true })
-        --     else
-        --       gitsigns.nav_hunk('next')
-        --     end
-        --   end)
-        --   map('[[', function()
-        --     if vim.wo.diff then
-        --       vim.cmd.normal({ '[[', bang = true })
-        --     else
-        --       gitsigns.nav_hunk('prev')
-        --     end
-        --   end)
-        --
-        --   -- map('<leader>hS', gitsigns.stage_buffer)
-        --   -- map('<leader>hu', gitsigns.undo_stage_hunk)
-        --   -- map('<leader>hR', gitsigns.reset_buffer)
-        --   -- map('<leader>hp', gitsigns.preview_hunk)
-        --   map('<leader>hd', function()
-        --     gitsigns.diffthis('HEAD')
-        --   end)
-        -- end,
+        on_attach = function(buffer)
+          local gitsigns = require('gitsigns')
+
+          vim.keymap.set('n', ']]', function()
+            if vim.wo.diff then
+              vim.cmd.normal({ ']]', bang = true })
+            else
+              gitsigns.nav_hunk('next')
+              gitsigns.preview_hunk()
+            end
+          end, { desc = 'preview next hunk', buffer = buffer })
+
+          vim.keymap.set('n', '[[', function()
+            if vim.wo.diff then
+              vim.cmd.normal({ '[[', bang = true })
+            else
+              gitsigns.nav_hunk('prev')
+              gitsigns.preview_hunk()
+            end
+          end, { desc = 'preview previous hunk', buffer = buffer })
+        end,
       })
     end,
   },
