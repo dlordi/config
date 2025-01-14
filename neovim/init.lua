@@ -385,6 +385,13 @@ require('lazy').setup({
     event = 'InsertEnter',
     config = true,
   },
+  {
+    'stevearc/oil.nvim',
+    config = function()
+      require('oil').setup()
+      vim.keymap.set('n', '<Leader>a', require('oil').toggle_float)
+    end,
+  },
   -- {
   --   'folke/snacks.nvim',
   --   priority = 1000,
