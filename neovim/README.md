@@ -14,6 +14,7 @@
     ```
 
 - the easiest way to use `treesitter` plugin is to install the zig compiler
+
   - on Windows, use following commands to install
     ```bat
     winget install --source winget --interactive --exact --id zig.zig

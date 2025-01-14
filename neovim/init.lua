@@ -147,11 +147,11 @@ if vim.g.neovide then
 end
 
 -- command aliases to fix typos...
-vim.cmd('command! Qa :qa')
-vim.cmd('command! Q :q')
-vim.cmd('command! Wqa :wqa')
-vim.cmd('command! Wq :wq')
-vim.cmd('command! W :w')
+vim.cmd.command({ 'Qa :qa', bang = true }) -- vim.cmd('command! Qa :qa')
+vim.cmd.command({ 'Q :q', bang = true }) -- vim.cmd('command! Q :q')
+vim.cmd.command({ 'Wqa :wqa', bang = true }) -- vim.cmd('command! Wqa :wqa')
+vim.cmd.command({ 'Wq :wq', bang = true }) -- vim.cmd('command! Wq :wq')
+vim.cmd.command({ 'W :w', bang = true }) -- vim.cmd('command! W :w')
 
 -- use Shift+cursor to select
 -- vim.opt.keymodel = 'startsel,stopsel'
