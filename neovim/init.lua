@@ -399,4 +399,10 @@ require('lazy').setup({
   --     end)
   --   end,
   -- },
+  {
+    dir = vim.fn.stdpath('config') .. '/plugins/sample.nvim',
+    config = function()
+      require('sample').setup()
+    end,
+  },
 })
