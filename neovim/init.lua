@@ -76,7 +76,10 @@ vim.opt.relativenumber = true -- show line number offsets
 vim.api.nvim_create_autocmd({ 'InsertEnter', 'InsertLeave' }, {
   group = vim.api.nvim_create_augroup('toggle-relativenumber', { clear = true }),
   callback = function(ev)
-    vim.opt.relativenumber = ev.event == 'InsertLeave'
+    local win = vim.api.nvim_get_current_win()
+    if vim.wo[win].number then
+      vim.wo[win].relativenumber = ev.event == 'InsertLeave'
+    end
   end,
 })
 vim.opt.cursorline = true -- highlight current line
