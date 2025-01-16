@@ -15,6 +15,10 @@ set mouse=a " enable mouse in all modes
 " 'jk' leave INSERT mode, enter NORMAL mode
 imap jk <Esc>
 
+" use Tab and Shift-Tab to indent/unindent in VISUAL mode
+vmap <Tab> >gv
+vmap <S-Tab> <gv
+
 " command aliases to fix typos...
 command! Qa :qa
 command! Q :q

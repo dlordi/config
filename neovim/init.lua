@@ -126,6 +126,8 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'leave TERMINAL mode, 
 -- editing
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'move selection one row up' })
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'move selection one row down' })
+vim.keymap.set('v', '<Tab>', '>gv', { desc = 'indent in VISUAL mode' })
+vim.keymap.set('v', '<S-Tab>', '<gv', { desc = 'unindent in VISUAL mode' })
 vim.keymap.set('n', 'U', '<C-r>', { desc = 'redo', noremap = true })
 
 -- navigation
