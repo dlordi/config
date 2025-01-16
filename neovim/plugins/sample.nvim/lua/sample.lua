@@ -23,23 +23,26 @@ local create_win_config = function()
   local height = math.floor(vim.o.lines * 0.8)
 
   return {
+    title = 'Title of sample.nvim',
     relative = 'editor',
     style = 'minimal',
     border = 'rounded',
     width = width,
     height = height,
     col = (vim.o.columns - width) / 2,
-    row = (vim.o.lines - height) / 2,
+    row = (vim.o.lines - height) / 2 - 1,
   }
 end
 
 M.sample = function(lines)
   local buf = vim.api.nvim_create_buf(false, true)
   vim.api.nvim_buf_set_lines(buf, 0, -1, true, lines)
+  vim.api.nvim_buf_add_highlight(buf, -1, 'String', 0, 0, -1)
   vim.keymap.set('n', 'x', on_select, { buffer = buf })
   vim.keymap.set('n', 'q', on_quit, { buffer = buf })
 
   local win = vim.api.nvim_open_win(buf, true, create_win_config())
+  vim.api.nvim_create_autocmd('WinLeave', { callback = on_quit })
   vim.api.nvim_create_autocmd('VimResized', {
     group = vim.api.nvim_create_augroup('sample-VimResized', {}),
     callback = function()
