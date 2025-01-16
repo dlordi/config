@@ -18,13 +18,11 @@ local on_quit = function()
   pcall(vim.api.nvim_win_close, win, true)
 end
 
-M.sample = function(lines)
-  local buf = vim.api.nvim_create_buf(false, true)
-  vim.api.nvim_buf_set_lines(buf, 0, -1, true, lines)
-
+local create_win_config = function()
   local width = math.floor(vim.o.columns * 0.8)
   local height = math.floor(vim.o.lines * 0.8)
-  vim.api.nvim_open_win(buf, true, {
+
+  return {
     relative = 'editor',
     style = 'minimal',
     border = 'rounded',
@@ -32,9 +30,26 @@ M.sample = function(lines)
     height = height,
     col = (vim.o.columns - width) / 2,
     row = (vim.o.lines - height) / 2,
-  })
+  }
+end
+
+M.sample = function(lines)
+  local buf = vim.api.nvim_create_buf(false, true)
+  vim.api.nvim_buf_set_lines(buf, 0, -1, true, lines)
   vim.keymap.set('n', 'x', on_select, { buffer = buf })
   vim.keymap.set('n', 'q', on_quit, { buffer = buf })
+
+  local win = vim.api.nvim_open_win(buf, true, create_win_config())
+  vim.api.nvim_create_autocmd('VimResized', {
+    group = vim.api.nvim_create_augroup('sample-VimResized', {}),
+    callback = function()
+      if not vim.api.nvim_win_is_valid(win) then
+        -- handles closed window
+        return
+      end
+      vim.api.nvim_win_set_config(win, create_win_config())
+    end,
+  })
 end
 
 -- vim.keymap.set('n', '<Leader>la', function()
