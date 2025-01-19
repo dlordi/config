@@ -312,10 +312,9 @@ require('lazy').setup({
   {
     'lewis6991/gitsigns.nvim',
     config = function()
-      require('gitsigns').setup({
+      local gitsigns = require('gitsigns')
+      gitsigns.setup({
         on_attach = function(buffer)
-          local gitsigns = require('gitsigns')
-
           vim.keymap.set('n', ']]', function()
             if vim.wo.diff then
               vim.cmd.normal({ ']]', bang = true })
@@ -386,8 +385,9 @@ require('lazy').setup({
   {
     'stevearc/oil.nvim',
     config = function()
-      require('oil').setup()
-      vim.keymap.set('n', '<Leader>a', require('oil').toggle_float)
+      local oil = require('oil')
+      oil.setup()
+      vim.keymap.set('n', '<Leader>a', oil.toggle_float)
     end,
   },
   -- {
