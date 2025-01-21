@@ -397,10 +397,12 @@ require('lazy').setup({
   --   config = function()
   --     local Snacks = require('snacks')
   --     Snacks.setup({
-  --       terminal = { enabled = true },
+  --       lazygit = { enabled = true },
+  --       -- terminal = { enabled = true },
   --     })
   --     vim.keymap.set('n', '<Leader>gg', function()
-  --       Snacks.terminal.open('lazygit')
+  --       Snacks.lazygit.open()
+  --       -- Snacks.terminal.open('lazygit')
   --     end)
   --   end,
   -- },
