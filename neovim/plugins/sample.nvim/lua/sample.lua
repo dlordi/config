@@ -37,6 +37,8 @@ end
 M.sample = function(lines)
   local buf = vim.api.nvim_create_buf(false, true)
   vim.api.nvim_buf_set_lines(buf, 0, -1, true, lines)
+  -- modifiable must be disabled AFTER its content has been set/changed!
+  vim.api.nvim_set_option_value('modifiable', false, { buf = buf })
   vim.api.nvim_buf_add_highlight(buf, -1, 'String', 0, 0, -1)
   vim.keymap.set('n', 'x', on_select, { buffer = buf })
   vim.keymap.set('n', 'q', on_quit, { buffer = buf })
