@@ -171,7 +171,7 @@ require('lazy').setup({
         color_overrides = {
           vscBack = '#000000',
           vscPopupBack = '#000000',
-          vscCursorDarkDark = '#000000',
+          -- vscCursorDarkDark = '#000000', -- this is used to highlight the column sign...
         },
       })
       vim.cmd.colorscheme('vscode')
@@ -395,7 +395,8 @@ require('lazy').setup({
     config = function()
       require('neo-tree').setup()
       vim.keymap.set('n', '\\', function()
-        vim.cmd('Neotree source=filesystem toggle dir=' .. vim.fn.expand('%:p:h'))
+        local dir = vim.fn.expand('%:p:h'):gsub(' ', '\\ ') -- escape spaces in directory name that could cause issues
+        vim.cmd('Neotree source=filesystem toggle dir=' .. dir)
       end)
     end,
   },
