@@ -170,6 +170,8 @@ require('lazy').setup({
       require('vscode').setup({
         color_overrides = {
           vscBack = '#000000',
+          vscPopupBack = '#000000',
+          vscCursorDarkDark = '#000000',
         },
       })
       vim.cmd.colorscheme('vscode')
