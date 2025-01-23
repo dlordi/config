@@ -383,11 +383,18 @@ require('lazy').setup({
     config = true,
   },
   {
-    'stevearc/oil.nvim',
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v3.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+      'MunifTanjim/nui.nvim',
+    },
     config = function()
-      local oil = require('oil')
-      oil.setup()
-      vim.keymap.set('n', '<Leader>a', oil.toggle_float)
+      require('neo-tree').setup()
+      vim.keymap.set('n', '\\', function()
+        vim.cmd('Neotree source=filesystem toggle dir=' .. vim.fn.expand('%:p:h'))
+      end)
     end,
   },
   -- {
