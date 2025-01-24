@@ -15,6 +15,8 @@ end
 
 local on_quit = function()
   local win = 0
+  local buf = vim.api.nvim_win_get_buf(win)
+  vim.api.nvim_buf_delete(buf, {force=true})
   pcall(vim.api.nvim_win_close, win, true)
 end
 
@@ -39,12 +41,12 @@ M.sample = function(lines)
   vim.api.nvim_buf_set_lines(buf, 0, -1, true, lines)
   -- modifiable must be disabled AFTER its content has been set/changed!
   vim.api.nvim_set_option_value('modifiable', false, { buf = buf })
-  vim.api.nvim_buf_add_highlight(buf, -1, 'String', 0, 0, -1)
+  -- vim.api.nvim_buf_add_highlight(buf, -1, 'String', 0, 0, -1)
   vim.keymap.set('n', 'x', on_select, { buffer = buf })
   vim.keymap.set('n', 'q', on_quit, { buffer = buf })
 
   local win = vim.api.nvim_open_win(buf, true, create_win_config())
-  vim.api.nvim_create_autocmd('WinLeave', { callback = on_quit })
+  vim.api.nvim_create_autocmd('WinLeave', { callback = on_quit, buffer = buf })
   vim.api.nvim_create_autocmd('VimResized', {
     group = vim.api.nvim_create_augroup('sample-VimResized', {}),
     callback = function()
@@ -57,8 +59,16 @@ M.sample = function(lines)
   })
 end
 
--- vim.keymap.set('n', '<Leader>la', function()
---   local lines = { 'sample.nvim line 1', 'sample.nvim line 2', 'sample.nvim line 3' }
+-- vim.keymap.set('n', '<Leader>ls', function()
+--   local buffers = {}
+--   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+--     buffers[buf] = vim.api.nvim_buf_get_name(buf)
+--   end
+--
+--   local lines = {}
+--   for buf, name in pairs(buffers) do
+--     table.insert(lines, buf .. ': ' .. name)
+--   end
 --   M.sample(lines)
 -- end)
 
