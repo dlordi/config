@@ -393,10 +393,20 @@ require('lazy').setup({
       'MunifTanjim/nui.nvim',
     },
     config = function()
-      require('neo-tree').setup()
+      require('neo-tree').setup({
+        filesystem = {
+          follow_current_file = {
+            enabled = true,
+          },
+        },
+      })
       vim.keymap.set('n', '\\', function()
         local dir = vim.fn.expand('%:p:h'):gsub(' ', '\\ ') -- escape spaces in directory name that could cause issues
         vim.cmd('Neotree source=filesystem toggle dir=' .. dir)
+      end)
+      vim.keymap.set('n', '|', function()
+        local dir = vim.fn.expand('%:p:h'):gsub(' ', '\\ ') -- escape spaces in directory name that could cause issues
+        vim.cmd('Neotree source=git_status toggle dir=' .. dir)
       end)
     end,
   },
