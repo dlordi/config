@@ -404,6 +404,10 @@ require('lazy').setup({
         local dir = vim.fn.expand('%:p:h'):gsub(' ', '\\ ') -- escape spaces in directory name that could cause issues
         vim.cmd('Neotree source=filesystem toggle dir=' .. dir)
       end)
+      vim.keymap.set('n', '|', function()
+        local dir = vim.fn.expand('%:p:h'):gsub(' ', '\\ ') -- escape spaces in directory name that could cause issues
+        vim.cmd('Neotree source=git_status toggle dir=' .. dir)
+      end)
     end,
   },
   -- {
