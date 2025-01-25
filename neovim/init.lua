@@ -411,6 +411,15 @@ require('lazy').setup({
     end,
   },
   -- {
+  --   'nvim-telescope/telescope.nvim',
+  --   tag = '0.1.8',
+  --   dependencies = { 'nvim-lua/plenary.nvim' },
+  --   config = function()
+  --     local builtin = require('telescope.builtin')
+  --     vim.keymap.set('n', '<Leader>ls', builtin.buffers, { desc = 'Telescope buffers' })
+  --   end,
+  -- },
+  -- {
   --   'folke/snacks.nvim',
   --   priority = 1000,
   --   lazy = false,
