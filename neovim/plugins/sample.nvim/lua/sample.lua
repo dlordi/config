@@ -1,7 +1,7 @@
 local M = {}
 
-M.setup = function()
-  print('sample.nvim loaded')
+M.setup = function(opts)
+  opts = opts or {}
 end
 
 local on_quit = function()
@@ -66,7 +66,5 @@ M.sample = function()
     end,
   })
 end
-
-vim.keymap.set('n', '<Leader>ls', M.sample)
 
 return M
