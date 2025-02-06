@@ -426,16 +426,18 @@ require('lazy').setup({
   --   config = function()
   --     local Snacks = require('snacks')
   --     Snacks.setup({
-  --       picker = { enabled = true },
   --       lazygit = { enabled = true },
   --       -- terminal = { enabled = true },
   --     })
-  --     vim.keymap.set('n', '<Leader><Leader>', Snacks.picker.buffers, { desc = 'Snacks picker buffers' })
-  --     vim.keymap.set('n', '<Leader>\\', Snacks.picker.files, { desc = 'Snacks picker files' })
-  --     vim.keymap.set('n', '<Leader>gg', function()
-  --       Snacks.lazygit.open()
-  --       -- Snacks.terminal.open('lazygit')
-  --     end)
+  --     vim.keymap.set('n', '<Leader>\\', function ()
+  --       Snacks.picker.files()
+  --     end, { desc = 'Snacks picker files' })
+  --     -- vim.keymap.set('n', '<Leader>gg', function()
+  --     --   Snacks.lazygit.open()
+  --     -- end)
+  --     -- vim.keymap.set('n', '<Leader>gg', function()
+  --     --   Snacks.terminal.open('lazygit')
+  --     -- end)
   --   end,
   -- },
   {
