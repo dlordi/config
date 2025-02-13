@@ -1,5 +1,5 @@
 {
-  "conform.nvim": { "branch": "master", "commit": "c309423479f83f561d68d93d74c899f1683834f7" },
+  "conform.nvim": { "branch": "master", "commit": "59088eb6fea54e5a27e719df160329a0ead86b5c" },
   "gitsigns.nvim": { "branch": "main", "commit": "2bc3b472bbc2484214549af4d9f38c127b886a55" },
   "lazy.nvim": { "branch": "main", "commit": "f15a93907ddad3d9139aea465ae18336d87f5ce6" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "805c31ec6bfb557975143712ecff6956d3227141" },
