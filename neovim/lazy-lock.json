@@ -10,7 +10,7 @@
   "nui.nvim": { "branch": "main", "commit": "8d3bce9764e627b62b07424e0df77f680d47ffdb" },
   "nvim-autopairs": { "branch": "master", "commit": "68f0e5c3dab23261a945272032ee6700af86227a" },
   "nvim-lspconfig": { "branch": "master", "commit": "84e0cd5a3c58e88ef706fdf4a1eed59ded1d3ce2" },
-  "nvim-treesitter": { "branch": "master", "commit": "794cf2f6309691d4e9d3945ae33943a3d90ddd84" },
+  "nvim-treesitter": { "branch": "master", "commit": "f22181a62c47bf591fbfd6ada7d9a1156278d6e0" },
   "nvim-web-devicons": { "branch": "master", "commit": "ab4cfee554e501f497bce0856788d43cf2eb93d7" },
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
   "satellite.nvim": { "branch": "main", "commit": "1a259773c4d85e59b6cd74a55c0880874cacdd23" },
