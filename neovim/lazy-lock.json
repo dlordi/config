@@ -9,8 +9,8 @@
   "neovim-session-manager": { "branch": "master", "commit": "3409dc920d40bec4c901c0a122a80bee03d6d1e1" },
   "nui.nvim": { "branch": "main", "commit": "8d3bce9764e627b62b07424e0df77f680d47ffdb" },
   "nvim-autopairs": { "branch": "master", "commit": "6522027785b305269fa17088395dfc0f456cedd2" },
-  "nvim-lspconfig": { "branch": "master", "commit": "200280dab91a7df2ca42fd2ab3cb4c5fab056666" },
-  "nvim-treesitter": { "branch": "master", "commit": "e329e94a6a0a5ccf6ec8bfec1d10faf5eaae665f" },
+  "nvim-lspconfig": { "branch": "master", "commit": "e6c518191af238c9245eba93159a3a15f043dc91" },
+  "nvim-treesitter": { "branch": "master", "commit": "85168f15808d89b0222313652b9d2777eda3cb08" },
   "nvim-web-devicons": { "branch": "master", "commit": "4c3a5848ee0b09ecdea73adcd2a689190aeb728c" },
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
   "satellite.nvim": { "branch": "main", "commit": "253bf5215a7329e0e24f7b0ec27c06eae13a6b79" },
@@ -19,5 +19,5 @@
   "vim-fugitive": { "branch": "master", "commit": "4a745ea72fa93bb15dd077109afbb3d1809383f2" },
   "vim-illuminate": { "branch": "master", "commit": "19cb21f513fc2b02f0c66be70107741e837516a1" },
   "vim-sleuth": { "branch": "master", "commit": "be69bff86754b1aa5adcbb527d7fcd1635a84080" },
-  "vscode.nvim": { "branch": "main", "commit": "3faeb317dab9db5d2310b2dc6472632399ead88f" }
+  "vscode.nvim": { "branch": "main", "commit": "49d6014ba151fc6cc585b8d5f057ca7839077bf8" }
 }
