@@ -13,5 +13,5 @@
   - on Linux/MacOS, the configuration directory is `$HOME/.config/alacritty`
 
     ```sh
-    ln -s $PATH_TO_THIS_REPO/config/alacritty $HOME/.config/alacritty
+    ln -s $PATH_TO_THIS_REPO/alacritty $HOME/.config/alacritty
     ```
