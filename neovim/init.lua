@@ -93,6 +93,8 @@ vim.cmd('lan en_US.UTF-8') -- no translation, always use english
 vim.opt.whichwrap = 'b,s,<,>,[,]' -- wraps left/right moves to previous/next row
 vim.opt.mouse = 'a' -- enable mouse mode (useful for resizing splits, select tabs, etc...)
 vim.opt.inccommand = 'split' -- preview substitutions live, as you type
+vim.opt.ignorecase = true -- search is case insensitive...
+vim.opt.smartcase = true -- ... unless it contains upper case chars
 vim.opt.autochdir = true -- current working directory is automatically set to current open file
 
 vim.opt.list = true -- show blanks
