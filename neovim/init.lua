@@ -96,6 +96,8 @@ vim.opt.inccommand = 'split' -- preview substitutions live, as you type
 vim.opt.ignorecase = true -- search is case insensitive...
 vim.opt.smartcase = true -- ... unless it contains upper case chars
 vim.opt.autochdir = true -- current working directory is automatically set to current open file
+vim.opt.swapfile = false -- no swapfiles
+vim.opt.writebackup = false -- no temporary backup file while saving a buffer
 
 vim.opt.list = true -- show blanks
 vim.opt.listchars = { space = '·', tab = '⎯⎯' } -- set symbols for blanks
