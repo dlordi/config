@@ -32,3 +32,8 @@
     doas apk add ripgrep
     doas apk add fd
     ```
+
+## Resources
+
+- https://neovim.io/doc/user/options.html
+- https://neovim.io/doc/user/editorconfig.html
