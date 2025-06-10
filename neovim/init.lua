@@ -86,6 +86,9 @@ vim.opt.cursorline = true -- highlight current line
 vim.opt.signcolumn = 'yes:2' -- extra columns to show line info
 vim.opt.wrap = false -- wrap off
 vim.opt.colorcolumn = '120' -- show columns margins
+vim.opt.scrolloff = 4 -- minimum number of lines shown above and below current line
+vim.opt.splitright = true -- when splitting horizontally, new window will be to the right of the current one
+vim.opt.splitbelow = true -- when splitting veritcally, new window will be below the current one
 vim.cmd('lan en_US.UTF-8') -- no translation, always use english
 vim.opt.whichwrap = 'b,s,<,>,[,]' -- wraps left/right moves to previous/next row
 vim.opt.mouse = 'a' -- enable mouse mode (useful for resizing splits, select tabs, etc...)
