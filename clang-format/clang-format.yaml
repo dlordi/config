@@ -2,3 +2,4 @@
 
 BasedOnStyle: Google
 SortIncludes: false
+ColumnLimit: 0

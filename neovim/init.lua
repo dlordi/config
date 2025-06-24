@@ -86,11 +86,18 @@ vim.opt.cursorline = true -- highlight current line
 vim.opt.signcolumn = 'yes:2' -- extra columns to show line info
 vim.opt.wrap = false -- wrap off
 vim.opt.colorcolumn = '120' -- show columns margins
+vim.opt.scrolloff = 4 -- minimum number of lines shown above and below current line
+vim.opt.splitright = true -- when splitting horizontally, new window will be to the right of the current one
+vim.opt.splitbelow = true -- when splitting veritcally, new window will be below the current one
 vim.cmd('lan en_US.UTF-8') -- no translation, always use english
 vim.opt.whichwrap = 'b,s,<,>,[,]' -- wraps left/right moves to previous/next row
 vim.opt.mouse = 'a' -- enable mouse mode (useful for resizing splits, select tabs, etc...)
 vim.opt.inccommand = 'split' -- preview substitutions live, as you type
+vim.opt.ignorecase = true -- search is case insensitive...
+vim.opt.smartcase = true -- ... unless it contains upper case chars
 vim.opt.autochdir = true -- current working directory is automatically set to current open file
+vim.opt.swapfile = false -- no swapfiles
+vim.opt.writebackup = false -- no temporary backup file while saving a buffer
 
 vim.opt.list = true -- show blanks
 vim.opt.listchars = { space = '·', tab = '⎯⎯' } -- set symbols for blanks
@@ -129,6 +136,8 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'move selection one row up
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'move selection one row down' })
 vim.keymap.set('v', '<Tab>', '>gv', { desc = 'indent in VISUAL mode' })
 vim.keymap.set('v', '<S-Tab>', '<gv', { desc = 'unindent in VISUAL mode' })
+vim.keymap.set('v', '>', '>gv', { desc = 'indent in VISUAL mode' })
+vim.keymap.set('v', '<', '<gv', { desc = 'unindent in VISUAL mode' })
 vim.keymap.set('n', 'U', '<C-r>', { desc = 'redo', noremap = true })
 
 -- navigation
