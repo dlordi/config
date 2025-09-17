@@ -15,3 +15,9 @@
   echo "" >>~/.bash_profile
   echo "if [ -e ~/.bash_config ]; then source ~/.bash_config; fi" >>~/.bash_profile
   ```
+
+- start tmux automatically (must be added to `~/.bashrc`)
+
+  ```sh
+  if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [ -z "$SSH_CONNECTION" ]; then exec tmux; fi
+  ```
