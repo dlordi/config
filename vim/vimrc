@@ -48,6 +48,7 @@ endif
 set bg=dark " improve color contrast
 set incsearch " show matches as regex is being typed
 set showmatch " show matching parenthesis, bracket, quote, etc...
+set splitbelow " open new buffers (ie: terminal) at the bottom of current buffer
 
 set sc " show partial commands in NORMAL mode
 
