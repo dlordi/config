@@ -2,26 +2,157 @@
   "telemetry.telemetryLevel": "off",
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "editor.fontFamily": "'JetBrainsMonoNL NFM', Hack, 'Fira Code', Consolas, 'Courier New', monospace",
-  "editor.guides.indentation": true,
-  "editor.rulers": [80, 120],
+  "debug.console.fontFamily": "'Source Code Pro', Consolas, 'Courier New', monospace",
+  "debug.console.fontSize": 16,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.experimental.showMoves": true,
   "editor.renderWhitespace": "all",
+  "editor.fontSize": 14,
+  "editor.fontFamily": "'JetBrainsMonoNL NFM', 'Cascadia Code', 'Source Code Pro', Consolas, 'Courier New', monospace",
+  "editor.rulers": [80, 120],
+  "editor.insertSpaces": false,
+  "editor.mouseWheelZoom": true,
+  "editor.minimap.enabled": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.snippetSuggestions": "top",
+  "editor.guides.indentation": true,
+  "editor.lineHeight": 0,
+  "editor.dragAndDrop": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.suggestSelection": "first",
+  "editor.accessibilitySupport": "off",
   "editor.stickyScroll.enabled": true,
-  "search.showLineNumbers": true,
-  "workbench.startupEditor": "none",
+  "editor.overtypeCursorStyle": "underline",
+  "explorer.openEditors.visible": 0,
+  "files.associations": {
+    "*.html": "html"
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/*.pyc": {
+      "when": "$(basename).py"
+    },
+    "**/__pycache__": true
+  },
+  "git.enableSmartCommit": true,
+  "git.useEditorAsCommitInput": false,
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Cmder": {
+      "path": "${env:windir}\\System32\\cmd.exe",
+      "args": ["/k", "${env:CMDER_ROOT}\\vendor\\bin\\vscode_init.cmd"]
+    },
+    "Windows Terminal": {
+      "path": "${env:LOCALAPPDATA}\\Microsoft\\WindowsApps\\wt.exe"
+    },
+    "Git Bash": {
+      "path": "C:/Program Files/Git/bin/bash.exe -i -l",
+      "source": "Git Bash"
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "Cmder",
+  "terminal.integrated.fontFamily": "'JetBrainsMonoNL NFM', 'Source Code Pro'",
+  "terminal.integrated.smoothScrolling": true,
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "terminal.integrated.copyOnSelection": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.startupEditor": "newUntitledFile",
   "workbench.editor.enablePreview": false,
+  "workbench.settings.openDefaultSettings": true,
   "workbench.settings.useSplitJSON": true,
   "workbench.settings.editor": "json",
-  "workbench.iconTheme": "material-icon-theme",
+  "workbench.tree.indent": 16,
+  "workbench.tree.enableStickyScroll": true,
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.colorTheme": "Default Dark Modern",
   "workbench.colorCustomizations": {
     "editorStickyScroll.background": "#51515c",
     "editorStickyScrollHover.background": "#51515c"
   },
+  "python.languageServer": "Pylance",
+  "python.analysis.typeCheckingMode": "basic",
+  "flake8.args": ["--max-line-length=120"],
+  "ruff.configuration": "C:/Users/Domenico/.config/ruff.toml",
+  "vsicons.dontShowNewVersionMessage": true,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "[lua]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
   "zenMode.hideLineNumbers": false,
-  "git.autofetch": true,
-  "git.confirmSync": false,
-  "git.enableSmartCommit": true,
-  "git.useEditorAsCommitInput": false,
-  "explorer.openEditors.visible": 0,
-  "python.languageServer": "Pylance"
+  "gitlens.currentLine.enabled": false,
+  "gitlens.codeLens.authors.enabled": false,
+  "gitlens.codeLens.recentChange.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.statusBar.enabled": false,
+  "gitlens.views.scm.grouped.views": {
+    "commits": false,
+    "branches": false,
+    "remotes": true,
+    "stashes": false,
+    "tags": true,
+    "worktrees": true,
+    "contributors": true,
+    "repositories": false,
+    "searchAndCompare": false,
+    "launchpad": false
+  },
+  "prettier.semi": true,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "chat.commandCenter.enabled": false,
+  "workbench.editorAssociations": {
+    "{hexdiff}:/**/*.*": "hexEditor.hexedit",
+    "*.pdf": "latex-workshop-pdf-hook"
+  },
+  "workbench.secondarySideBar.defaultVisibility": "hidden"
 }
