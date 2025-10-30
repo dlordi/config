@@ -1,3 +1,4 @@
 # Windows
 
-- execute the [`00-setup.reg`](00-setup.reg) file, then **REBOOT** the computer
+- import [`00-setup.reg`](00-setup.reg) file, then **REBOOT** the PC
+- import [`10-prefs.reg`](10-prefs.reg) file
