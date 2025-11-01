@@ -3,19 +3,19 @@
 # this directory will contain unzipped repos downloaded in the next steps...
 $dest_dir = "$env:USERPROFILE\Desktop" # TODO: use "$env:TEMP"
 
-Write-Output "TODO: download zipped config repo"
-# $tmp_zip = New-TemporaryFile | ren -NewName { $_ -replace 'tmp$', 'zip' } -PassThru
-# iwr -OutFile $tmp_zip https://github.com/dlordi/config/archive/master.zip
-Write-Output "TODO: unzip config repo to $dest_dir"
-# Expand-Archive -Force -LiteralPath $tmp_zip -DestinationPath $dest_dir
-# rm $tmp_zip
+Write-Host "downloading zipped config repo..."
+$tmp_zip = New-TemporaryFile | ren -NewName { $_ -replace 'tmp$', 'zip' } -PassThru
+iwr -OutFile $tmp_zip https://github.com/dlordi/config/archive/master.zip
+Write-Host "unzipping config repo to $dest_dir..."
+Expand-Archive -Force -LiteralPath $tmp_zip -DestinationPath $dest_dir
+rm $tmp_zip
 
-Write-Output "TODO: download zipped Raphire-Win11Debloat repo"
-# $tmp_zip = New-TemporaryFile | ren -NewName { $_ -replace 'tmp$', 'zip' } -PassThru
-# iwr -OutFile $tmp_zip https://github.com/dlordi/Raphire-Win11Debloat/archive/master.zip
-Write-Output "TODO: unzip Raphire-Win11Debloat repo to $dest_dir"
-# Expand-Archive -Force -LiteralPath $tmp_zip -DestinationPath $dest_dir
-# rm $tmp_zip
+Write-Host "downloading zipped Raphire-Win11Debloat repo..."
+$tmp_zip = New-TemporaryFile | ren -NewName { $_ -replace 'tmp$', 'zip' } -PassThru
+iwr -OutFile $tmp_zip https://github.com/dlordi/Raphire-Win11Debloat/archive/master.zip
+Write-Host "unzipping Raphire-Win11Debloat repo to $dest_dir..."
+Expand-Archive -Force -LiteralPath $tmp_zip -DestinationPath $dest_dir
+rm $tmp_zip
 
 # & { Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command "type $dest_dir\config-main\windows\README.md; Read-Host | Out-Null"' }
 # & { Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File $dest_dir\config-main\windows\...' -Verb RunAs }
@@ -25,4 +25,3 @@ Write-Output "TODO: unzip Raphire-Win11Debloat repo to $dest_dir"
 
 Write-Host -NoNewLine 'Press any key to continue...'
 Read-Host | Out-Null
-
