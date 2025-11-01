@@ -11,3 +11,17 @@
   ```ps1
   iex "& { $(iwr https://raw.githubusercontent.com/dlordi/config/refs/heads/main/windows/autoconf.ps1) }"
   ```
+
+  - to debug/test
+
+    - start a local web server on a separate terminal
+
+      ```bat
+      py -m http.server 8123
+      ```
+
+    - run a slightly different command
+
+      ```ps1
+      iex "& { $(iwr http://localhost:8123/autoconf.ps1) }"
+      ```
