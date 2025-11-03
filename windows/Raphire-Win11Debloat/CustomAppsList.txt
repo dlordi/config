@@ -104,9 +104,7 @@ Microsoft.ZuneMusic
 Microsoft.ZuneVideo
 MicrosoftCorporationII.MicrosoftFamily
 MicrosoftCorporationII.QuickAssist
-MicrosoftTeams
 MicrosoftWindows.CrossDevice
-MSTeams
 Netflix
 NYTCrossword
 OneCalendar
