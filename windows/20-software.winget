@@ -28,3 +28,11 @@ resources:
     properties:
       id: 'MartinBresson.Executor'
       source: 'winget'
+
+  - name: winget_fjsoft.MyPhoneExplorer
+    type: Microsoft.WinGet/Package
+    metadata:
+      description: 'Installa MartinBresson.Executor'
+    properties:
+      id: 'fjsoft.MyPhoneExplorer'
+      source: 'winget'

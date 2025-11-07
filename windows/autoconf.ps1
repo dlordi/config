@@ -29,6 +29,9 @@ Remove-Item -Force -Recurse $dest_dir\Raphire-Win11Debloat-master
 
 # TODO: warn user to check debloat log file on the desktop and/or to delete it
 
+# enable DSC via .winget files
+winget configure --enable
+
 # TODO: prompt user to press "R" to immediatly reboot the PC or press any other key to just quit...
-Write-Host -NoNewLine 'Press any key to continue...'
-Read-Host | Out-Null
+$the_key = Read-Host 'Press "R" to reboot the PC or any other key to continue'
+if ($the_key -eq 'R') { Restart-Computer }
