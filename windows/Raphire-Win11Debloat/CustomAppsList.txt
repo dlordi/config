@@ -81,7 +81,6 @@ Microsoft.OutlookForWindows
 Microsoft.People
 Microsoft.PowerAutomateDesktop
 Microsoft.Print3D
-Microsoft.ScreenSketch
 Microsoft.SkypeApp
 Microsoft.StartExperiencesApp
 Microsoft.Todos
