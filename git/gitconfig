@@ -1,0 +1,20 @@
+[init]
+	defaultBranch = main
+[alias]
+	staash = stash --all
+	aaadd = add -A
+	cam = commit -am
+	lol = log --oneline
+	s = status
+	pom = push origin main
+	puom = pull origin main
+	cob = checkout -b
+[grep]
+	lineNumber = true
+[color]
+	ui = auto
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

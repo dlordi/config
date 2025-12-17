@@ -1,15 +1,9 @@
 # git
 
-- create a symlink for the configuration file
+- global configuration file contains some **SENSITIVE INFORMATION**
 
-  - on Windows, the configuration file is `%USERPROFILE%\.gitconfig`
+  - the content of [gitconfig](./gitconfig) is meant to be **APPENDED** to the global configuration file
 
-    ```bat
-    mklink /D "%USERPROFILE%\.gitconfig" "%PATH_TO_THIS_REPO%\git\gitconfig"
-    ```
+    - on Windows, the global configuration file is `%USERPROFILE%\.gitconfig`
 
-  - on Linux/MacOS, the configuration file is `$HOME/.gitconfig`
-
-    ```sh
-    ln -s $PATH_TO_THIS_REPO/git/gitconfig $HOME/.gitconfig
-    ```
+    - on Linux/MacOS, the global configuration file is `$HOME/.gitconfig`
