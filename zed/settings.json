@@ -58,7 +58,23 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Ayu Dark",
+    "dark": "One Dark",
+  },
+  "theme_overrides": {
+    "One Dark": {
+      "editor.background": "#000",
+      "editor.gutter.background": "#000",
+      "editor.line_number": "#555",
+      "panel.background": "#000",
+      "status_bar.background": "#000",
+      "tab_bar.background": "#111",
+      "tab.active_background": "#000",
+      "tab.inactive_background": "#111",
+      "terminal.background": "#000",
+      "title_bar.background": "#000",
+      "toolbar.background": "#000",
+      "editor.invisible": "#444",
+    },
   },
 
   "ensure_final_newline_on_save": false,
