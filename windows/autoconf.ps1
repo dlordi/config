@@ -19,7 +19,7 @@ Write-Host "unzipping Raphire-Win11Debloat repo to $dest_dir\Raphire-Win11Debloa
 Expand-Archive -Force -LiteralPath $tmp_zip -DestinationPath $dest_dir
 Remove-Item -Force $tmp_zip
 
-Copy-Item "$dest_dir\config-main\windows\Raphire-Win11Debloat\SavedSettings.txt" "$dest_dir\Raphire-Win11Debloat-master\SavedSettings"
+Copy-Item "$dest_dir\config-main\windows\Raphire-Win11Debloat\LastUsedSettings.json" "$dest_dir\Raphire-Win11Debloat-master\LastUsedSettings.json"
 Copy-Item "$dest_dir\config-main\windows\Raphire-Win11Debloat\CustomAppsList.txt" "$dest_dir\Raphire-Win11Debloat-master\CustomAppsList"
 # TODO: always save log file on user Desktop in order to check its content
 & { Start-Process powershell -Wait -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$dest_dir\Raphire-Win11Debloat-master\Win11Debloat.ps1`" -RunSavedSettings -RemoveAppsCustom -LogPath `"$dest_dir`" -Silent" -Verb RunAs }
