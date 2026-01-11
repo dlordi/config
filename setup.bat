@@ -1,6 +1,6 @@
 @echo off
 
-@REM NOTE: PATH_TO_THIS_REPO ends with a back-slash (ie: directory separator)!
+@REM NOTE: PATH_TO_THIS_REPO ends with a backslash (the directory separator)!
 set PATH_TO_THIS_REPO=%~dp0
 
 @REM alacritty
@@ -19,6 +19,10 @@ mklink /D "%APPDATA%\helix" "%PATH_TO_THIS_REPO%\helix"
 if not exist "%APPDATA%\lazygit" mkdir "%APPDATA%\lazygit"
 if exist "%APPDATA%\lazygit\config.yml" del "%APPDATA%\lazygit\config.yml"
 mklink "%APPDATA%\lazygit\config.yml" "%PATH_TO_THIS_REPO%\lazygit\config.yml"
+
+@REM neovim
+if exist "%LOCALAPPDATA%\nvim" rd "%LOCALAPPDATA%\nvim"
+mklink /D "%LOCALAPPDATA%\nvim" "%PATH_TO_THIS_REPO%\neovim"
 
 @REM ruff
 if not exist "%USERPROFILE%\.config" mkdir "%USERPROFILE%\.config"
