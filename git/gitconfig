@@ -4,7 +4,8 @@
 	staash = stash --all
 	aaadd = add -A
 	cam = commit -am
-	lol = log --oneline
+	l = log --oneline
+	lol = log --pretty=format:'%C(yellow)%h%Creset %C(magenta)%ad%Creset %s' --date=format-local:'%d/%m/%Y %H:%M:%S'
 	s = status
 	pom = push origin main
 	puom = pull origin main
