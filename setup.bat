@@ -35,6 +35,9 @@ if exist "%USERPROFILE%\.vim\colors" rd "%USERPROFILE%\.vim\colors"
 if not exist "%USERPROFILE%\.vim" mkdir "%USERPROFILE%\.vim"
 mklink "%USERPROFILE%\.vim\vimrc" "%PATH_TO_THIS_REPO%\vim\vimrc"
 mklink /D "%USERPROFILE%\.vim\colors" "%PATH_TO_THIS_REPO%\vim\colors"
+if not exist "%USERPROFILE%\.vim\pack\tpope\start" mkdir "%USERPROFILE%\.vim\pack\tpope\start"
+if not exist "%USERPROFILE%\.vim\pack\tpope\start\vim-fugitive" git -C "%USERPROFILE%\.vim\pack\tpope\start" clone https://github.com/tpope/vim-fugitive
+git -C "%USERPROFILE%\.vim\pack\tpope\start\vim-fugitive" pull
 
 @REM vscodium
 if exist "%APPDATA%\VSCodium\User\settings.json" del "%APPDATA%\VSCodium\User\settings.json"
