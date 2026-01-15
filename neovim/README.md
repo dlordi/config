@@ -32,6 +32,10 @@
     doas apk add ripgrep
     doas apk add fd
     ```
+  - on Arck Linux, use following commands to install
+    ```bat
+    sudo yay -Syu ripgrep fd
+    ```
 
 ## Resources
 
