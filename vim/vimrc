@@ -2,6 +2,9 @@
 " behavior                                                                                                             "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+
 set nocompatible
 set hidden " switch buffer without saving current one
 
@@ -33,7 +36,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " autocmd CursorHoldI * stopinsert
 
 " show buffers, prompt for next one to move into
-nnoremap gb :ls<CR>:b<Space>
+nnoremap <Leader><Leader> :ls<CR>:b<Space>
 
 " use ripgrep (especially useful in Windows) if available
 if executable("rg")
