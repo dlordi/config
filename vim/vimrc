@@ -35,6 +35,15 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " WIP: leave INSERT mode when idle (also check updatetime option)
 " autocmd CursorHoldI * stopinsert
 
+" move selection one row up
+vmap K :m '<-2<CR>gv=gv
+" move selection one row down
+vmap J :m '>+1<CR>gv=gv
+
+" move to next buffer
+nnoremap <Tab> :bnext<CR>
+" move to previous buffer
+nnoremap <S-Tab> :bprevious<CR>
 " show buffers, prompt for next one to move into
 nnoremap <Leader><Leader> :ls<CR>:b<Space>
 
