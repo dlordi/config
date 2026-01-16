@@ -57,6 +57,9 @@ if not exist "%USERPROFILE%\.config\wezterm" mkdir "%USERPROFILE%\.config\wezter
 mklink "%USERPROFILE%\.config\wezterm\wezterm.lua" "%PATH_TO_THIS_REPO%\wezterm\wezterm.lua"
 
 @REM zed
+if exist "%APPDATA%\Zed\snippets" rd "%APPDATA%\Zed\snippets"
+if exist "%APPDATA%\Zed\settings.json" del "%APPDATA%\Zed\settings.json"
+if exist "%APPDATA%\Zed\keymap.json" del "%APPDATA%\Zed\keymap.json"
 if not exist "%APPDATA%\Zed" mkdir "%APPDATA%\Zed"
 mklink /D "%APPDATA%\Zed\snippets" "%PATH_TO_THIS_REPO%\zed\snippets"
 mklink "%APPDATA%\Zed\settings.json" "%PATH_TO_THIS_REPO%\zed\settings.json"
