@@ -15,6 +15,9 @@ if exist C:\bin\capsicain mklink C:\bin\capsicain\capsicain.ini "%PATH_TO_THIS_R
 if exist "%APPDATA%\helix" rd "%APPDATA%\helix"
 mklink /D "%APPDATA%\helix" "%PATH_TO_THIS_REPO%\helix"
 
+@REM git
+powershell -ExecutionPolicy Bypass -NoLogo -NoProfile -File "%PATH_TO_THIS_REPO%\apply-git.ps1" "%PATH_TO_THIS_REPO%\git\gitconfig"
+
 @REM lazygit
 if not exist "%APPDATA%\lazygit" mkdir "%APPDATA%\lazygit"
 if exist "%APPDATA%\lazygit\config.yml" del "%APPDATA%\lazygit\config.yml"
