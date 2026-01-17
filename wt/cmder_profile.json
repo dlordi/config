@@ -1,0 +1,8 @@
+{
+  "commandline": "cmd.exe /k %CMDER_ROOT%\\vendor\\init.bat",
+  "guid": "{e91b3809-17b9-44e0-84c2-cddac31f37cf}",
+  "hidden": false,
+  "icon": "%CMDER_ROOT%\\icons\\cmder.ico",
+  "name": "Cmder",
+  "startingDirectory": "%USERPROFILE%\\Desktop"
+}

@@ -1,0 +1,18 @@
+{
+  "launchMode": "maximized",
+  "copyOnSelect": true,
+  "warning.multiLinePaste": false,
+  "trimPaste": false,
+  "profiles": {
+    "defaults": {
+      "closeOnExit": "always",
+      "colorScheme": "CGA",
+      "font": {
+        "face": "JetBrainsMonoNL NFM",
+        "size": 10,
+        "weight": "medium"
+      },
+      "padding": "0"
+    }
+  }
+}

@@ -59,6 +59,9 @@ if exist "%USERPROFILE%\.config\wezterm\wezterm.lua" del "%USERPROFILE%\.config\
 if not exist "%USERPROFILE%\.config\wezterm" mkdir "%USERPROFILE%\.config\wezterm"
 mklink "%USERPROFILE%\.config\wezterm\wezterm.lua" "%PATH_TO_THIS_REPO%\wezterm\wezterm.lua"
 
+@REM wt (windows terminal)
+powershell -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -File "%PATH_TO_THIS_REPO%\apply-wt.ps1" "%PATH_TO_THIS_REPO%\wt"
+
 @REM zed
 if exist "%APPDATA%\Zed\snippets" rd "%APPDATA%\Zed\snippets"
 if exist "%APPDATA%\Zed\settings.json" del "%APPDATA%\Zed\settings.json"
