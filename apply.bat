@@ -25,6 +25,9 @@ mklink /D "%APPDATA%\helix" "%PATH_TO_THIS_REPO%\helix"
 
 @REM git
 powershell -ExecutionPolicy Bypass -NoLogo -NoProfile -File "%PATH_TO_THIS_REPO%\apply-git.ps1" "%PATH_TO_THIS_REPO%\git\gitconfig"
+if not exist "%USERPROFILE%\.config\git" mkdir "%USERPROFILE%\.config\git"
+if exist "%USERPROFILE%\.config\git\git-prompt.sh" del "%USERPROFILE%\.config\git\git-prompt.sh"
+mklink "%USERPROFILE%\.config\git\git-prompt.sh" "%PATH_TO_THIS_REPO%\git\git-prompt.sh"
 
 @REM lazygit
 if not exist "%APPDATA%\lazygit" mkdir "%APPDATA%\lazygit"
