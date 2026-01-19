@@ -131,18 +131,20 @@ if (Test-Path -PathType Leaf $wt_settings_path) {
     Set-MemberRecursively -TargetObject $wt_settings -Values $wt_custom_settings
 
     # add the cmder profile and make it the default one
-    $add_cmder_profile = $true
-    foreach ($wt_profile in $wt_settings.profiles.list) {
-        if ($wt_profile.guid -eq $cmder_profile.guid) {
-            $add_cmder_profile = $false
-            Set-MemberRecursively -TargetObject $wt_profile -Values $cmder_profile
-            break
+    if (Test-Path -Type Leaf ([environment]::ExpandEnvironmentVariables($cmder_profile.icon))) {
+        $add_cmder_profile = $true
+        foreach ($wt_profile in $wt_settings.profiles.list) {
+            if ($wt_profile.guid -eq $cmder_profile.guid) {
+                $add_cmder_profile = $false
+                Set-MemberRecursively -TargetObject $wt_profile -Values $cmder_profile
+                break
+            }
         }
+        if ($add_cmder_profile) {
+            $wt_settings.profiles.list += $cmder_profile
+        }
+        Set-MemberRecursively -TargetObject $wt_settings -Values ("{`"defaultProfile`": `"$($cmder_profile.guid)`"}" | ConvertFrom-Json)
     }
-    if ($add_cmder_profile) {
-        $wt_settings.profiles.list += $cmder_profile
-    }
-    Set-MemberRecursively -TargetObject $wt_settings -Values ("{`"defaultProfile`": `"$($cmder_profile.guid)`"}" | ConvertFrom-Json)
 
     # save settings
     $wt_settings = $wt_settings | ConvertTo-Json -Depth 100 | Format-Json -Indentation 2 -AsArray
