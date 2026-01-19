@@ -7,6 +7,14 @@ set PATH_TO_THIS_REPO=%~dp0
 if exist "%APPDATA%\alacritty" rd "%APPDATA%\alacritty"
 mklink /D "%APPDATA%\alacritty" "%PATH_TO_THIS_REPO%\alacritty"
 
+@REM autohotkey: compile my-autohotkeys.ahk to executable into the startup folder
+if exist "%LOCALAPPDATA%\Programs\AutoHotkey\Compiler\Ahk2Exe.exe" (
+	"%LOCALAPPDATA%\Programs\AutoHotkey\Compiler\Ahk2Exe.exe" /silent ^
+		/in "%PATH_TO_THIS_REPO%\autohotkey\my-autohotkeys.ahk" ^
+		/out "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\my-autohotkeys.exe" ^
+		/base "%LOCALAPPDATA%\Programs\AutoHotkey\v2\AutoHotkey64.exe"
+)
+
 @REM capsicain
 if exist C:\bin\capsicain\capsicain.ini del C:\bin\capsicain\capsicain.ini
 if exist C:\bin\capsicain mklink C:\bin\capsicain\capsicain.ini "%PATH_TO_THIS_REPO%\capsicain\capsicain.ini"
