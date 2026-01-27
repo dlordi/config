@@ -97,7 +97,9 @@ mklink "%USERPROFILE%\.config\wezterm\wezterm.lua" "%PATH_TO_THIS_REPO%\wezterm\
 echo done
 
 @REM windows
+echo|set /p _="%TIME%   - windows... "
 reg import "%PATH_TO_THIS_REPO%\windows\10-prefs.reg" 2>NUL
+echo done
 
 @REM wt (windows terminal)
 echo|set /p _="%TIME%   - wt (Windows Terminal)... "
