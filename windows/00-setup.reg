@@ -9,48 +9,48 @@ Windows Registry Editor Version 5.00
 ; use dark theme
 "SystemUsesLightTheme"=dword:00000000
 "AppsUseLightTheme"=dword:00000000
-; ps1: New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name SystemUsesLightTheme -Type Dword -Value 0 -Force
-; ps1: New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Type Dword -Value 0 -Force
+; ps1: New-ItemProperty -Path 'Registry::HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize' -Name 'SystemUsesLightTheme' -Type 'Dword' -Value '0' -Force
+; ps1: New-ItemProperty -Path 'Registry::HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize' -Name 'AppsUseLightTheme' -Type 'Dword' -Value '0' -Force
 
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
 ; explorer: new windows will open on "This PC"
 "LaunchTo"=dword:00000001
-; ps1: Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name LaunchTo -Type Dword -Value 1 -Force
+; ps1: Set-ItemProperty -Path 'Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name 'LaunchTo' -Type 'Dword' -Value '1' -Force
 
 ; explorer: show file extensions
 "HideFileExt"=dword:00000000
-; ps1: Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name HideFileExt -Type Dword -Value 0 -Force
+; ps1: Set-ItemProperty -Path 'Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name 'HideFileExt' -Type 'Dword' -Value '0' -Force
 
 ; explorer: show hidden files
 "Hidden"=dword:00000001
-; ps1: Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name Hidden -Type Dword -Value 0 -Force
+; ps1: Set-ItemProperty -Path 'Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name 'Hidden' -Type 'Dword' -Value '0' -Force
 
 ; explorer: show system files
 "ShowSuperHidden"=dword:00000001
-; ps1: Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name ShowSuperHidden -Type Dword -Value 1 -Force
+; ps1: Set-ItemProperty -Path 'Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name 'ShowSuperHidden' -Type 'Dword' -Value '1' -Force
 
 ; task bar: use small icons
 "TaskbarSmallIcons"=dword:00000001
-; ps1: New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name "TaskbarSmallIcons" -Type Dword -Value 1 -Force
+; ps1: New-ItemProperty -Path 'Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name 'TaskbarSmallIcons' -Type 'Dword' -Value '1' -Force
 ; task bar: use small icons (Windows 11)
 "TaskbarSi"=dword:00000001
-; ps1: New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name "TaskbarSi" -Type Dword -Value 1 -Force
+; ps1: New-ItemProperty -Path 'Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name 'TaskbarSi' -Type 'Dword' -Value '1' -Force
 
 ; task bar: hide task view button
 "ShowTaskViewButton"=dword:00000000
-; ps1: Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name ShowTaskViewButton -Type Dword -Value 0 -Force
+; ps1: Set-ItemProperty -Path 'Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name 'ShowTaskViewButton' -Type 'Dword' -Value '0' -Force
 
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\CabinetState]
 ; explorer: show full path on title bar
 "FullPath"=dword:00000001
-; ps1: New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\CabinetState -Name "FullPath" -Type Dword -Value 1 -Force
+; ps1: New-ItemProperty -Path 'Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\CabinetState' -Name 'FullPath' -Type 'Dword' -Value '1' -Force
 
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Search]
 ; task bar: hide search bar
 "SearchboxTaskbarMode"=dword:00000000
-; ps1: New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search -Name "SearchboxTaskbarMode" -Type Dword -Value 0 -Force
+; ps1: New-ItemProperty -Path 'Registry::HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search' -Name 'SearchboxTaskbarMode' -Type 'Dword' -Value '0' -Force
 
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
 ; tray area: hide meet now
 "HideSCAMeetNow"=dword:0000001
-; ps1: New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer -Name "HideSCAMeetNow" -Type Dword -Value 1 -Force
+; ps1: New-ItemProperty -Path 'Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer' -Name 'HideSCAMeetNow' -Type 'Dword' -Value '1' -Force

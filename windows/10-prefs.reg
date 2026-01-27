@@ -5,3 +5,5 @@ Windows Registry Editor Version 5.00
 "WallPaper"=""
 [HKEY_CURRENT_USER\Control Panel\Colors]
 "Background"="0 0 0"
+; ps1: Set-ItemProperty -Path 'Registry::HKCU\Control Panel\Desktop' -Name 'WallPaper' -Type 'String' -Value '' -Force;
+; ps1: Set-ItemProperty -Path 'Registry::HKCU\Control Panel\Colors' -Name 'Background' -Type 'String' -Value "$($color.R) $($color.G) $($color.B)" -Force;
