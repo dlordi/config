@@ -96,6 +96,9 @@ if not exist "%USERPROFILE%\.config\wezterm" mkdir "%USERPROFILE%\.config\wezter
 mklink "%USERPROFILE%\.config\wezterm\wezterm.lua" "%PATH_TO_THIS_REPO%\wezterm\wezterm.lua" >NUL
 echo done
 
+@REM windows
+reg import "%PATH_TO_THIS_REPO%\windows\10-prefs.reg" 2>NUL
+
 @REM wt (windows terminal)
 echo|set /p _="%TIME%   - wt (Windows Terminal)... "
 powershell -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -File "%PATH_TO_THIS_REPO%\apply-wt.ps1" "%PATH_TO_THIS_REPO%\wt"
