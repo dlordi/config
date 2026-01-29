@@ -1,0 +1,11 @@
+;= rem WARNING: THIS FILE USES A MACRO-SPECIFIC SYNTAX!
+;= rem %MY_CONFIG_REPO% will be replaced by actual config root directory path
+ll=ls -last $*
+gaa=git add -A .
+gcm=git commit -am $*
+gss=git status
+ydl=yt-dlp.exe -f - --config-locations "%MY_CONFIG_REPO%\yt-dlp\yt-dlp.conf" $*
+ymp3=yt-dlp.exe --config-locations "%MY_CONFIG_REPO%\yt-dlp\yt-dlp.conf" --extract-audio --audio-format mp3 $*
+dt=cd /D "%USERPROFILE%\Desktop"
+cdd=cd /D $*
+cdh=cd /D "%USERPROFILE%"

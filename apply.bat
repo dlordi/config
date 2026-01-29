@@ -27,6 +27,11 @@ if exist C:\bin\capsicain\capsicain.ini del C:\bin\capsicain\capsicain.ini
 if exist C:\bin\capsicain mklink C:\bin\capsicain\capsicain.ini "%PATH_TO_THIS_REPO%\capsicain\capsicain.ini" >NUL
 echo done
 
+@REM cmder
+echo|set /p _="%TIME%   - cmder... "
+powershell -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -File "%PATH_TO_THIS_REPO%\apply-cmder.ps1" "%PATH_TO_THIS_REPO%\cmder" "%PATH_TO_THIS_REPO%"
+echo done
+
 @REM helix
 echo|set /p _="%TIME%   - helix... "
 if exist "%APPDATA%\helix" rd "%APPDATA%\helix"
