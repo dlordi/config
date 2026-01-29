@@ -12,6 +12,11 @@ mkdir -p $HOME/.config
 ln -sf $PATH_TO_THIS_REPO/alacritty $HOME/.config/alacritty
 echo "done"
 
+# git
+echo -n "`date +%H:%M:%S`   - git... "
+$PATH_TO_THIS_REPO/apply-git.py "$PATH_TO_THIS_REPO/git/gitconfig"
+echo "done"
+
 # neovim
 echo -n "`date +%H:%M:%S`   - neovim... "
 [ -e $HOME/.config/nvim ] && rm -rf $HOME/.config/nvim
