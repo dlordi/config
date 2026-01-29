@@ -30,16 +30,26 @@ if (Test-Path -PathType Leaf $gitconfig_path) {
 		}
 	}
 }
+$indent = '             '
+$flag_add_new_line = $true
 while (-not $git_user_name) {
-	$git_user_name = Read-Host 'git config: enter user name'
+	if ($flag_add_new_line) {
+		Write-Output ''
+		$flag_add_new_line = $false
+	}
+	$git_user_name = Read-Host "$($indent)enter user name"
 	if (-not $git_user_name) {
-		Write-Output 'invalid name, try again!'
+		Write-Output "$($indent)invalid name, try again!"
 	}
 }
 while (-not $git_user_email.Contains('@')) {
-	$git_user_email = Read-Host 'git config: enter user email'
+	if ($flag_add_new_line) {
+		Write-Output ''
+		$flag_add_new_line = $false
+	}
+	$git_user_email = Read-Host "$($indent)enter user email"
 	if (-not $git_user_email.Contains('@')) {
-		Write-Output 'invalid email, try again!'
+		Write-Output "$($indent)invalid email, try again!"
 	}
 }
 
