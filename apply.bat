@@ -1,13 +1,13 @@
 @echo off
 
+@REM NOTE: PATH_TO_THIS_REPO ends with a backslash (the directory separator)!
+set PATH_TO_THIS_REPO=%~dp0
+
 set HH=%TIME:~0,2%
 if "%HH:~0,1%" == " " set HH=0%HH:~1,1%
 set MM=%TIME:~3,2%
 set SS=%TIME:~6,2%
 echo %HH%:%MM%:%SS% applying default configurations...
-
-@REM NOTE: PATH_TO_THIS_REPO ends with a backslash (the directory separator)!
-set PATH_TO_THIS_REPO=%~dp0
 
 @REM alacritty
 set HH=%TIME:~0,2%
@@ -26,7 +26,9 @@ set MM=%TIME:~3,2%
 set SS=%TIME:~6,2%
 echo|set /p _="%HH%:%MM%:%SS%   - autohotkey... "
 if exist "%LOCALAPPDATA%\Programs\AutoHotkey\Compiler\Ahk2Exe.exe" (
-	"%LOCALAPPDATA%\Programs\AutoHotkey\Compiler\Ahk2Exe.exe" /silent ^
+	echo|set /p _="compiling my-autohotkeys (might prompt to reload)... "
+	@REM TODO: find a way to automatically reload recompiled my-autohotkeys.exe, then restore the "/silent" option
+	"%LOCALAPPDATA%\Programs\AutoHotkey\Compiler\Ahk2Exe.exe" ^
 		/in "%PATH_TO_THIS_REPO%\autohotkey\my-autohotkeys.ahk" ^
 		/out "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\my-autohotkeys.exe" ^
 		/base "%LOCALAPPDATA%\Programs\AutoHotkey\v2\AutoHotkey64.exe"

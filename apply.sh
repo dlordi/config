@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-echo "`date +%H:%M:%S` applying default configurations..."
-
-# PATH_TO_THIS_REPO does not end with a slash (the directory separator)!
+# NOTE: PATH_TO_THIS_REPO does not end with a slash (the directory separator)!
 PATH_TO_THIS_REPO=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+echo "`date +%H:%M:%S` applying default configurations..."
 
 # alacritty
 echo -n "`date +%H:%M:%S`   - alacritty... "

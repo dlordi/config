@@ -13,6 +13,10 @@
   iex "& { $(iwr https://raw.githubusercontent.com/dlordi/config/refs/heads/main/windows/autoconf.ps1) }"
   ```
 
+  ```bat
+  powershell -c "irm https://raw.githubusercontent.com/dlordi/config/refs/heads/main/windows/autoconf.ps1|iex"
+  ```
+
   - to debug/test
 
     - start a local web server on a separate terminal
