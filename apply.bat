@@ -168,6 +168,15 @@ echo|set /p _="%HH%:%MM%:%SS%   - windows... "
 reg import "%PATH_TO_THIS_REPO%\windows\10-prefs.reg" 2>NUL
 echo done
 
+@REM winmerge
+set HH=%TIME:~0,2%
+if "%HH:~0,1%" == " " set HH=0%HH:~1,1%
+set MM=%TIME:~3,2%
+set SS=%TIME:~6,2%
+echo|set /p _="%HH%:%MM%:%SS%   - winmerge... "
+reg import "%PATH_TO_THIS_REPO%\winmerge\settings.reg" 2>NUL
+echo done
+
 @REM wt (windows terminal)
 set HH=%TIME:~0,2%
 if "%HH:~0,1%" == " " set HH=0%HH:~1,1%
