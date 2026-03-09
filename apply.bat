@@ -26,7 +26,7 @@ set MM=%TIME:~3,2%
 set SS=%TIME:~6,2%
 echo|set /p _="%HH%:%MM%:%SS%   - autohotkey... "
 if exist "%LOCALAPPDATA%\Programs\AutoHotkey\Compiler\Ahk2Exe.exe" (
-	echo|set /p _="compiling my-autohotkeys (might prompt to reload)... "
+	echo|set /p _="compiling my-autohotkeys (if prompted, choose to RELOAD)... "
 	@REM TODO: find a way to automatically reload recompiled my-autohotkeys.exe, then restore the "/silent" option
 	"%LOCALAPPDATA%\Programs\AutoHotkey\Compiler\Ahk2Exe.exe" ^
 		/in "%PATH_TO_THIS_REPO%\autohotkey\my-autohotkeys.ahk" ^
