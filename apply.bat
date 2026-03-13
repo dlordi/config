@@ -78,6 +78,13 @@ if exist "%USERPROFILE%\.config\ruff.toml" del "%USERPROFILE%\.config\ruff.toml"
 mklink "%USERPROFILE%\.config\ruff.toml" "%PATH_TO_THIS_REPO%\ruff\ruff.toml" >NUL
 echo done
 
+@REM tabby
+call :set_HH_MM_SS
+echo|set /p _="%HH%:%MM%:%SS%   - tabby... "
+if exist "%APPDATA%\tabby\config.yaml" del "%APPDATA%\tabby\config.yaml"
+mklink "%APPDATA%\tabby\config.yaml" "%PATH_TO_THIS_REPO%\tabby\config.yaml" >NUL
+echo done
+
 @REM vim
 call :set_HH_MM_SS
 echo|set /p _="%HH%:%MM%:%SS%   - vim... "
@@ -107,6 +114,14 @@ echo|set /p _="%HH%:%MM%:%SS%   - yazi... "
 if not exist "%APPDATA%\yazi" mkdir "%APPDATA%\yazi"
 if exist "%APPDATA%\yazi\config" rd "%APPDATA%\yazi\config"
 mklink /D "%APPDATA%\yazi\config" "%PATH_TO_THIS_REPO%\yazi" >NUL
+echo done
+
+@REM waveterm
+call :set_HH_MM_SS
+echo|set /p _="%HH%:%MM%:%SS%   - wave terminal... "
+if not exist "%USERPROFILE%\.config\waveterm" mkdir "%USERPROFILE%\.config\waveterm"
+if exist "%USERPROFILE%\.config\waveterm\settings.json" del "%USERPROFILE%\.config\waveterm\settings.json"
+mklink "%USERPROFILE%\.config\waveterm\settings.json" "%PATH_TO_THIS_REPO%\waveterm\settings.json" >NUL
 echo done
 
 @REM wezterm
