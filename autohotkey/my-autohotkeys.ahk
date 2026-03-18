@@ -2,8 +2,8 @@
 
 !\::Send "``"            ; (IT layout utility) "ALT + \"                     -> "`"
 !|::Send "~"             ; (IT layout utility) "ALT + |" ("ALT + SHIFT + \") -> "~"
-; !,::Send "<"             ; (US layout utility) "ALT + ,"                     -> "<"
-; !SC034::Send ">"         ; (US layout utility) "ALT + ."                     -> ">"
+<!<^,::Send "<"          ; (US layout utility) "LEFT ALT + LEFT CTRL + ,"    -> "<"
+<!<^SC034::Send ">"      ; (US layout utility) "LEFT ALT + LEFT CTRL + ."    -> ">"
 ; !SC01A::Send "{U+00E8}"  ; (US layout utility) "ALT + ["                     -> "è"
 ; !+SC01A::Send "{U+00E9}" ; (US layout utility) "ALT + {" ("ALT + SHIFT + [") -> "é"
 ; !=::Send "{U+00EC}"      ; (US layout utility) "ALT + ="                     -> "ì"
