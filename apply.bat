@@ -136,6 +136,7 @@ echo done
 call :set_HH_MM_SS
 echo|set /p _="%HH%:%MM%:%SS%   - windows... "
 reg import "%PATH_TO_THIS_REPO%\windows\10-prefs.reg" 2>NUL
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
 echo done
 
 @REM winmerge
