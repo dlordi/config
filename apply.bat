@@ -7,9 +7,10 @@ call :set_HH_MM_SS
 echo %HH%:%MM%:%SS% applying default configurations...
 
 if "%1"=="" (
-	call :alacritty
-	call :autohotkey
-	call :capsicain
+	@REM call :alacritty
+	@REM call :autohotkey
+	@REM call :capsicain
+	powershell -ExecutionPolicy Bypass -NoLogo -NoProfile -File "%PATH_TO_THIS_REPO%\apply.ps1"
 	call :cmder
 	call :helix
 	call :git
@@ -36,38 +37,40 @@ echo %HH%:%MM%:%SS% configurations successfully applied
 goto :EOF
 
 
-@REM alacritty
-:alacritty
-call :set_HH_MM_SS
-echo|set /p _="%HH%:%MM%:%SS%   - alacritty... "
-if exist "%APPDATA%\alacritty" rd "%APPDATA%\alacritty"
-mklink /D "%APPDATA%\alacritty" "%PATH_TO_THIS_REPO%\alacritty" >NUL
-echo done
-goto :EOF
+@REM @REM alacritty
+@REM :alacritty
+@REM call :set_HH_MM_SS
+@REM echo|set /p _="%HH%:%MM%:%SS%   - alacritty... "
+@REM if exist "%APPDATA%\alacritty" rd "%APPDATA%\alacritty"
+@REM mklink /D "%APPDATA%\alacritty" "%PATH_TO_THIS_REPO%\alacritty" >NUL
+@REM echo done
+@REM goto :EOF
 
-@REM autohotkey: compile my-autohotkeys.ahk to executable into the startup folder
-:autohotkey
-call :set_HH_MM_SS
-echo|set /p _="%HH%:%MM%:%SS%   - autohotkey... "
-if exist "%LOCALAPPDATA%\Programs\AutoHotkey\Compiler\Ahk2Exe.exe" (
-	echo|set /p _="compiling my-autohotkeys (if prompted, choose to RELOAD)... "
-	@REM TODO: find a way to automatically reload recompiled my-autohotkeys.exe, then restore the "/silent" option
-	"%LOCALAPPDATA%\Programs\AutoHotkey\Compiler\Ahk2Exe.exe" ^
-		/in "%PATH_TO_THIS_REPO%\autohotkey\my-autohotkeys.ahk" ^
-		/out "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\my-autohotkeys.exe" ^
-		/base "%LOCALAPPDATA%\Programs\AutoHotkey\v2\AutoHotkey64.exe"
-)
-echo done
-goto :EOF
+@REM @REM autohotkey: compile my-autohotkeys.ahk to executable into the startup folder
+@REM :autohotkey
+@REM call :set_HH_MM_SS
+@REM echo|set /p _="%HH%:%MM%:%SS%   - autohotkey... "
+@REM if exist "%LOCALAPPDATA%\Programs\AutoHotkey\Compiler\Ahk2Exe.exe" (
+@REM 	echo|set /p _="compiling my-autohotkeys (if prompted, choose to UNLOAD)... "
+@REM 	@REM TODO: find a way to automatically reload recompiled my-autohotkeys.exe, then restore the "/silent" option
+@REM 	"%LOCALAPPDATA%\Programs\AutoHotkey\Compiler\Ahk2Exe.exe" ^
+@REM 		/in "%PATH_TO_THIS_REPO%\autohotkey\my-autohotkeys.ahk" ^
+@REM 		/out "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\my-autohotkeys.exe" ^
+@REM 		/base "%LOCALAPPDATA%\Programs\AutoHotkey\v2\AutoHotkey64.exe"
+@REM 	@REM TODO: remove following command when reloading recompiled my-autohotkeys.exe will work...
+@REM 	start "" "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\my-autohotkeys.exe"
+@REM )
+@REM echo done
+@REM goto :EOF
 
-@REM capsicain
-:capsicain
-call :set_HH_MM_SS
-echo|set /p _="%HH%:%MM%:%SS%   - capsicain... "
-if exist C:\bin\capsicain\capsicain.ini del C:\bin\capsicain\capsicain.ini
-if exist C:\bin\capsicain mklink C:\bin\capsicain\capsicain.ini "%PATH_TO_THIS_REPO%\capsicain\capsicain.ini" >NUL
-echo done
-goto :EOF
+@REM @REM capsicain
+@REM :capsicain
+@REM call :set_HH_MM_SS
+@REM echo|set /p _="%HH%:%MM%:%SS%   - capsicain... "
+@REM if exist C:\bin\capsicain\capsicain.ini del C:\bin\capsicain\capsicain.ini
+@REM if exist C:\bin\capsicain mklink C:\bin\capsicain\capsicain.ini "%PATH_TO_THIS_REPO%\capsicain\capsicain.ini" >NUL
+@REM echo done
+@REM goto :EOF
 
 @REM cmder
 :cmder
