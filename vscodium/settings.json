@@ -154,5 +154,6 @@
     "{hexdiff}:/**/*.*": "hexEditor.hexedit",
     "*.pdf": "latex-workshop-pdf-hook"
   },
+  "powershell.codeFormatting.preset": "OTBS",
   "workbench.secondarySideBar.defaultVisibility": "hidden"
 }
