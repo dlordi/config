@@ -1,0 +1,7 @@
+{
+	"hardware_acceleration": "opengl",
+	"hide_menu": false,
+	"render_commit_dialog_message_at_top": true,
+	"themed_title_bar": true,
+	"time_format": "24h",
+}

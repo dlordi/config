@@ -1,7 +1,9 @@
 @echo off
 
+setlocal enabledelayedexpansion
+
 @REM NOTE: PATH_TO_THIS_REPO ends with a backslash (the directory separator)!
-set PATH_TO_THIS_REPO=%~dp0
+set "PATH_TO_THIS_REPO=%~dp0"
 
 call :set_HH_MM_SS
 echo %HH%:%MM%:%SS% applying default configurations...
@@ -17,6 +19,7 @@ if "%1"=="" (
 	call :lazygit
 	call :neovim
 	call :ruff
+	call :sublime_merge
 	call :tabby
 	call :vim
 	call :vscodium
@@ -126,6 +129,21 @@ echo|set /p _="%HH%:%MM%:%SS%   - ruff... "
 if not exist "%USERPROFILE%\.config" mkdir "%USERPROFILE%\.config"
 if exist "%USERPROFILE%\.config\ruff.toml" del "%USERPROFILE%\.config\ruff.toml"
 mklink "%USERPROFILE%\.config\ruff.toml" "%PATH_TO_THIS_REPO%\ruff\ruff.toml" >NUL
+echo done
+goto :EOF
+
+@REM sublime merge
+:sublime_merge
+call :set_HH_MM_SS
+echo|set /p _="%HH%:%MM%:%SS%   - sublime merge... "
+set "WINGET_ID=SublimeHQ.SublimeMerge_Microsoft.Winget.Source_8wekyb3d8bbwe"
+set "PARENTS=%APPDATA%\Sublime Merge\Packages;%LOCALAPPDATA%\Microsoft\WinGet\Packages\%WINGET_ID%\Data\Packages"
+for %%P in ("%PARENTS:;=" "%") do (
+    set "CURRENT_PARENT=%%~P"
+    if not exist "!CURRENT_PARENT!" mkdir "!CURRENT_PARENT!"
+    if exist "!CURRENT_PARENT!\User" rd /s /q "!CURRENT_PARENT!\User"
+    mklink /D "!CURRENT_PARENT!\User" "%PATH_TO_THIS_REPO%\sublime_merge" >NUL
+)
 echo done
 goto :EOF
 
