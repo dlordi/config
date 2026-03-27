@@ -1,9 +1,4 @@
 {
   "autoupdate:channel": "latest",
-  "telemetry:enabled": false,
-  "term:localshellpath": "C:\\Windows\\System32\\cmd.exe",
-  "term:localshellopts": [
-    "/k",
-    "%CMDER_ROOT%\\vendor\\init.bat"
-  ]
+  "telemetry:enabled": false
 }
