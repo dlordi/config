@@ -1,7 +1,5 @@
 {
   "telemetry.telemetryLevel": "off",
-  "telemetry.enableCrashReporter": false,
-  "telemetry.enableTelemetry": false,
   "debug.console.fontFamily": "'Source Code Pro', Consolas, 'Courier New', monospace",
   "debug.console.fontSize": 16,
   "diffEditor.ignoreTrimWhitespace": false,
@@ -115,6 +113,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
+    "editor.wordWrap": "off",
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[vue]": {
@@ -128,6 +127,7 @@
     "editor.tabSize": 2
   },
   "zenMode.hideLineNumbers": false,
+  "zenMode.centerLayout": false,
   "gitlens.currentLine.enabled": false,
   "gitlens.codeLens.authors.enabled": false,
   "gitlens.codeLens.recentChange.enabled": false,
@@ -148,8 +148,11 @@
   "prettier.semi": true,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "all",
+  "diffEditor.maxComputationTime": 0,
   "liveServer.settings.donotShowInfoMsg": true,
   "chat.commandCenter.enabled": false,
+  "update.showReleaseNotes": false,
+  "go.toolsManagement.autoUpdate": true,
   "workbench.editorAssociations": {
     "{hexdiff}:/**/*.*": "hexEditor.hexedit",
     "*.pdf": "latex-workshop-pdf-hook"
