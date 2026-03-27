@@ -31,6 +31,10 @@ function prompt {
   "PS $currentDir> "
 }
 
+function dt {
+  cd "$env:USERPROFILE\Desktop"
+}
+
 # example of custom autocompleter for the yarn command
 # Register-ArgumentCompleter -Native -CommandName yarn -ScriptBlock {
 #   param($wordToComplete, $commandAst, $cursorPosition)
