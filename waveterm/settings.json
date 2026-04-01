@@ -1,4 +1,6 @@
 {
   "autoupdate:channel": "latest",
-  "telemetry:enabled": false
+  "telemetry:enabled": false,
+  "app:hideaibutton": true,
+  "editor:minimapenabled": false
 }
