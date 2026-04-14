@@ -1,0 +1,25 @@
+{
+  "telemetry.telemetryLevel": "off",
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [80, 120],
+  "editor.stickyScroll.enabled": true,
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "terminal.integrated.profiles.windows": {
+    "Cmder": {
+      "path": "${env:windir}\\System32\\cmd.exe",
+      "args": ["/k", "${env:CMDER_ROOT}\\vendor\\bin\\vscode_init.cmd"],
+    },
+  },
+  "terminal.integrated.defaultProfile.windows": "Cmder",
+  "terminal.integrated.smoothScrolling": true,
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "terminal.integrated.copyOnSelection": true,
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.settings.editor": "json",
+  "workbench.tree.enableStickyScroll": true,
+  "python.analysis.typeCheckingMode": "strict",
+  "zenMode.hideLineNumbers": false,
+  "zenMode.centerLayout": false,
+  "powershell.codeFormatting.preset": "OTBS",
+}

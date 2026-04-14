@@ -257,6 +257,16 @@ function Invoke-cmder {
     Write-Host 'done'
 }
 
+function Invoke-code_insiders {
+    Write-Host -NoNewline "$(Get-Timestamp)   - Code Insiders... "
+
+    $home_dir = "$env:APPDATA\Code - Insiders\User"
+    if (-not (Test-Path $home_dir)) { New-Item -ItemType Directory -Path $home_dir -Force | Out-Null }
+    Invoke-Symlink -target "$PATH_TO_THIS_REPO\code_insiders\settings.json" -symlink "$home_dir\settings.json"
+
+    Write-Host 'done'
+}
+
 function Invoke-helix {
     Write-Host -NoNewline "$(Get-Timestamp)   - helix... "
 
@@ -538,6 +548,7 @@ if ([string]::IsNullOrEmpty($arg)) {
     Invoke-autohotkey
     Invoke-capsicain
     Invoke-cmder
+    Invoke-code_insiders
     Invoke-helix
     Invoke-git
     Invoke-lazygit
@@ -563,3 +574,5 @@ if ([string]::IsNullOrEmpty($arg)) {
 }
 
 Write-Host "$(Get-Timestamp) configurations successfully applied"
+Read-Host -Prompt "Press Enter to continue"
+exit
