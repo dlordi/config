@@ -175,7 +175,7 @@ function Invoke-autohotkey {
         Write-Host -NoNewline "compiling $my_autohotkeys (if prompted, choose to UNLOAD)... "
         Stop-Process -Name $my_autohotkeys -Force -ErrorAction SilentlyContinue
         Start-Process -NoNewWindow -Wait -FilePath "$env:LOCALAPPDATA\Programs\AutoHotkey\Compiler\Ahk2Exe.exe" -ArgumentList `
-            "/in `"$env:PATH_TO_THIS_REPO\autohotkey\$my_autohotkeys.ahk`"", `
+            "/in `"$PATH_TO_THIS_REPO\autohotkey\$my_autohotkeys.ahk`"", `
             "/out `"$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\$my_autohotkeys.exe`"", `
             "/base `"$env:LOCALAPPDATA\Programs\AutoHotkey\v2\AutoHotkey64.exe`"", `
             '/silent'
