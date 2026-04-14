@@ -6,10 +6,13 @@
 #Requires -Version 5.0
 
 if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-    Write-Error 'Administrative privileges required. Please run as Administrator.'
-    exit 1
-    # Start-Process powershell.exe -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Wait -Verb RunAs
-    # exit
+    Start-Process `
+        -FilePath 'powershell.exe' `
+        -WorkingDirectory (Get-Location) `
+        -ArgumentList '-ExecutionPolicy', 'Bypass', '-File', "`"$PSCommandPath`"" `
+        -Verb 'RunAs' `
+        -Wait
+    exit
 }
 
 $PATH_TO_THIS_REPO = "$PSScriptRoot"
@@ -30,7 +33,7 @@ function Invoke-Symlink {
 
         New-Item -ItemType SymbolicLink -Path $symlink -Target $target -Force -ErrorAction Stop | Out-Null
     } catch {
-        Write-Host "ERRORE: unable to create symlink $symlink" # -ForegroundColor Red
+        Write-Host "ERROR: unable to create symlink $symlink" # -ForegroundColor Red
     }
 }
 
