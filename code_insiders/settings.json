@@ -1,8 +1,13 @@
 {
   "telemetry.telemetryLevel": "off",
+  "diffEditor.ignoreTrimWhitespace": false,
   "editor.renderWhitespace": "all",
   "editor.rulers": [80, 120],
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.accessibilitySupport": "off",
   "editor.stickyScroll.enabled": true,
+  "git.enableSmartCommit": true,
+  "git.useEditorAsCommitInput": false,
   "git.confirmSync": false,
   "git.autofetch": true,
   "terminal.integrated.profiles.windows": {
