@@ -34,6 +34,9 @@ echo installing/updating iTunes
 @REM - https://silentinstallhq.com/apple-itunes-silent-install-how-to-guide/
 call :winget Apple.iTunes --custom "/qn ALLUSERS=1 DESKTOP_SHORTCUTS=0 REBOOT=ReallySuppress"
 
+echo installing/updating Mp3tag
+call :winget FlorianHeidenreich.Mp3tag
+
 echo installing/updating LibreOffice
 call :winget TheDocumentFoundation.LibreOffice
 

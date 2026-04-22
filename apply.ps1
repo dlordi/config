@@ -177,18 +177,28 @@ function Invoke-autohotkey {
         $my_autohotkeys = 'my-autohotkeys'
         Write-Host -NoNewline "compiling $my_autohotkeys (if prompted, choose to UNLOAD)... "
         Stop-Process -Name $my_autohotkeys -Force -ErrorAction SilentlyContinue
+
         Start-Process -NoNewWindow -Wait -FilePath "$env:LOCALAPPDATA\Programs\AutoHotkey\Compiler\Ahk2Exe.exe" -ArgumentList `
             "/in `"$PATH_TO_THIS_REPO\autohotkey\$my_autohotkeys.ahk`"", `
             "/out `"$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\$my_autohotkeys.exe`"", `
             "/base `"$env:LOCALAPPDATA\Programs\AutoHotkey\v2\AutoHotkey64.exe`"", `
             '/silent'
+
+        # & "$env:LOCALAPPDATA\Programs\AutoHotkey\Compiler\Ahk2Exe.exe" `
+        #     /in "$PATH_TO_THIS_REPO\autohotkey\$my_autohotkeys.ahk" `
+        #     /out "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\$my_autohotkeys.exe" `
+        #     /base "$env:LOCALAPPDATA\Programs\AutoHotkey\v2\AutoHotkey64.exe" `
+        #     /silent
+
         # cmd /c "$env:LOCALAPPDATA\Programs\AutoHotkey\Compiler\Ahk2Exe.exe" `
-        # 	/in "$env:PATH_TO_THIS_REPO\autohotkey\my-autohotkeys.ahk" `
-        # 	/out "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\my-autohotkeys.exe" `
-        # 	/base "$env:LOCALAPPDATA\Programs\AutoHotkey\v2\AutoHotkey64.exe" `
-        # 	/silent
+        #     /in "$PATH_TO_THIS_REPO\autohotkey\$my_autohotkeys.ahk" `
+        #     /out "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\$my_autohotkeys.exe" `
+        #     /base "$env:LOCALAPPDATA\Programs\AutoHotkey\v2\AutoHotkey64.exe" `
+        #     /silent
+
         # TODO: remove following command when reloading recompiled my-autohotkeys.exe will work...
         Start-Process -NoNewWindow -FilePath "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\$my_autohotkeys.exe"
+        # & "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\$my_autohotkeys.exe"
     }
 
     Write-Host 'done'
