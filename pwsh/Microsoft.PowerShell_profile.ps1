@@ -26,13 +26,13 @@ Set-PSReadLineKeyHandler -Chord ctrl+e -Function MoveToEndOfLine
 function prompt {
   $currentDir = (Convert-Path .)
   if ($currentDir.Contains($HOME)) {
-    $currentDir = $currentDir.Replace($HOME, "~")
+    $currentDir = $currentDir.Replace($HOME, '~')
   }
   "PS $currentDir> "
 }
 
 function dt {
-  cd "$env:USERPROFILE\Desktop"
+  Set-Location "$env:USERPROFILE\Desktop"
 }
 
 # example of custom autocompleter for the yarn command

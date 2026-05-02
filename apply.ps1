@@ -382,6 +382,16 @@ function Invoke-neovim {
     Write-Host 'done'
 }
 
+function Invoke-pwsh {
+    Write-Host -NoNewline "$(Get-Timestamp)   - pwsh... "
+
+    Invoke-Symlink `
+        -target "$PATH_TO_THIS_REPO\pwsh\Microsoft.PowerShell_profile.ps1" `
+        -symlink "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
+
+    Write-Host 'done'
+}
+
 function Invoke-ruff {
     Write-Host -NoNewline "$(Get-Timestamp)   - ruff... "
 
@@ -566,6 +576,7 @@ if ([string]::IsNullOrEmpty($arg)) {
     Invoke-git
     Invoke-lazygit
     Invoke-neovim
+    Invoke-pwsh
     Invoke-ruff
     Invoke-sublime_merge
     Invoke-tabby
