@@ -30,6 +30,8 @@ function prompt {
   }
   "PS $currentDir> "
 }
+# remove initial logo with copyright
+# Clear-Host
 
 function dt {
   Set-Location "$env:USERPROFILE\Desktop"
