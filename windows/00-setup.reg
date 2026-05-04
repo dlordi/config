@@ -54,3 +54,8 @@ Windows Registry Editor Version 5.00
 ; tray area: hide meet now
 "HideSCAMeetNow"=dword:0000001
 ; ps1: New-ItemProperty -Path 'Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer' -Name 'HideSCAMeetNow' -Type 'Dword' -Value '1' -Force
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+; control panel: use classic icons
+"ForceClassicControlPanel"=dword:0000001
+; ps1: New-ItemProperty -Path 'Registry::HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer' -Name 'ForceClassicControlPanel' -Type 'Dword' -Value '1' -Force

@@ -267,6 +267,8 @@ function Invoke-cmder {
     $lines += $end_marker
     [System.IO.File]::WriteAllLines($user_aliases_path, $lines, $utf8)
 
+    Invoke-Symlink -target "$PATH_TO_THIS_REPO\cmder\clink_settings" -symlink "$home_dir\config\clink_settings"
+
     Write-Host 'done'
 }
 
