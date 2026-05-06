@@ -165,6 +165,7 @@
   "update.showReleaseNotes": false,
   "go.toolsManagement.autoUpdate": true,
   "powershell.codeFormatting.preset": "OTBS",
+  "powershell.codeFormatting.newLineAfterCloseBrace": false,
   "workbench.secondarySideBar.defaultVisibility": "hidden",
   "workbench.editorAssociations": {
     "{hexdiff}:/**/*.*": "hexEditor.hexedit",
