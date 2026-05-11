@@ -1,5 +1,8 @@
 @echo off
 
+echo updating winget...
+winget upgrade --exact --id Microsoft.AppInstaller
+
 echo installing/updating KeePass...
 call :winget DominikReichl.KeePass
 
@@ -9,17 +12,14 @@ echo installing/updating Firefox and Firefox Developer Edition...
 call :winget Mozilla.Firefox.it --custom "/S /INI=%~dp0\firefox_install_options.ini"
 call :winget Mozilla.Firefox.DeveloperEdition --custom "/S /InstallDirectoryPath=%LOCALAPPDATA%\Firefox Developer Edition /INI=%~dp0\firefox_install_options.ini"
 
-echo installing/updating Executor...
-call :winget MartinBresson.Executor --include-unknown
-
-echo installing/updating MyPhoneExplorer...
-call :winget fjsoft.MyPhoneExplorer
-
 echo installing/updating git...
 @REM references:
 @REM - https://github.com/microsoft/winget-cli/discussions/3462
 @REM - https://gitforwindows.org/silent-or-unattended-installation.html
 call :winget Git.Git --custom "/VERYSILENT /NORESTART /NOCANCEL /LOADINF=%~dp0\git_install_options.ini"
+
+echo installing/updating Executor...
+call :winget MartinBresson.Executor --include-unknown
 
 echo installing/updating AutoHotkey...
 @REM references:
@@ -29,6 +29,18 @@ call :winget AutoHotkey.AutoHotkey --custom "/silent"
 @REM custom installation of the ahk2exe compiler (based on default installation script, changed to make it more silent)
 "%LOCALAPPDATA%\Programs\AutoHotkey\v2\AutoHotkey64.exe" "%~dp0\install-ahk2exe.ahk"
 
+echo installing/updating VSCodium
+call :winget VSCodium.VSCodium
+
+echo installing/updating MyPhoneExplorer...
+call :winget fjsoft.MyPhoneExplorer
+
+echo installing/updating Acrobat Reader
+call :winget Adobe.Acrobat.Reader.64-bit
+
+echo installing/updating LibreOffice
+call :winget TheDocumentFoundation.LibreOffice
+
 echo installing/updating iTunes
 @REM references:
 @REM - https://silentinstallhq.com/apple-itunes-silent-install-how-to-guide/
@@ -36,12 +48,6 @@ call :winget Apple.iTunes --custom "/qn ALLUSERS=1 DESKTOP_SHORTCUTS=0 REBOOT=Re
 
 echo installing/updating Mp3tag
 call :winget FlorianHeidenreich.Mp3tag
-
-echo installing/updating LibreOffice
-call :winget TheDocumentFoundation.LibreOffice
-
-echo installing/updating Acrobat Reader
-call :winget Adobe.Acrobat.Reader.64-bit
 
 goto :EOF
 

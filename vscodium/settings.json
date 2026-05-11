@@ -86,7 +86,7 @@
   "workbench.tree.indent": 16,
   "workbench.tree.enableStickyScroll": true,
   "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "Default Dark Modern",
+  "workbench.colorTheme": "Dark Modern",
   "workbench.colorCustomizations": {
     // "titleBar.activeBackground": "#000000",
     // "activityBar.background": "#000000",
