@@ -1,7 +1,7 @@
 @echo off
 
 echo updating winget...
-winget upgrade --exact --id Microsoft.AppInstaller
+winget upgrade --accept-package-agreements --accept-source-agreements --exact --id Microsoft.AppInstaller
 
 echo installing/updating KeePass...
 call :winget DominikReichl.KeePass
@@ -30,7 +30,7 @@ call :winget AutoHotkey.AutoHotkey --custom "/silent"
 "%LOCALAPPDATA%\Programs\AutoHotkey\v2\AutoHotkey64.exe" "%~dp0\install-ahk2exe.ahk"
 
 echo installing/updating VSCodium
-call :winget VSCodium.VSCodium
+call :winget VSCodium.VSCodium --custom "/VERYSILENT /NORESTART /MERGETASKS=!runcode,addcontextmenufiles,addcontextmenufolders"
 
 echo installing/updating MyPhoneExplorer...
 call :winget fjsoft.MyPhoneExplorer
