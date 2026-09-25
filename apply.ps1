@@ -170,6 +170,16 @@ function Invoke-alacritty {
     Write-Host 'done'
 }
 
+function Invoke-android_cli {
+    Write-Host -NoNewline "$(Get-Timestamp)   - android CLI... "
+
+    $home_dir = "$env:USERPROFILE"
+    if (-not (Test-Path $home_dir)) { New-Item -ItemType Directory -Path $home_dir -Force | Out-Null }
+    Invoke-Symlink -target "$PATH_TO_THIS_REPO\android-cli\androidrc.txt" -symlink "$home_dir\.androidrc"
+
+    Write-Host 'done'
+}
+
 function Invoke-autohotkey {
     Write-Host -NoNewline "$(Get-Timestamp)   - autohotkey... "
 
@@ -570,6 +580,7 @@ if ([string]::IsNullOrEmpty($arg)) {
     Invoke-windows
 
     Invoke-alacritty
+    Invoke-android_cli
     Invoke-autohotkey
     Invoke-capsicain
     Invoke-cmder
