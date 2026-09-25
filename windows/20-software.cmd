@@ -29,24 +29,27 @@ call :winget AutoHotkey.AutoHotkey --custom "/silent"
 @REM custom installation of the ahk2exe compiler (based on default installation script, changed to make it more silent)
 "%LOCALAPPDATA%\Programs\AutoHotkey\v2\AutoHotkey64.exe" "%~dp0\install-ahk2exe.ahk"
 
-echo installing/updating VSCodium
+echo installing/updating VSCodium...
 call :winget VSCodium.VSCodium --custom "/VERYSILENT /NORESTART /MERGETASKS=!runcode,addcontextmenufiles,addcontextmenufolders"
+
+echo installing/updating Windows Terminal...
+call :winget Microsoft.WindowsTerminal
 
 echo installing/updating MyPhoneExplorer...
 call :winget fjsoft.MyPhoneExplorer
 
-echo installing/updating Acrobat Reader
+echo installing/updating Acrobat Reader...
 call :winget Adobe.Acrobat.Reader.64-bit
 
-echo installing/updating LibreOffice
+echo installing/updating LibreOffice...
 call :winget TheDocumentFoundation.LibreOffice
 
-echo installing/updating iTunes
+echo installing/updating iTunes...
 @REM references:
 @REM - https://silentinstallhq.com/apple-itunes-silent-install-how-to-guide/
 call :winget Apple.iTunes --custom "/qn ALLUSERS=1 DESKTOP_SHORTCUTS=0 REBOOT=ReallySuppress"
 
-echo installing/updating Mp3tag
+echo installing/updating Mp3tag...
 call :winget FlorianHeidenreich.Mp3tag
 
 goto :EOF

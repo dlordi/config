@@ -15,7 +15,7 @@
 
   local fs_stat = (vim.uv or vim.loop).fs_stat
   local win32_program_files = os.getenv('ProgramFiles')
-  for _, path in ipairs({ win32_program_files .. [[\Python311\python.exe]] }) do
+  for _, path in ipairs({ win32_program_files .. [[\Python312\python.exe]] }) do
     if fs_stat(path) then
       vim.g.python3_host_prog = path
       return
@@ -40,23 +40,23 @@ if vim.g.neovide then
   vim.keymap.set('!', '<S-Insert>', '<C-R>+', { noremap = true, silent = true })
 end
 
--- lazy.nvim plugin manager (https://lazy.folke.io/installation)
--- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-  local out = vim.fn.system({ 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
-      { out, 'WarningMsg' },
-      { '\nPress any key to exit...' },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
-end
-vim.opt.rtp:prepend(lazypath)
+-- -- lazy.nvim plugin manager (https://lazy.folke.io/installation)
+-- -- Bootstrap lazy.nvim
+-- local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+-- if not (vim.uv or vim.loop).fs_stat(lazypath) then
+--   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+--   local out = vim.fn.system({ 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath })
+--   if vim.v.shell_error ~= 0 then
+--     vim.api.nvim_echo({
+--       { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
+--       { out, 'WarningMsg' },
+--       { '\nPress any key to exit...' },
+--     }, true, {})
+--     vim.fn.getchar()
+--     os.exit(1)
+--   end
+-- end
+-- vim.opt.rtp:prepend(lazypath)
 
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
@@ -143,8 +143,8 @@ end
 vim.keymap.set('n', 'U', '<C-r>', { desc = 'redo', noremap = true })
 
 -- navigation
-vim.keymap.set('n', '<Tab>', ':bnext<CR>', { desc = 'move to next buffer' })
-vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', { desc = 'move to previous buffer' })
+vim.keymap.set({ 'i', 'n' }, '<C-PageDown>', '<Cmd>:bnext<CR>', { desc = 'move to next buffer' })
+vim.keymap.set({ 'i', 'n' }, '<C-PageUp>', '<Cmd>:bprevious<CR>', { desc = 'move to previous buffer' })
 vim.keymap.set('n', '<Leader><Leader>', ':ls<CR>:b<Space>', { desc = 'show buffers and prompt to change current one' })
 for _, lhs in pairs({ '<C-d>', '<PageDown>' }) do
   vim.keymap.set('n', lhs, '<C-d>zz', { desc = 'scroll page down and center current line on screen', noremap = true })
@@ -174,290 +174,290 @@ vim.cmd.command({ 'W :w', bang = true }) -- vim.cmd('command! W :w')
 -- vim.opt.keymodel = 'startsel,stopsel'
 -- vim.opt.selectmode = 'key'
 
-require('lazy').setup({
-  {
-    'Mofiqul/vscode.nvim',
-    priority = 1000,
-    config = function()
-      require('vscode').setup({
-        color_overrides = {
-          vscBack = '#000000',
-          vscPopupBack = '#000000',
-          -- vscCursorDarkDark = '#000000', -- this is used to highlight the column sign...
-        },
-      })
-      vim.cmd.colorscheme('vscode')
-    end,
-  },
-  'nvim-lua/plenary.nvim',
-  {
-    'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
-    config = function()
-      require('nvim-treesitter.configs').setup({
-        ensure_installed = {
-          'lua',
-          'python',
-          'javascript',
-          'json',
-          'markdown',
-          'markdown_inline',
-          -- 'go',
-          -- 'c',
-        },
-        sync_install = false,
-        highlight = { enable = true },
-        indent = { enable = true },
-      })
-    end,
-  },
-  -- { 'wellle/context.vim' },
-  {
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      { 'williamboman/mason.nvim', config = true },
-      'williamboman/mason-lspconfig.nvim',
-      'WhoIsSethDaniel/mason-tool-installer.nvim',
-    },
-    config = function()
-      vim.api.nvim_create_autocmd('LspAttach', {
-        group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
-        callback = function(event)
-          local client = vim.lsp.get_client_by_id(event.data.client_id)
-          if client == nil then
-            return
-          end
-          vim.keymap.set('n', '<Leader>re', vim.lsp.buf.rename, { buffer = event.buf, desc = 'LSP: Rename' })
-          vim.keymap.set('n', '<Leader>df', vim.lsp.buf.definition, { buffer = event.buf, desc = 'LSP: Goto defin.' })
-        end,
-      })
-      local servers = {
-        lua_ls = {
-          settings = {
-            Lua = {
-              diagnostics = { globals = { 'vim' } },
-              -- workspace = { checkThirdParty = false, library = { vim.env.VIMRUNTIME } },
-              telemetry = { enable = false },
-            },
-          },
-        },
-        pyright = {
-          settings = {
-            pyright = {
-              disableOrganizeImports = true,
-              -- suppress ALL hints, eg unused variables; see https://github.com/microsoft/pyright/discussions/5852 for
-              -- a different solution
-              disableTaggedHints = true,
-            },
-            python = {
-              -- see https://microsoft.github.io/pyright/#/settings
-              pythonPath = vim.g.python3_host_prog,
-              analysis = {
-                typeCheckingMode = 'off',
-                diagnosticMode = 'openFilesOnly',
-              },
-            },
-          },
-        },
-      }
-      require('mason').setup({
-        ui = {
-          icons = {
-            package_installed = '✓',
-            package_pending = '➜',
-            package_uninstalled = '✗',
-          },
-        },
-      })
-      require('mason-tool-installer').setup({
-        ensure_installed = {
-          'stylua',
-          'lua_ls',
-          'prettier',
-          'pyright',
-          -- 'gopls',
-          -- 'goimports',
-          -- 'clangd',
-          -- 'clang-format',
-        },
-      })
-      require('mason-lspconfig').setup({
-        handlers = {
-          function(server_name)
-            require('lspconfig')[server_name].setup(servers[server_name] or {})
-          end,
-        },
-      })
-    end,
-  },
-  {
-    'stevearc/conform.nvim',
-    event = { 'BufReadPre', 'BufNewFile' },
-    config = function()
-      require('conform').setup({
-        formatters_by_ft = {
-          lua = { 'stylua' },
-          -- python = { 'ruff_fix', 'ruff_format' },
-          javascript = { 'prettier' },
-          typescript = { 'prettier' },
-          javascriptreact = { 'prettier' },
-          typescriptreact = { 'prettier' },
-          json = { 'prettier' },
-          markdown = { 'prettier' },
-          svelte = { 'prettier' },
-          css = { 'prettier' },
-          html = { 'prettier' },
-          yaml = { 'prettier' },
-          -- go = { 'goimports' },
-          -- c = { 'clang-format' },
-        },
-        format_on_save = function(buffer)
-          if vim.bo[buffer].filetype == 'lua' then
-            return {
-              lsp_fallback = true,
-              async = false,
-              timeout_ms = 500,
-            }
-          end
-        end,
-      })
-    end,
-  },
-  {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      local gitsigns = require('gitsigns')
-      gitsigns.setup({
-        on_attach = function(buffer)
-          vim.keymap.set('n', ']]', function()
-            if vim.wo.diff then
-              vim.cmd.normal({ ']]', bang = true })
-            else
-              gitsigns.nav_hunk('next')
-              gitsigns.preview_hunk()
-            end
-          end, { desc = 'preview next hunk', buffer = buffer })
+-- require('lazy').setup({
+--   {
+--     'Mofiqul/vscode.nvim',
+--     priority = 1000,
+--     config = function()
+--       require('vscode').setup({
+--         color_overrides = {
+--           vscBack = '#000000',
+--           vscPopupBack = '#000000',
+--           -- vscCursorDarkDark = '#000000', -- this is used to highlight the column sign...
+--         },
+--       })
+--       vim.cmd.colorscheme('vscode')
+--     end,
+--   },
+--   'nvim-lua/plenary.nvim',
+--   {
+--     'nvim-treesitter/nvim-treesitter',
+--     build = ':TSUpdate',
+--     config = function()
+--       require('nvim-treesitter.configs').setup({
+--         ensure_installed = {
+--           'lua',
+--           'python',
+--           'javascript',
+--           'json',
+--           'markdown',
+--           'markdown_inline',
+--           -- 'go',
+--           -- 'c',
+--         },
+--         sync_install = false,
+--         highlight = { enable = true },
+--         indent = { enable = true },
+--       })
+--     end,
+--   },
+--   -- { 'wellle/context.vim' },
+--   {
+--     'neovim/nvim-lspconfig',
+--     dependencies = {
+--       { 'williamboman/mason.nvim', config = true },
+--       'williamboman/mason-lspconfig.nvim',
+--       'WhoIsSethDaniel/mason-tool-installer.nvim',
+--     },
+--     config = function()
+--       vim.api.nvim_create_autocmd('LspAttach', {
+--         group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
+--         callback = function(event)
+--           local client = vim.lsp.get_client_by_id(event.data.client_id)
+--           if client == nil then
+--             return
+--           end
+--           vim.keymap.set('n', '<Leader>re', vim.lsp.buf.rename, { buffer = event.buf, desc = 'LSP: Rename' })
+--           vim.keymap.set('n', '<Leader>df', vim.lsp.buf.definition, { buffer = event.buf, desc = 'LSP: Goto defin.' })
+--         end,
+--       })
+--       local servers = {
+--         lua_ls = {
+--           settings = {
+--             Lua = {
+--               diagnostics = { globals = { 'vim' } },
+--               -- workspace = { checkThirdParty = false, library = { vim.env.VIMRUNTIME } },
+--               telemetry = { enable = false },
+--             },
+--           },
+--         },
+--         pyright = {
+--           settings = {
+--             pyright = {
+--               disableOrganizeImports = true,
+--               -- suppress ALL hints, eg unused variables; see https://github.com/microsoft/pyright/discussions/5852 for
+--               -- a different solution
+--               disableTaggedHints = true,
+--             },
+--             python = {
+--               -- see https://microsoft.github.io/pyright/#/settings
+--               pythonPath = vim.g.python3_host_prog,
+--               analysis = {
+--                 typeCheckingMode = 'off',
+--                 diagnosticMode = 'openFilesOnly',
+--               },
+--             },
+--           },
+--         },
+--       }
+--       require('mason').setup({
+--         ui = {
+--           icons = {
+--             package_installed = '✓',
+--             package_pending = '➜',
+--             package_uninstalled = '✗',
+--           },
+--         },
+--       })
+--       require('mason-tool-installer').setup({
+--         ensure_installed = {
+--           'stylua',
+--           'lua_ls',
+--           'prettier',
+--           'pyright',
+--           -- 'gopls',
+--           -- 'goimports',
+--           -- 'clangd',
+--           -- 'clang-format',
+--         },
+--       })
+--       require('mason-lspconfig').setup({
+--         handlers = {
+--           function(server_name)
+--             require('lspconfig')[server_name].setup(servers[server_name] or {})
+--           end,
+--         },
+--       })
+--     end,
+--   },
+--   {
+--     'stevearc/conform.nvim',
+--     event = { 'BufReadPre', 'BufNewFile' },
+--     config = function()
+--       require('conform').setup({
+--         formatters_by_ft = {
+--           lua = { 'stylua' },
+--           -- python = { 'ruff_fix', 'ruff_format' },
+--           javascript = { 'prettier' },
+--           typescript = { 'prettier' },
+--           javascriptreact = { 'prettier' },
+--           typescriptreact = { 'prettier' },
+--           json = { 'prettier' },
+--           markdown = { 'prettier' },
+--           svelte = { 'prettier' },
+--           css = { 'prettier' },
+--           html = { 'prettier' },
+--           yaml = { 'prettier' },
+--           -- go = { 'goimports' },
+--           -- c = { 'clang-format' },
+--         },
+--         format_on_save = function(buffer)
+--           if vim.bo[buffer].filetype == 'lua' then
+--             return {
+--               lsp_fallback = true,
+--               async = false,
+--               timeout_ms = 500,
+--             }
+--           end
+--         end,
+--       })
+--     end,
+--   },
+--   {
+--     'lewis6991/gitsigns.nvim',
+--     config = function()
+--       local gitsigns = require('gitsigns')
+--       gitsigns.setup({
+--         on_attach = function(buffer)
+--           vim.keymap.set('n', ']]', function()
+--             if vim.wo.diff then
+--               vim.cmd.normal({ ']]', bang = true })
+--             else
+--               gitsigns.nav_hunk('next')
+--               gitsigns.preview_hunk()
+--             end
+--           end, { desc = 'preview next hunk', buffer = buffer })
 
-          vim.keymap.set('n', '[[', function()
-            if vim.wo.diff then
-              vim.cmd.normal({ '[[', bang = true })
-            else
-              gitsigns.nav_hunk('prev')
-              gitsigns.preview_hunk()
-            end
-          end, { desc = 'preview previous hunk', buffer = buffer })
-        end,
-      })
-    end,
-  },
-  'tpope/vim-sleuth',
-  'tpope/vim-fugitive',
-  'Shatur/neovim-session-manager',
-  {
-    'folke/todo-comments.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = {}, -- required to enable the plugin with default settings
-  },
-  {
-    'RRethy/vim-illuminate',
-    config = function()
-      local illuminate = require('illuminate')
-      illuminate.configure({
-        providers = {
-          'regex',
-          -- 'lsp',
-          -- 'treesitter',
-        },
-      })
-      -- vim.keymap.set('n', '<A-Right>', illuminate.goto_next_reference)
-      -- vim.keymap.set('n', '<A-Left>', illuminate.goto_prev_reference)
-    end,
-  },
-  {
-    'lewis6991/satellite.nvim',
-    config = function()
-      require('satellite').setup({
-        winblend = 0,
-        handlers = {
-          cursor = { enable = false },
-          search = { enable = false },
-          diagnostic = {
-            signs = { '━', '━', '━' },
-            -- min_severity = vim.diagnostic.severity.HINT,
-          },
-          gitsigns = { signs = { add = '┃', change = '┃', delete = '━' } },
-          marks = { enable = true },
-        },
-      })
-    end,
-  },
-  {
-    'windwp/nvim-autopairs',
-    event = 'InsertEnter',
-    config = true,
-  },
-  {
-    'nvim-neo-tree/neo-tree.nvim',
-    branch = 'v3.x',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
-      'MunifTanjim/nui.nvim',
-    },
-    config = function()
-      require('neo-tree').setup({
-        filesystem = {
-          follow_current_file = {
-            enabled = true,
-          },
-        },
-      })
-      vim.keymap.set('n', '\\', function()
-        local dir = vim.fn.expand('%:p:h'):gsub(' ', '\\ ') -- escape spaces in directory name that could cause issues
-        vim.cmd('Neotree source=filesystem toggle dir=' .. dir)
-      end)
-      vim.keymap.set('n', '|', function()
-        local dir = vim.fn.expand('%:p:h'):gsub(' ', '\\ ') -- escape spaces in directory name that could cause issues
-        vim.cmd('Neotree source=git_status toggle dir=' .. dir)
-      end)
-    end,
-  },
-  {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.8',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      local builtin = require('telescope.builtin')
-      vim.keymap.set('n', '<Leader>ls', builtin.buffers, { desc = 'Telescope buffers' })
-    end,
-  },
-  -- {
-  --   'folke/snacks.nvim',
-  --   priority = 1000,
-  --   lazy = false,
-  --   config = function()
-  --     local Snacks = require('snacks')
-  --     Snacks.setup({
-  --       lazygit = { enabled = true },
-  --       -- terminal = { enabled = true },
-  --     })
-  --     vim.keymap.set('n', '<Leader>\\', function ()
-  --       Snacks.picker.files()
-  --     end, { desc = 'Snacks picker files' })
-  --     -- vim.keymap.set('n', '<Leader>gg', function()
-  --     --   Snacks.lazygit.open()
-  --     -- end)
-  --     -- vim.keymap.set('n', '<Leader>gg', function()
-  --     --   Snacks.terminal.open('lazygit')
-  --     -- end)
-  --   end,
-  -- },
-  {
-    dir = vim.fn.stdpath('config') .. '/plugins/sample.nvim',
-    config = function()
-      local sample = require('sample')
-      sample.setup()
-      -- vim.keymap.set('n', '<Leader>ls', sample.sample)
-    end,
-  },
-})
+--           vim.keymap.set('n', '[[', function()
+--             if vim.wo.diff then
+--               vim.cmd.normal({ '[[', bang = true })
+--             else
+--               gitsigns.nav_hunk('prev')
+--               gitsigns.preview_hunk()
+--             end
+--           end, { desc = 'preview previous hunk', buffer = buffer })
+--         end,
+--       })
+--     end,
+--   },
+--   'tpope/vim-sleuth',
+--   'tpope/vim-fugitive',
+--   'Shatur/neovim-session-manager',
+--   {
+--     'folke/todo-comments.nvim',
+--     dependencies = { 'nvim-lua/plenary.nvim' },
+--     opts = {}, -- required to enable the plugin with default settings
+--   },
+--   {
+--     'RRethy/vim-illuminate',
+--     config = function()
+--       local illuminate = require('illuminate')
+--       illuminate.configure({
+--         providers = {
+--           'regex',
+--           -- 'lsp',
+--           -- 'treesitter',
+--         },
+--       })
+--       -- vim.keymap.set('n', '<A-Right>', illuminate.goto_next_reference)
+--       -- vim.keymap.set('n', '<A-Left>', illuminate.goto_prev_reference)
+--     end,
+--   },
+--   {
+--     'lewis6991/satellite.nvim',
+--     config = function()
+--       require('satellite').setup({
+--         winblend = 0,
+--         handlers = {
+--           cursor = { enable = false },
+--           search = { enable = false },
+--           diagnostic = {
+--             signs = { '━', '━', '━' },
+--             -- min_severity = vim.diagnostic.severity.HINT,
+--           },
+--           gitsigns = { signs = { add = '┃', change = '┃', delete = '━' } },
+--           marks = { enable = true },
+--         },
+--       })
+--     end,
+--   },
+--   {
+--     'windwp/nvim-autopairs',
+--     event = 'InsertEnter',
+--     config = true,
+--   },
+--   {
+--     'nvim-neo-tree/neo-tree.nvim',
+--     branch = 'v3.x',
+--     dependencies = {
+--       'nvim-lua/plenary.nvim',
+--       'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+--       'MunifTanjim/nui.nvim',
+--     },
+--     config = function()
+--       require('neo-tree').setup({
+--         filesystem = {
+--           follow_current_file = {
+--             enabled = true,
+--           },
+--         },
+--       })
+--       vim.keymap.set('n', '\\', function()
+--         local dir = vim.fn.expand('%:p:h'):gsub(' ', '\\ ') -- escape spaces in directory name that could cause issues
+--         vim.cmd('Neotree source=filesystem toggle dir=' .. dir)
+--       end)
+--       vim.keymap.set('n', '|', function()
+--         local dir = vim.fn.expand('%:p:h'):gsub(' ', '\\ ') -- escape spaces in directory name that could cause issues
+--         vim.cmd('Neotree source=git_status toggle dir=' .. dir)
+--       end)
+--     end,
+--   },
+--   {
+--     'nvim-telescope/telescope.nvim',
+--     tag = '0.1.8',
+--     dependencies = { 'nvim-lua/plenary.nvim' },
+--     config = function()
+--       local builtin = require('telescope.builtin')
+--       vim.keymap.set('n', '<Leader>ls', builtin.buffers, { desc = 'Telescope buffers' })
+--     end,
+--   },
+--   -- {
+--   --   'folke/snacks.nvim',
+--   --   priority = 1000,
+--   --   lazy = false,
+--   --   config = function()
+--   --     local Snacks = require('snacks')
+--   --     Snacks.setup({
+--   --       lazygit = { enabled = true },
+--   --       -- terminal = { enabled = true },
+--   --     })
+--   --     vim.keymap.set('n', '<Leader>\\', function ()
+--   --       Snacks.picker.files()
+--   --     end, { desc = 'Snacks picker files' })
+--   --     -- vim.keymap.set('n', '<Leader>gg', function()
+--   --     --   Snacks.lazygit.open()
+--   --     -- end)
+--   --     -- vim.keymap.set('n', '<Leader>gg', function()
+--   --     --   Snacks.terminal.open('lazygit')
+--   --     -- end)
+--   --   end,
+--   -- },
+--   {
+--     dir = vim.fn.stdpath('config') .. '/plugins/sample.nvim',
+--     config = function()
+--       local sample = require('sample')
+--       sample.setup()
+--       -- vim.keymap.set('n', '<Leader>ls', sample.sample)
+--     end,
+--   },
+-- })
