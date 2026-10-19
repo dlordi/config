@@ -15,10 +15,12 @@
 
   local fs_stat = (vim.uv or vim.loop).fs_stat
   local win32_program_files = os.getenv('ProgramFiles')
-  for _, path in ipairs({ win32_program_files .. [[\Python312\python.exe]] }) do
-    if fs_stat(path) then
-      vim.g.python3_host_prog = path
-      return
+  if win32_program_files ~= nil then
+    for _, path in ipairs({ win32_program_files .. [[\Python312\python.exe]] }) do
+      if fs_stat(path) then
+        vim.g.python3_host_prog = path
+        return
+      end
     end
   end
 end)()
