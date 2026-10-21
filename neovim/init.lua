@@ -14,8 +14,8 @@
   end
 
   local fs_stat = (vim.uv or vim.loop).fs_stat
-  local win32_program_files = os.getenv('ProgramFiles')
-  if win32_program_files ~= nil then
+  if vim.fn.has('win32') then
+    local win32_program_files = os.getenv('ProgramFiles')
     for _, path in ipairs({ win32_program_files .. [[\Python312\python.exe]] }) do
       if fs_stat(path) then
         vim.g.python3_host_prog = path
@@ -175,6 +175,76 @@ vim.cmd.command({ 'W :w', bang = true }) -- vim.cmd('command! W :w')
 -- use Shift+cursor to select
 -- vim.opt.keymodel = 'startsel,stopsel'
 -- vim.opt.selectmode = 'key'
+
+-- coding
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(event)
+    vim.keymap.set('n', '<Leader>df', vim.lsp.buf.definition, { buffer = event.buf })
+    vim.keymap.set('n', '<Leader>K', vim.lsp.buf.hover, { buffer = event.buf })
+    vim.keymap.set('n', '<Leader>re', vim.lsp.buf.rename, { buffer = event.buf })
+    vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, { buffer = event.buf })
+  end,
+})
+
+local setup_lua = function()
+  vim.lsp.config('lua_ls', {
+    settings = {
+      Lua = {
+        runtime = { version = 'LuaJIT' },
+        diagnostics = { globals = { 'vim' } },
+        workspace = {
+          library = vim.api.nvim_get_runtime_file('', true),
+          checkThirdParty = false,
+        },
+        telemetry = { enable = false },
+      },
+    },
+  })
+  vim.lsp.enable('lua_ls')
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    pattern = '*.lua',
+    callback = function()
+      vim.fn.system({ 'stylua', vim.api.nvim_buf_get_name(0) })
+      vim.cmd('edit')
+    end,
+  })
+end
+setup_lua()
+
+local setup_go = function()
+  local bindir = vim.env.GOBIN
+  if not bindir or bindir == '' then
+    bindir = vim.fs.joinpath(vim.env.GOPATH or vim.fn.expand('~/go'), 'bin')
+  end
+  vim.lsp.config('gopls', {
+    cmd = { vim.fs.joinpath(bindir, vim.fn.has('win32') == 1 and 'gopls.exe' or 'gopls') },
+    filetypes = { 'go', 'gomod', 'gowork' },
+    root_markers = { 'go.work', 'go.mod', '.git' },
+  })
+  vim.lsp.enable('gopls')
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    pattern = '*.go',
+    callback = function(args)
+      vim.lsp.buf.format({
+        bufnr = args.buf,
+        timeout_ms = 2000,
+        filter = function(client)
+          return client.name == 'gopls'
+        end,
+      })
+    end,
+  })
+end
+setup_go()
+
+vim.pack.add({
+  { src = 'https://github.com/romus204/tree-sitter-manager.nvim' },
+}, {
+  confirm = false,
+})
+require('tree-sitter-manager').setup({
+  ensure_installed = { 'lua', 'go' },
+})
 
 -- require('lazy').setup({
 --   {
