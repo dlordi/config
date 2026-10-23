@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "project_panel": {
+    "dock": "left",
+  },
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
@@ -47,7 +50,7 @@
   "show_wrap_guides": true,
   "wrap_guides": [80, 120],
   "title_bar": {
-    "show_branch_icon": true,
+    "show_branch_status_icon": true,
     "show_sign_in": false,
   },
   "ui_font_features": {
@@ -58,7 +61,7 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "One Dark",
+    "dark": "Ayu Dark",
   },
   "theme_overrides": {
     "One Dark": {
@@ -76,7 +79,10 @@
       "editor.invisible": "#444",
     },
   },
-
+  "buffer_font_features": {
+    "calt": false,
+    "liga": false,
+  },
   "ensure_final_newline_on_save": false,
   "format_on_save": "off",
   "remove_trailing_whitespace_on_save": false,
@@ -89,6 +95,33 @@
         "program": "cmd.exe",
         "args": ["/k", "%CMDER_ROOT%\\vendor\\bin\\vscode_init.cmd"],
         "title_override": null,
+      },
+    },
+  },
+  "languages": {
+    "Lua": {
+      "tab_size": 2,
+      "hard_tabs": false,
+    },
+    "Go": {
+      "format_on_save": "on",
+      "formatter": "language_server",
+    },
+  },
+  "lsp": {
+    "lua-language-server": {
+      "settings": {
+        "Lua": {
+          "runtime": {
+            "version": "LuaJIT",
+          },
+          "diagnostics": {
+            "globals": ["vim"],
+          },
+          "workspace": {
+            "checkThirdParty": false,
+          },
+        },
       },
     },
   },

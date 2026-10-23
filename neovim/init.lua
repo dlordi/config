@@ -14,7 +14,7 @@
   end
 
   local fs_stat = (vim.uv or vim.loop).fs_stat
-  if vim.fn.has('win32') then
+  if vim.fn.has('win32') == 1 then
     local win32_program_files = os.getenv('ProgramFiles')
     for _, path in ipairs({ win32_program_files .. [[\Python312\python.exe]] }) do
       if fs_stat(path) then
@@ -27,7 +27,7 @@ end)()
 
 if vim.g.neovide then
   local font_name = 'JetBrainsMonoNL NFM'
-  local font_size = vim.loop.os_uname().sysname == 'Windows_NT' and '10' or '14'
+  local font_size = vim.fn.has('win32') == 1 and '10' or '14'
   vim.o.guifont = font_name .. ':h' .. font_size
 
   -- enable MacOS "Command" key
